@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>타자기 효과 — 단 하나의 커서</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Gowun+Dodum&display=swap" rel="stylesheet" />
+
+    <style>
+        body { margin: 0; background:#fff; }
+        .container{
+            min-height:100vh; display:flex; flex-direction:column;
+            justify-content:center; align-items:center; gap:32px; text-align:center;
+            font-family:"Gowun Dodum", sans-serif; line-height:1.8;
+        }
+        .title{ font-family:"Black Han Sans", sans-serif; font-size:clamp(28px,6vw,64px); }
+        .typewriter{ display:inline-block; position:relative; }
+        .caret{
+            display:inline-block; width:2px; height:1em; background:currentColor;
+            animation:blink .7s step-end infinite; vertical-align:bottom;
+        }
+        @keyframes blink{ 50%{ opacity:0; } }
+
+        .para{
+            max-width: 1000px; white-space:pre-line; font-size:clamp(16px,2.2vw,22px);
+            opacity:0; transition:opacity .25s ease;
+        }
+        .para.show{ opacity:1; }
+
+        @media (prefers-reduced-motion: reduce){
+            .caret{ animation:none; }
+            .para{ transition:none; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- 타이틀 -->
+    <div class="typewriter title" id="titleBox"></div>
+    <!-- 문단들이 동적으로 추가됨 -->
+    <div id="paragraphs"></div>
+</div>
+
+<script>
+    // 전역 커서: 단 하나만 사용
+    const caret = document.createElement('span');
+    caret.className = 'caret';
+
+    // 유틸: 커서를 특정 요소의 끝으로 이동
+    function moveCaretTo(el){
+        if(!el) return;
+        el.appendChild(caret); // 같은 노드를 재첨부하면 자동으로 이전 위치에서 이동됨
+    }
+
+    // 타이틀 타이핑
+    const titleText = "모두에게 도움을 주고싶은 정하륜 입니다.";
+    const titleBox  = document.getElementById('titleBox');
+
+    function typeTitle(done){
+        let i = 0, speed = 70;
+        (function tick(){
+            if(i <= titleText.length){
+                titleBox.textContent = titleText.slice(0, i++);
+                moveCaretTo(titleBox);
+                setTimeout(tick, speed);
+            }else{
+                done && done();
+            }
+        })();
+    }
+
+    // 문단 타이핑
+    const paragraphs = [
+        "저는 실용음악 전공자였습니다.",
+        "엔터테인먼트에서 매니저로 오래 일하며 팀워크의 가치를 배웠습니다.",
+        "지금은 비전공자라 짐이 될수도 있다고 생각하지만," +
+        "언젠가 모두에게 도움이 되는 개발자가 되고 싶습니다."
+    ];
+    const wrap = document.getElementById('paragraphs');
+
+    function typeParagraphs(done){
+        let idx = 0;
+
+        function next(){
+            if(idx >= paragraphs.length){ return done && done(); }
+
+            const p = document.createElement('p');
+            p.className = 'para';
+            wrap.appendChild(p);
+            requestAnimationFrame(()=> p.classList.add('show'));
+
+            const text = paragraphs[idx++];
+            let j = 0, speed = 60;
+
+            (function tick(){
+                if(j <= text.length){
+                    p.textContent = text.slice(0, j++);
+                    moveCaretTo(p);                 // 커서를 현재 문단 끝으로 이동
+                    setTimeout(tick, speed);
+                }else{
+                    setTimeout(next, 800);          // 문단 간 텀
+                }
+            })();
+        }
+        next();
+    }
+
+    // 실행: 타이틀 → 문단들
+    document.addEventListener('DOMContentLoaded', () => {
+        // 시작 시 커서를 우선 타이틀에 붙여둠
+        moveCaretTo(titleBox);
+
+        typeTitle(() => {
+            typeParagraphs(() => {
+                // 모두 끝난 뒤 커서를 숨기고 싶다면 아래 주석 해제
+                // caret.remove();
+            });
+        });
+    });
+</script>
+</body>
+</html>
