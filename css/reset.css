@@ -1,0 +1,32 @@
+@charset "utf-8";
+
+*{margin: 0; padding: 0; box-sizing: border-box;}
+
+html{font-size: 10px;}
+body{}
+
+a{text-decoration: none; color: inherit;}
+table{border-collapse: collapse;}
+	
+ul,
+ol,
+li{list-style: none}
+	
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{font-size: 1.6rem}
+	
+button{border: unset; background: transparent;}
+
+button,
+label{cursor: pointer}
+	
+input:not([type="radio"], [type="checkbox"]),
+select{height: 36px; padding: 0 10px; border-radius: 5px; border: 1px solid #9b9b9b;}
+
+input[type="radio"],
+input[type="checkbox"],
+label{vertical-align: middle}

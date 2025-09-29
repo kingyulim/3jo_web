@@ -1,0 +1,19 @@
+@import url(./reset.css);
+@charset "utf-8";
+
+.container{width: 1200px; margin: 0 auto;}
+
+.important{color: orange;}
+.full{width: 100%}
+.half{width: 50%}
+.none{display: none}
+.hide{position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip-path: polygon(0 0, 0 0, 0 0);}
+.clear_box::after{content: ''; display: block; clear: both}
+
+.df_btn{height: 36px; line-height: 36px; text-align: center; border-radius: 5px;}
+
+.flex_center{display: flex; justify-content: center; align-items: center;}
+.positoin_center{position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%)}
+
+#header_wrap{padding: 6px 0}
+#header_wrap .left_box{font-size: 1.2rem}
