@@ -22,6 +22,7 @@ $(document).ready(function(){
             $("body").append(layer);
         }
 
+        /*
         $(".my_popup_layer > .inner_wrap").load("./team_folder/" + this_name + ".html", function(){
             const my_popup_layer = $(".my_popup_layer");
 
@@ -33,5 +34,6 @@ $(document).ready(function(){
                 }
             })
         });
+        */
     });
 });
