@@ -12,13 +12,23 @@
     <title>3조 : 보람삼조</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Gowun+Dodum&display=swap');
-
         * { font-family: 'Gowun Dodum', sans-serif; }
 
-        body { background-color: rgb(231, 243, 252); color: black; }
+        body { margin: 100px; background-color: rgb(231, 243, 252); color: black; }
+
+        .container { width: 1000px; background-color: white; padding: 40px; border-radius: 12px; text-align: center; }
+
+        img { width: 300px; height: auto; }
 
         #profile { font-size: 3rem; }
         #name { font-size: 2rem; }
+
+        table { width: 80%; border-collapse: collapse; margin: auto; margin-top: 20px; } /*이런식으로 써도 되나*/
+
+        th, td { border: 1px solid #ccc; padding: 12px 20px; text-align: left; vertical-align: middle; font-size: 1.5rem; }
+
+        th { background-color: #f2f2f2; font-weight: bold; }
+
 
     </style>
 </head>
@@ -29,14 +39,33 @@
     <br>
 
     <div>
+        <img src="https://gongu.copyright.or.kr/gongu/wrt/cmmn/wrtFileImageView.do?wrtSn=9046601&filePath=L2Rpc2sxL25ld2RhdGEvMjAxNC8yMS9DTFM2L2FzYWRhbFBob3RvXzI0MTRfMjAxNDA0MTY=&thumbAt=Y&thumbSe=b_tbumb&wrtTy=10004">
         <h3 id="name">장서연</h3>
         
         <p id="birth_date">2002.10.16</p>
-        <p id="content"></p>
-
-        
+        <p id="content"></p>       
 
     
+    </div>
+
+    <div>
+        <table>
+            <tbody>
+                <tr>
+                    <th scope="row">MBTI</th>
+                    <td>INTP</td>
+                </tr>
+                <tr>
+                    <th scope="row">좋아하는 것</th>
+                    <td>고양이🐱, 하늘색☁️, 마라탕🍜, 집🏠</td>
+                </tr>
+                <tr>
+                    <th scope="row">velog</th>
+                    <td>https://velog.io/@syjang1016</td>
+                </tr>
+            </tbody>
+        </table>
+
     </div>
 
 
