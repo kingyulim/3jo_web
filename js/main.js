@@ -15,7 +15,7 @@ $(document).ready(function(){
             const layer = `
                 <div id="${this_name}_layer_popup" class="my_popup_layer">
                     <div class="inner_wrap container">
-                        <iframe class="hide_scroll" src="../team_folder/${this_name}.html" style="width: 100%; height: 100%; padding: 16px" ></iframe>
+                        <iframe class="hide_scroll" src="${window.location.href}/team_folder/${this_name}.html" style="width: 100%; height: 100%; padding: 16px" ></iframe>
                     </div>
                 </div>
             `;
