@@ -1,0 +1,25 @@
+@charset "utf-8";
+
+#profile_head{padding-bottom: 50px; box-shadow: 0px 20px 27px -23px rgb(0 0 0 / 10%); }
+#profile_head .this_title{position: relative; width: fit-content; margin-bottom: 62px; padding-right: 120px; font-weight: 300; font-size: 3.0rem}
+#profile_head .this_title::before{content: ''; position: absolute; left: 0; bottom: 0; width: 100%; height: 1px; background: #dddddd}
+#profile_head .content_wrap{display: flex; gap: 0 30px}
+#profile_head .content_wrap .my_img{width: 250px; height: 250px; background: cyan}
+#profile_head .content_wrap .my_img img{width: 100%; height: 100%; object-fit: cover;}
+#profile_head .content_wrap .my_content{flex: 1}
+#profile_head .content_wrap .my_content .this_acount{}
+#profile_head .content_wrap .my_content .this_acount .name{font-size: 2.4rem;}
+#profile_head .content_wrap .my_content .this_acount .birth{margin-top: 8px; font-size: 1.2rem; color: #999;}
+#profile_head .content_wrap .my_content .text_box{margin-top: 10px; padding-top: 10px; border-top: 1px solid #ededed; font-size: 1.4rem;}
+#profile_head .my_skill_box{display: flex; justify-content: end; gap: 0 155px; margin-top: 60px;}
+#profile_head .my_skill_box > *{}
+#profile_head .my_skill_box h4{font-size: 1.9rem;}
+#profile_head .my_skill_box .list{margin-top: 14px; font-size: 1.2rem;}
+#profile_head .my_skill_box .list > *{list-style: inside;}
+#profile_head .my_skill_box .list > *::marker{color: #b3b3b3}
+#profile_head .my_skill_box .list > * + *{margin-top: 2px;}
+
+#activity_list{column-count: 4; column-gap: 16px; margin-top: 60px;} 
+#activity_list > *{display: inline-block; break-inside: avoid; margin-top: 16px}
+#activity_list > * + *{}
+#activity_list > * img{width: 100%; height: 100%; object-fit: cover;}
