@@ -23,20 +23,17 @@ $(document).ready(function(){
             $("body").append(layer);
         }
 
-        /*
+
         $(".my_popup_layer > .inner_wrap").load("./team_folder/" + this_name + ".html", function(){
-           
-        });
-        */
+            const my_popup_layer = $(".my_popup_layer");
 
-        const my_popup_layer = $(".my_popup_layer");
+            my_popup_layer.click(function(e){
+                const l_t = $(e.target);
 
-        my_popup_layer.click(function(e){
-            const l_t = $(e.target);
-
-            if(l_t.is(my_popup_layer)){
-                my_popup_layer.remove();
-            }
+                if(l_t.is(my_popup_layer)){
+                    my_popup_layer.remove();
+                }
+            });
         });
     });
 });
