@@ -6,10 +6,10 @@ $(document).ready(function(){
 
         if(!this_name){
             alert('데이터가 빈 값입니다.');
+
             return;
         }
 
-        // 이미 열려있으면 제거 후 다시 열기
         $(".my_popup_layer").remove();
 
         const layer = `
@@ -24,7 +24,6 @@ $(document).ready(function(){
 
         const my_popup_layer = $(".my_popup_layer");
 
-        // 중복 이벤트 방지
         my_popup_layer.off("click").on("click", function(e){
             if($(e.target).is(my_popup_layer)){
                 my_popup_layer.remove();
