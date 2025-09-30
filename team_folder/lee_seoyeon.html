@@ -34,11 +34,19 @@
         .profile-img { width: 30rem; height: 30rem; margin-top : 2rem; margin-bottom: 1rem; }
         .mbti { text-align: center; font-size: 2rem; font-style: italic; color: #6E9E31; }
 
-        .right { flex: 1; padding: 25px; display: grid; grid-template-rows: 4fr 2fr 1.5fr; gap: 15px; }
-        .card { border: 1px solid #CADCAE; border-radius: 12px; padding: 20px; background: #ffffff; }
+        .right { flex: 1; padding: 25px; display: grid; grid-template-rows: 3fr 2fr 1.5fr; gap: 15px; }
+        .card { border: 1px solid #CADCAE; border-radius: 12px; padding: 15px; background: #ffffff; }
         .card h2 { margin: 0 0 5px 0; font-size: 2rem; font-weight: 600; }
 
-        .interest_icons { display: flex; justify-content: center; align-items: center; gap: 10rem; margin-top: 10px; }
+        .about_me { display: flex; flex-direction: column; }
+        .style { height: 15rem;}
+        .style p { font-size: 1.5rem; }
+        .abilities { display: grid; grid-template-columns: 1fr 1fr; font-size: 1.5rem; }
+        .skills img { width: 7rem; height: 5rem; object-fit: contain; margin-top: 7px; }
+        .certificate img { width: 7rem; height: 5.5rem; object-fit: contain; margin-top: 7px; }
+        .certificate img:hover { transform: scale(1.1); }
+
+        .interest_icons { display: flex; justify-content: center; align-items: center; gap: 10rem; margin-top: 15px; }
         .interest_icons div { display: flex; flex-direction: column; align-items: center; text-align: center; }
         .interest_icons img { width: 7rem; height: 7rem; object-fit: contain; margin-bottom: 5px; }
         .interest_icons img:hover { transform: scale(1.1); }
@@ -69,12 +77,25 @@
         <section class="right">
             <article class="card">
                 <h2>About Me</h2>
-                <div class="style">
-                    <p>나의 협업 스타일 ~<br>나의 장점 ~</p>
-                </div>
-                <div class="abilities">
-                    <p>Skills</p>
-                    <p>Certificate</p>
+                <div class="about_me">
+                    <div class="style">
+                        <p>나의 협업 스타일 ~<br>나의 장점 ~</p>
+                    </div>
+                    <div class="abilities">
+                        <div class="skills">
+                            <p>Skills</p>
+                            <img src="../img/lee_seoyeon/illustrator.png" alt="illustrator icon">
+                            <img src="../img/lee_seoyeon/photoshop.png" alt="photoshop icon">
+                            <img src="../img/lee_seoyeon/finalcut.png" alt="finalcut icon">
+                            <img src="../img/lee_seoyeon/linux.png" alt="linux icon">
+                        </div>
+                        <div class="certificate">
+                            <p>Certificate</p>
+                            <a href="https://road-cartoon-1a1.notion.site/AWS-Cloud-Practitional-2022-09-b73cc75eba3f41599079f784f22e248f?source=copy_link" target="_blank">
+                            <img src="../img/lee_seoyeon/awscert.png" alt="awscert icon">
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </article>
             <article class="card">
