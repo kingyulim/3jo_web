@@ -39,20 +39,23 @@
         .card h2 { margin: 0 0 5px 0; font-size: 2rem; font-weight: 600; }
 
         .interest_icons { display: flex; justify-content: center; align-items: center; gap: 15rem; margin-top: 10px; }
+        .interest_icons div { display: flex; flex-direction: column; align-items: center; text-align: center; }
         .interest_icons img { width: 7rem; height: 7rem; object-fit: contain; margin-bottom: 5px; }
         .interest_icons img:hover { transform: scale(1.1); }
+        .interest_icons p { font-weight: 400; font-size: 1.5rem; }
 
         .contact_icons { display: flex; justify-content: center; align-items: center; gap: 15rem; margin-top: 10px; }
-        .interest_icons div { display: flex; flex-direction: column; align-items: center; text-align: center; }
+        .contact_icons a { display: flex; flex-direction: column; align-items: center; text-align: center; }
         .contact_icons img { width: 5rem; height: 5rem; object-fit: contain; margin-bottom: 5px; }
         .contact_icons img:hover { transform: scale(1.1); }
+        .contact_icons p { font-weight: 400; font-size: 1.2rem; }
 
     </style>
 
 </head>
 
 <body>
-    <main class="wrapper">
+    <main class="container">
         <section class="left">
             <h2 style="display: none;">소개</h2>
             <div class="profile">
@@ -66,9 +69,13 @@
         <section class="right">
             <article class="card">
                 <h2>About Me</h2>
-                <p>나의 협업 스타일 ~<br>나의 장점 ~</p>
-                <p>Skills</p>
-                <p>Certificate</p>
+                <div class="style">
+                    <p>나의 협업 스타일 ~<br>나의 장점 ~</p>
+                </div>
+                <div class="abilities">
+                    <p>Skills</p>
+                    <p>Certificate</p>
+                </div>
             </article>
             <article class="card">
                 <h2>Fields of Interest</h2>
