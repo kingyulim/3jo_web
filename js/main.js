@@ -15,6 +15,7 @@ $(document).ready(function(){
             const layer = `
                 <div id="${this_name}_layer_popup" class="my_popup_layer">
                     <div class="inner_wrap container">
+                        <iframe class="hide_scroll" src="../team_folder/${this_name}.html" style="width: 100%; height: 100%; overflow: hidden" ></iframe>
                     </div>
                 </div>
             `;
@@ -22,16 +23,20 @@ $(document).ready(function(){
             $("body").append(layer);
         }
 
+        /*
         $(".my_popup_layer > .inner_wrap").load("./team_folder/" + this_name + ".html", function(){
-            const my_popup_layer = $(".my_popup_layer");
+           
+        });
+        */
 
-            my_popup_layer.click(function(e){
-                const l_t = $(e.target);
+        const my_popup_layer = $(".my_popup_layer");
 
-                if(l_t.is(my_popup_layer)){
-                    my_popup_layer.remove();
-                }
-            })
+        my_popup_layer.click(function(e){
+            const l_t = $(e.target);
+
+            if(l_t.is(my_popup_layer)){
+                my_popup_layer.remove();
+            }
         });
     });
 });
