@@ -13,7 +13,7 @@
 #member_list_wrap > li:nth-of-type(odd){float: left}
 #member_list_wrap > li:nth-of-type(even){float: right; justify-content: end}
 #member_list_wrap > li:nth-of-type(even) > .my_img{order: 2}
-#member_list_wrap > li + li{clear: both}
+#member_list_wrap > li + li{clear: both; margin-top: 36px;}
 #member_list_wrap .my_img{width: 250px; height: 250px; background: pink}
 #member_list_wrap .my_img > li{}
 #member_list_wrap .my_img img{}
