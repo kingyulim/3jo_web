@@ -15,14 +15,5 @@
 .flex_center{display: flex; justify-content: center; align-items: center;}
 .positoin_center{position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%)}
 
-.hide_scroll::-webkit-scrollbar {
-  width: 8px;
-  background: transparent; /* 투명 배경 */
-}
-
-.hide_scroll::-webkit-scrollbar-thumb {
-  background: transparent; /* 스크롤바 손잡이 투명 */
-}
-
 #header_wrap{padding: 6px 0}
 #header_wrap .left_box{font-size: 1.2rem}
