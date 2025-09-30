@@ -15,8 +15,8 @@
 #member_list_wrap .my_img img{}
 #member_list_wrap .my_name{margin-top: 12px; text-align: center; font-size: 1.6rem;}
 
-.my_popup_layer{position: fixed; left: 0; top: 0; width: 100%; height: 100vh;  background-color: rgb(0 0 0 / 70%);}
-.my_popup_layer .inner_wrap{height: 100%; overflow: auto; background-color: #fff;}
+.my_popup_layer{position: fixed; left: 0; top: 0; width: 100%; height: 100%;  background-color: rgb(0 0 0 / 70%);}
+.my_popup_layer .inner_wrap{height: 100%; background-color: #fff;}
 
 .my_ds_check{margin-bottom: 30px; text-align: center}
 .my_ds_check h2{}

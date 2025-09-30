@@ -22,6 +22,8 @@ h6{font-size: 1.6rem}
 	
 button{border: unset; background: transparent;}
 
+iframe{margin: 0; padding: 0; border: none}
+
 button,
 label{cursor: pointer}
 	
