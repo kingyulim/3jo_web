@@ -12,9 +12,10 @@
     <title>3조 : 보람삼조</title>
 
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Chiron+Hei+HK:ital,wght@0,200..900;1,200..900&family=BIZ+UDPGothic&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=BIZ+UDPGothic&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+        @import url(../css/font/pretendard.css);
 
-        body {  margin: 0; font-family: "Chiron Hei HK", "Roboto", sans-serif; color: #000000; background: #ffffff; }
+        body {  margin: 0; font-family: 'Pretendard', "Noto Sans KR", "Roboto", sans-serif; color: #000000; background: #ffffff; }
         .container { display: flex; height: 100vh; }
 
         .left { flex: 0 0 30%; padding: 48px 32px; display: flex; align-items: center; justify-content: center; background: #F7FBF1; }
@@ -30,10 +31,11 @@
         .right { flex: 1; padding: 25px; display: grid; grid-template-rows: 3fr 2fr 1.5fr; gap: 15px; }
         .card { border: 1px solid #CADCAE; border-radius: 12px; padding: 15px; background: #ffffff; }
         .card h2 { margin: 0 0 5px 0; font-size: 2rem; font-weight: 600; }
+        .card_content { flex: 1; display: flex; justify-content: center; align-items: center; text-align: center; }
 
         .about_me { display: flex; flex-direction: column; }
         .style { height: 15rem;}
-        .style p { font-size: 1.5rem; }
+        .style p { margin-top: 1rem; font-size: 1.5rem; }
         .abilities { display: grid; grid-template-columns: 1fr 1fr; font-size: 1.5rem; }
         .skills img { width: 7rem; height: 5rem; object-fit: contain; margin-top: 7px; }
         .certificate img { width: 7rem; height: 5.5rem; object-fit: contain; margin-top: 7px; }
@@ -74,7 +76,11 @@
                 <h2>About Me</h2>
                 <div class="about_me">
                     <div class="style">
-                        <p>나의 협업 스타일 ~<br>나의 장점 ~</p>
+                        <p>저는 새로운 지식과 기술에 대한 호기심이 많아 한번 시작하면 끝까지 파고드는 편입니다.<br>
+                            또한, 새로운 툴을 익히는 속도가 빨라, 상황에 맞게 빠르게 활용할 수 있습니다.<br>
+                            그리고, 작은 부분까지 꼼꼼하게 챙겨 실수를 줄이고, 안정적인 결과물을 내는 데에 집중합니다.<br>
+                            협업을 할 때는 팀의 규칙과 약속된 기한을 최우선으로 생각하고, 책임감을 가지고 임합니다.<br>
+                            제가 모르는 부분을 적극적으로 묻고 소통하며 성장하고자 합니다.</p>
                     </div>
                     <div class="abilities">
                         <div class="skills">
@@ -95,41 +101,45 @@
             </article>
             <article class="card">
                 <h2>Fields of Interest</h2>
-                <div class="interest_icons">
-                    <div class="interest_work_out">
-                        <img src="../img/lee_seoyeon/work_out.png" alt="work out icon">
-                        <p>헬스</p>
-                        <!-- 이후에 모달창 생성 예정 -->
-                    </div>
-                    <div class="interest_book">
-                        <img src="../img/lee_seoyeon/book.png" alt="book icon">
-                        <p>추리소설</p>
-                    </div>
-                    <div class="interest_guitar">
-                        <img src="../img/lee_seoyeon/guitar.png" alt="guitar icon">
-                        <p>기타</p>
-                    </div>
-                    <div class="interest_drink">
-                        <img src="../img/lee_seoyeon/drink.png" alt="drink icon">
-                        <p>위스키</p>
+                <div class="card_content">
+                    <div class="interest_icons">
+                        <div class="interest_work_out">
+                            <img src="../img/lee_seoyeon/work_out.png" alt="work out icon">
+                            <p>헬스</p>
+                            <!-- 이후에 모달창 생성 예정 -->
+                        </div>
+                        <div class="interest_book">
+                            <img src="../img/lee_seoyeon/book.png" alt="book icon">
+                            <p>추리소설</p>
+                        </div>
+                        <div class="interest_guitar">
+                            <img src="../img/lee_seoyeon/guitar.png" alt="guitar icon">
+                            <p>기타</p>
+                        </div>
+                        <div class="interest_drink">
+                            <img src="../img/lee_seoyeon/drink.png" alt="drink icon">
+                            <p>위스키</p>
+                        </div>
                     </div>
                 </div>
             </article>
             <article class="card">
                 <h2>Contact</h2>
-                <div class="contact_icons">
-                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=iam.eighth.remnant@gmail.com&su=&body=" target="_blank" class="contact_velog">
-                        <img src="../img/lee_seoyeon/mail.png" alt="mail icon">
-                        <p>메일 보내기</p>
-                    </a>
-                    <a class="contact_velog" href="https://velog.io/@bella0/posts" target="_blank">
-                        <img src="../img/lee_seoyeon/velog.png" alt="velog icon">
-                        <p>velog 구경하기</p>
-                    </a>
-                    <a class="contact_github" href="https://github.com/bellalee0" target="_blank">
-                        <img src="../img/lee_seoyeon/github.png" alt="github icon" class="github_icon">
-                        <p>GitHub 구경하기</p>
-                    </a>
+                <div class="card_content">
+                    <div class="contact_icons">
+                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=iam.eighth.remnant@gmail.com&su=&body=" target="_blank" class="contact_velog">
+                            <img src="../img/lee_seoyeon/mail.png" alt="mail icon">
+                            <p>메일 보내기</p>
+                        </a>
+                        <a class="contact_velog" href="https://velog.io/@bella0/posts" target="_blank">
+                            <img src="../img/lee_seoyeon/velog.png" alt="velog icon">
+                            <p>velog 구경하기</p>
+                        </a>
+                        <a class="contact_github" href="https://github.com/bellalee0" target="_blank">
+                            <img src="../img/lee_seoyeon/github.png" alt="github icon" class="github_icon">
+                            <p>GitHub 구경하기</p>
+                        </a>
+                    </div>
                 </div>
             </article>
         </section>
