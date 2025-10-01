@@ -36,8 +36,6 @@ $(document).ready(function(){
                 const img_item = t.find(".my_img").children();  
                 const item_count = img_item.length;
 
-                console.log(item_count);
-                
                 if(item_count <= 1) return;
 
                 let index = 0;
