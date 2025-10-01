@@ -1,7 +1,6 @@
 $(document).ready(function(){
     const member_list_wrap = $("#member_list_wrap");
 
-    //
     member_list_wrap.on("click mouseenter mouseleave", "li[data-name]", function(e){
         const t = $(this);
         const this_name = t.data("name");
