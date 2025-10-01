@@ -9,52 +9,75 @@
     <link href="../css/common.css" rel="stylesheet">
     <link href="../css/style.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
     <title>3조 : 보람삼조</title>
     <style>
-        /*250930-한글자씩 나오게 하는건 할수 있겠다 이제*/
      @import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
      @import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
 
-            .class_haryun_title {font-family: "Do Hyeon", sans-serif;}
-            .class_haryun_text {font-family: "Gowun Dodum", sans-serif;}
-            .id_haryun_title_2 {line-height: 1.8;}
-        .haryun {background-color: black; color: white; padding: 20px 10px 10px 10px; border-radius: 10px; line-height: 1.5; height: 100%;}
+     body {
+         background-color: #1e1f22;
+         height: 100vh;
+         margin: 0; /* 브라우저 기본 여백 제거 */
+         padding: 0; /* 브라우저 기본 패딩 제거 */
+     }
+     .class_haryun_title {
+         font-family: "Do Hyeon", sans-serif;
+         font-weight: 700;
+         font-size: clamp(28px, 3.6vw, 56px);
+         line-height: 1.15;
+         letter-spacing: .5px;
+         margin: 0 0 16px; /* h1 기본 마진 보정 */
+     }
+     .class_haryun_text {
+         font-family: "Gowun Dodum", sans-serif;
+         font-size: clamp(15px, 1.05vw, 18px);
+         line-height: 1.8;
+     }
+     .id_haryun_title_2 {
+         font-size: clamp(15px, 1.05vw, 18px);
+         line-height: 1.8;
+         margin-top: 12px;
+     }
+            .haryun {color: white; margin-right: 20px; padding: 10px 10px 10px 10px; border-radius: 10px; line-height: 1.5; height: 100%;}
+            .my_profile_img {margin-top: 70px; border-radius: 10px; max-width: 80%; hborder: 2px solid #ccc;}
     </style>
 </head>
 
-<body class></body>
-<div class="row align-items-start g-4 mt-5">
-    <div class="col-6 col-md-6">
+<body class="p-3 border-0">
+<div class="row align-items-start g-6 mt-5">
+    <div class="col-6">
         <div class="haryun">
-            /*DFDF*/
             <h1 id="id_haryun_title" class="class_haryun_title"></h1>
-            <p class="class_haryun_text mb-0" >저는 <span style="color: #ffeb8e;">실용음악 전공자</span> 입니다.<br>
+            <p class="class_haryun_text mb-0">1 안녕하세요 <span style="color: #ffeb8e;">정하륜 </span> 입니다.<br>2
                 <br>
-                <span style="color: #ffeb8e;">취미:</span> <span style="color: limegreen;">"노래,헬스 그리고 코딩~!"</span><br>
-                <span style="color: #ffeb8e;">좋아하는 음식:</span> <span style="color: limegreen;">"곱창,치킨"</span> //(모르는 아저씨가 곱창 사다고 하면 따라 갑니다.)<br>
-                <span style="color: #ffeb8e;">MBTI:</span> <span style="color: limegreen;">"ENFP"</span>
-                <br><br>
-            <p class="id_haryun_title_2">엔터테인먼트에서 매니저로써 오랫동안 근무했었습니다.<br>
-                항상 많은 사람들과 부딫히며 일하다보니 팀워크가 얼마나 중요한지 알게 되었고<br>
-                그덕에 관리자 까지 올라가게 되었지만 더 이상 저 자신을 위해 일하고 싶다는 마음에<br>
-                백엔드 개발자로 직종 전환을 하기로 선택하였습니다.<br>
-                지금은 누군가에게 짐이될수도 있겠지만 언젠가는 개발자와 평범한<br>모두에게 도움을 줄수있는ㄴㄴㅇㄴㅇ 개발자가 되고싶습니다. 이상!</p>
-            </p>
-        </div>="p-3 border-0">
-<div class="container" >
-</div>
-        </body>
+                3 <span style="color: #ffeb8e;">생년월일:</span> 1992 . 11 . 14<br>
+                4      /*다음달 생일입니다 카카오 기프티콘 받습니다^^*/<br>
+                5 <span style="color: #ffeb8e;">취미:</span> <span style="color: limegreen;">"노래, 헬스 그리고 코딩~!"</span><br>
+                6 <span style="color: #ffeb8e;">좋아하는 음식:</span> <span style="color: limegreen;">"곱창,치킨"</span>
+                 <br>7 /*(모르는 아저씨가 곱창 사준다고 하면 따라 갑니다.)*/<br>
+                8<br>
+                9 <span style="color: #ffeb8e;">MBTI :</span> <span style="color: limegreen;">"ENFP"</span><br>
+                10 <span style="color: #ffeb8e;">혈액형 :</span> <span style="color: limegreen;">"AB"</span><br>
+                11 <span style="color: #ffeb8e;">if(목표) :</span> <span style="color: crimson;">로또 1등 당첨 후 월세 받아 먹으며 살기</span><br>
+                12 <span style="color: #ffeb8e;">eles if :</span> <span style="color: crimson;">개발자로 열심히 일해서 입에 풀칠하기</span><br>
+                13 <span style="color: #ffeb8e;">eles :</span>살아서 뭐하겠노......</span>
+        </div>
+    </div>
+            <div class = "col-6 text-center">
+                <img src="../img/Jeong_ha_ryun/IMG_9203.JPG" class="img-fluid rounded my_profile_img" alt="정하륜 프로필">
+            </div>
+        </div>
 
-    <div class="col-6 col-md-6">
-        <div class="ratio ratio-16x9">
-<svg aria-label="자리 표시자: 반응형 이미지" class="w-100 h-100" role="img"
-     preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-    <title>Placeholder</title>
-    <rect width="100%" height="87%" fill="#868e96">
-    </rect><text x="50%" y="40%" fill="#dee2e6" dy=".3em" text-anchor="middle">반응형 이미지</text>
-</svg>
+<p class="id_haryun_title_2">ggg엔터테인먼트에서 매니저로써 오랫동안 근무했었습니다.<br>
+    항상 많은 사람들과 부딫히며 일하다보니 팀워크가 얼마나 중요한지<br>
+    알게 되었고 그덕에 관리자 까지 올라가게 되었지만 자신을 위해<br>
+    일하고 싶다는 마음에 백엔드 개발자로 직종 전환을 선택하였습니다.<br>
+    지금은 누군가에게 짐이될수도 있겠지만 언젠가는 개발자와 평범한<br>모두에게 도움을 줄수있는 개발자가 되고싶습니다.</p>
+</p>
+
 <script>
-        let text = "{모두에게 도움이 되는 개발자이고 싶은 정하륜 입니다.}";
+        let text = "{모두에게 도움이 되는 개발자가 되고 싶습니다.}";
         let i =0;
         let speed = 100;
 

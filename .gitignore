@@ -1,0 +1,9 @@
+const firebaseConfig = {
+        apiKey: "AIzaSyCOfKG6lP22IAQ0b_0YzHhaoqEEGQDiSIU",
+        authDomain: "sparta-10a22.firebaseapp.com",
+        projectId: "sparta-10a22",
+        storageBucket: "sparta-10a22.firebasestorage.app",
+        messagingSenderId: "141923072753",
+        appId: "1:141923072753:web:e82145d4c5de4e0d1ac750",
+        measurementId: "G-YL2K2ST8Y6"
+    };

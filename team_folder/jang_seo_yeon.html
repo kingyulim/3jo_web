@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,72 +13,227 @@
     <title>3조 : 보람삼조</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Gowun+Dodum&display=swap');
-        * { font-family: 'Gowun Dodum', sans-serif; }
 
-        body { margin: 0; padding: 100px; background-color: rgb(231, 243, 252); color: black; }
+        * {
+            font-family: 'Gowun Dodum', sans-serif;
+        }
 
-        .container { width: 80%; max-width: 1000px; background-color: white; padding: 40px; border-radius: 12px; text-align: center; }
+        body {
+            margin: 0;
+            padding: 100px;
+            background-color: rgb(231, 243, 252);
+            color: black;
+        }
 
-        img { width: 50%; height: auto; }
+        .container {
+            width: 80%;
+            max-width: 1000px;
+            background-color: white;
+            padding: 40px;
+            border-radius: 12px;
+            text-align: center;
+        }
 
-        #profile { font-size: 3rem; }
-        #name { font-size: 2rem; }
+        img {
+            width: 50%;
+            height: auto;
+        }
 
-        table { width: 80%; border-collapse: collapse; margin: auto; margin-top: 20px; } /*이런식으로 써도 되나*/
+        #profile {
+            font-size: 3rem;
+        }
 
-        th, td { border: 1px solid #ccc; padding: 12px 20px; text-align: left; vertical-align: middle; font-size: 1.5rem; word-break: break-word; }
+        #name {
+            font-size: 2rem;
+        }
 
-        th { background-color: #f2f2f2; font-weight: bold; }
+        table {
+            width: 80%;
+            border-collapse: collapse;
+            margin: auto;
+            margin-top: 20px;
+        }
 
+        th,
+        td {
+            border: 1px solid #ccc;
+            padding: 12px 20px;
+            text-align: left;
+            vertical-align: middle;
+            font-size: 1.5rem;
+            word-break: break-word;
+        }
 
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+
+        .post {
+            margin-top: 20px;
+        }
+
+        .post h4 {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .btn_area {
+            text-align: right;
+        }
+
+        #add_btn {
+            background-color: #00235a;
+            color: #fff;
+            padding: 1rem;
+            border-radius: 10%;
+        }
     </style>
 </head>
 
 <body>
-<div class="container">
-    <h2 id="profile">Profile</h2>
-    <br>
+    <div class="container">
+        <h2 id="profile">Profile</h2>
+        <br>
 
-    <div>
-        <img src="https://gongu.copyright.or.kr/gongu/wrt/cmmn/wrtFileImageView.do?wrtSn=9046601&filePath=L2Rpc2sxL25ld2RhdGEvMjAxNC8yMS9DTFM2L2FzYWRhbFBob3RvXzI0MTRfMjAxNDA0MTY=&thumbAt=Y&thumbSe=b_tbumb&wrtTy=10004">
-        <h3 id="name">장서연</h3>
-        
-        <p id="birth_date">2002.10.16</p>
-        <p id="content"></p>       
+        <div>
+            <img src="../img/jang_seo_yeon/프로필.jpg">
+            <h3 id="name">장서연</h3>
 
-    
+            <p id="birth_date">2002.10.16<br>소프트웨어과 4학년</p>
+            <p id="content"></p>
+
+
+        </div>
+
+        <div>
+            <table>
+                <tbody>
+                    <tr>
+                        <th scope="row">MBTI</th>
+                        <td>INTP / 내향형 90%</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">좋아하는 것</th>
+                        <td>고양이🐱, 하늘색☁️, 마라탕🍜, 집🏠</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">velog</th>
+                        <td><a href="https://velog.io/@syjang1016">https://velog.io/@syjang1016</a></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">목표</th>
+                        <td>협업 능력 기르기, 포트폴리오 쌓기, 꾸준함</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+
+        <div class="post"> <!--방명록-->
+            <h4>방명록</h4>
+            <div class="btn_area">
+                <button type="button" class="add_btn" id="add_btn">작성하기</button>
+            </div>
+        </div>
+
+        <div id="guestbook">
+            <div class="gb_row">
+                <label for="gb_comment">방명록 내용</label>
+                <input id="gb_comment" rows="4" placeholder="댓글을 입력해주세요" />
+            </div>
+            <div class="gb_row">
+                <label for="gb_pwd">비밀번호</label>
+                <input maxlength=4 type="password" id="gb_pwd" placeholder="숫자 4자리 입력" />
+            </div>
+            <div>
+                <button type="button" id="save_btn">등록</button>
+            </div>
+        </div>
+
+        <div id="comment_list">
+
+
+        </div>
     </div>
 
-    <div>
-        <table>
-            <tbody>
-                <tr>
-                    <th scope="row">MBTI</th>
-                    <td>INTP / 내향형 90%(저세상 낯가림)</td>
-                </tr>
-                <tr>
-                    <th scope="row">좋아하는 것</th>
-                    <td>고양이🐱, 하늘색☁️, 마라탕🍜, 집🏠</td>
-                </tr>
-                <tr>
-                    <th scope="row">velog</th>
-                    <td><a href="https://velog.io/@syjang1016">https://velog.io/@syjang1016</a></td>
-                </tr>
-                <tr>
-                    <th scope="row">목표</th>
-                    <td>협업 능력 기르기, 포트폴리오 쌓기, 꾸준함</td>
-                </tr>
-            </tbody>
-        </table>
+
 
     </div>
-
-
-</div>
 </body>
 
-<script>
-    
-    
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+    import {
+        getFirestore,
+        collection,
+        addDoc,
+        serverTimestamp,
+        getDocs,
+        query,
+        orderBy
+    } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+        apiKey: "AIzaSyCOfKG6lP22IAQ0b_0YzHhaoqEEGQDiSIU",
+        authDomain: "sparta-10a22.firebaseapp.com",
+        projectId: "sparta-10a22",
+        storageBucket: "sparta-10a22.firebasestorage.app",
+        messagingSenderId: "141923072753",
+        appId: "1:141923072753:web:e82145d4c5de4e0d1ac750",
+        measurementId: "G-YL2K2ST8Y6"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    $("#save_btn").click(async function () {
+        try {
+            let comment = $('#gb_comment').val();
+            let pwd = $('#gb_pwd').val();
+
+            if (!comment && !pwd)
+                return alert('내용과 비밀번호를 입력해주세요');
+            else if (!comment)
+                return alert('내용을 입력해주세요');
+            else if (!pwd)
+                return alert('비밀번호를 입력해주세요');
+
+
+            await addDoc(collection(db, "comments"), {
+                comment: comment,
+                //comment_id: comment_id_cnt,
+                created_at: serverTimestamp(),
+                pwd: pwd
+            });
+            alert('저장완료!');
+            window.location.reload();
+        } catch (e) {
+            console.error("Error adding document: ", e);
+        }
+    });
+
+    async function load_comments() {
+        const querySnapshot = await getDocs(query(collection(db, "comments"), orderBy("created_at", "desc")));
+
+        $("#comment_list").empty();
+
+        querySnapshot.forEach((doc) => {
+            const data = doc.data();
+            const comment = data.comment ?? "(내용 없음)";
+
+            const temp_html = `<p>${comment}</p>`;
+
+            $("#comment_list").append(temp_html);
+        });
+    }
+
+    load_comments();
+
+
+
+
 </script>
 <html>

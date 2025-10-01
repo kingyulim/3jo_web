@@ -1,4 +1,18 @@
 $(document).ready(function(){
+    // 네비게이션 스크립트
+    const nav_wrap = $("#nav_wrap");
+
+    $("#nav_open_btn").click(function(){
+        nav_wrap.find(".background").addClass("on");
+        nav_wrap.find(".list_inner").css("right", 0);
+    });
+
+    nav_wrap.on("click", ".background, .close_btn, .close_btn > img", function(){
+        nav_wrap.find(".background").removeClass("on");
+        nav_wrap.find(".list_inner").css("right", "-100%");
+    });
+
+    // 메인 리스트 스크립트
     const member_list_wrap = $("#member_list_wrap");
 
     member_list_wrap.on("click mouseenter mouseleave", "li[data-name]", function(e){
@@ -67,7 +81,6 @@ $(document).ready(function(){
     });
 
     // 목표 텍스트 스크립트
-
     const goals_text = '“어떤 상황에서도 잘하겠다는 마음을 잃지 말자.\n오늘의 노력들이 쌓여 더 나은 내가 되도록 하자.”';
 
     let i = 0;
