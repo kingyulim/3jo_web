@@ -14,7 +14,7 @@ body::-webkit-scrollbar-track{background: transparent}
 #profile_head .content_wrap .my_content .this_acount{}
 #profile_head .content_wrap .my_content .this_acount .name{font-size: 2.4rem;}
 #profile_head .content_wrap .my_content .this_acount .birth{margin-top: 8px; font-size: 1.2rem; color: #999;}
-#profile_head .content_wrap .my_content .text_box{margin-top: 10px; padding-top: 10px; border-top: 1px solid #ededed; font-size: 1.4rem;}
+#profile_head .content_wrap .my_content .text_box{margin-top: 30px; font-size: 1.4rem;}
 #profile_head .my_skill_box{display: flex; justify-content: end; gap: 0 155px; margin-top: 60px;}
 #profile_head .my_skill_box > *{}
 #profile_head .my_skill_box h4{font-size: 1.9rem;}
