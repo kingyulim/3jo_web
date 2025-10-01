@@ -7,8 +7,9 @@ $(document).ready(function(){
 
         switch(e.type){
             case "click" : 
-               if(this_name == null || this_name === ""){
+                if(this_name == null || this_name === ""){
                     alert("데이터가 빈 값입니다.");
+
                     return;
                 }
 
