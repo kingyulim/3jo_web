@@ -65,4 +65,21 @@ $(document).ready(function(){
                 break;
         } 
     });
+
+    // 목표 텍스트 스크립트
+
+    const goals_text = '“어떤 상황에서도 잘하겠다는 마음을 잃지 말자.\n오늘의 노력들이 쌓여 더 나은 내가 되도록 하자.”';
+
+    let i = 0;
+    let output = "";
+
+    setInterval(function(){
+        if (i >= goals_text.length) return;
+
+        output += goals_text[i] === '\n' ? '<br/>' : goals_text[i];
+
+        $("#main_page_head .title_box .text").html(output);
+
+        i++;
+    }, 100);
 });

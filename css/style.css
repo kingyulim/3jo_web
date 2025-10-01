@@ -27,7 +27,7 @@
 #member_list_wrap .my_contnet_box{flex: 1}
 #member_list_wrap .my_contnet_box .my_name{font-size: 2.8rem;}
 #member_list_wrap .my_contnet_box .mbti{font-size: 1.6rem; letter-spacing: -1px; color: #777}
-#member_list_wrap .my_contnet_box .resolution{margin-top: 16px; padding-top: 16px; border-top: 1px solid #ededed; font-size: 1.4rem; color: #333}
+#member_list_wrap .my_contnet_box .resolution{margin-top: 16px; padding-top: 16px; border-top: 1px solid #ededed; font-size: 1.6rem; color: #333}
 
 .my_popup_layer{position: fixed; left: 0; top: 0; width: 100%; height: 100%;  background-color: rgb(0 0 0 / 70%);}
 .my_popup_layer .inner_wrap{height: 100%; background-color: #fff;}
