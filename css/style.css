@@ -8,9 +8,10 @@
 #member_list_wrap > li:nth-of-type(even){float: right; justify-content: end}
 #member_list_wrap > li:nth-of-type(even) > .my_img{order: 2}
 #member_list_wrap > li + li{clear: both; margin-top: 36px;}
-#member_list_wrap .my_img{width: 250px; height: 250px; background: pink}
-#member_list_wrap .my_img > li{}
-#member_list_wrap .my_img img{}
+#member_list_wrap .my_img{position: relative; width: 250px; height: 250px; background: pink}
+#member_list_wrap .my_img > li{position: absolute; left: 0; top: 0; width: 100%; height: 100%; overflow: hidden}
+#member_list_wrap .my_img > li:not(:first-of-type){display: none;}
+#member_list_wrap .my_img img{width: 100%; height: 100%}
 #member_list_wrap .my_contnet_box{flex: 1}
 #member_list_wrap .my_contnet_box .my_name{font-size: 2.0rem}
 #member_list_wrap .my_contnet_box .mbti{letter-spacing: -1px; font-size: 1.2rem; color: #777}
