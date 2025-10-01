@@ -1,18 +1,67 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="../js/jquery-3.7.1.min.js"></script>
+
+    <link href="../css/common.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>3조 : 보람삼조</title>
+    <style>
+        /*250930-한글자씩 나오게 하는건 할수 있겠다 이제*/
+     @import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
+     @import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
+
+            .class_haryun_title {font-family: "Do Hyeon", sans-serif;}
+            .class_haryun_text {font-family: "Gowun Dodum", sans-serif;}
+            .id_haryun_title_2 {line-height: 1.8;}
+        .haryun {background-color: black; color: white; padding: 20px 10px 10px 10px; border-radius: 10px; line-height: 1.5; height: 100%;}
+    </style>
 </head>
-<style>
-    @import url('https://fonts.googleapis.com/css2?family=Dokdo&display=swap');
-    .ha_ryun_title {font-family: "Dokdo", system-ui;}
-</style>
-<body>
-<div class="ha_ryun">
-    <h1 class="ha_ryun_title">안녕하세요 비전공자 정하륜 입니다.</h1>
-    <p class="ha_ryun_text">저는 실용음악 정공자였습니다. 엔터테인먼트에서 매니저로써 오랫동안 근무했었으며 저는 팀워크가 얼마나 중요한지 뼈저리게 잘 알고 있는 사람입니다.
-        제가 비전공자라 비록 지금은 누군가에게 짐이될수도 있겠지만 언젠가는 모두에게 도움을 줄수있는 개발자가 되고싶습니다.</p>
+
+<body class
+<div class="row align-items-start g-4 mt-5">
+    <div class="col-6 col-md-6">
+        <div class="haryun">
+            /*DFDF*/
+            <h1 id="id_haryun_title" class="class_haryun_title"></h1>
+            <p class="class_haryun_text mb-0" >저는 <span style="color: #ffeb8e;">실용음악 전공자</span> 입니다.<br>
+                <br>
+                <span style="color: #ffeb8e;">취미:</span> <span style="color: limegreen;">"노래,헬스 그리고 코딩~!"</span><br>
+                <span style="color: #ffeb8e;">좋아하는 음식:</span> <span style="color: limegreen;">"곱창,치킨"</span> //(모르는 아저씨가 곱창 사다고 하면 따라 갑니다.)<br>
+                <span style="color: #ffeb8e;">MBTI:</span> <span style="color: limegreen;">"ENFP"</span>
+                <br><br>
+            <p class="id_haryun_title_2">엔터테인먼트에서 매니저로써 오랫동안 근무했었습니다.<br>
+                항상 많은 사람들과 부딫히며 일하다보니 팀워크가 얼마나 중요한지 알게 되었고<br>
+                그덕에 관리자 까지 올라가게 되었지만 더 이상 저 자신을 위해 일하고 싶다는 마음에<br>
+                백엔드 개발자로 직종 전환을 하기로 선택하였습니다.<br>
+                지금은 누군가에게 짐이될수도 있겠지만 언젠가는 개발자와 평범한<br>모두에게 도움을 줄수있는ㄴㅇㄴㄴㅇㄴㅇㄴㅇ 개발자가 되고싶습니다. 이상!</p>
+            </p>
+        </div>="p-3 border-0">
+<div class="container" >
 </div>
-</body>
+
+    <div class="col-6 col-md-6">
+        <div class="ratio ratio-16x9">
+<svg aria-label="자리 표시자: 반응형 이미지" class="w-100 h-100" role="img"
+     preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <title>Placeholder</title>
+    <rect width="100%" height="87%" fill="#868e96">
+    </rect><text x="50%" y="40%" fill="#dee2e6" dy=".3em" text-anchor="middle">반응형 이미지</text>
+</svg>
+<script>
+        let text = "{모두에게 도움이 되는 개발자이고 싶은 정하륜 입니다.}";
+        let i =0;
+        let speed = 100;
+
+        function typing() {
+        if (i <= text.length){$('#id_haryun_title').text(text.slice(0, i));
+        i++; // 인덱스 하나 증가
+        setTimeout(typing, speed);}
+    }
+        typing();
+</script>
 </html>
