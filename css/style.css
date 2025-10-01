@@ -1,6 +1,14 @@
 @charset "utf-8";
 @import url(./font/pretendard.css);
 
+#nav_wrap{position: fixed; left: 0; top: 0; z-index: 10; width: 100%}
+#nav_wrap .background{visibility: hidden; opacity: 0; transition: 0.5s}
+#nav_wrap .background.on{display: block; visibility: visible; width: 100%; height: 100vh; background: rgb(0 0 0 / 70%); opacity: 1;}
+#nav_wrap .list_inner{position: absolute; right: -100%; top: 0; width: 500px; height: 100%; background: #fff; transition: 0.5s}
+#nav_wrap .list_head{padding: 10px}
+#nav_wrap .list_head .close_btn{width: 30px; transition: 0.5s;}
+#nav_wrap .list_head .close_btn:hover{transform: translateX(10px)}
+
 #member_list_main{padding: 50px 0 140px 0; background: #fff8ea}
 #member_list_main *{font-family: 'Pretendard';}
 #member_list_main .container{width: 900px}
