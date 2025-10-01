@@ -48,10 +48,10 @@ $(document).ready(function(){
                     index = (index + 1) % item_count;
                     const next = img_item.eq(index);
 
-                    current.fadeOut(300, function() {
-                        next.fadeIn(300);
+                    current.fadeOut(200, function() {
+                        next.fadeIn(200);
                     });        
-                }, 2000);
+                }, 1500);
                 
 
                 break;
