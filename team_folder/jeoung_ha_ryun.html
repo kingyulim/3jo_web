@@ -9,6 +9,7 @@
     <link href="../css/common.css" rel="stylesheet">
     <link href="../css/style.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
     <title>3조 : 보람삼조</title>
     <style>
@@ -18,64 +19,157 @@
      body {
          background-color: #1e1f22;
          height: 100vh;
-         margin: 0; /* 브라우저 기본 여백 제거 */
-         padding: 0; /* 브라우저 기본 패딩 제거 */
      }
      .class_haryun_title {
+         color: white;
          font-family: "Do Hyeon", sans-serif;
-         font-weight: 700;
-         font-size: clamp(28px, 3.6vw, 56px);
+         font-weight: 60;
+         font-size: clamp(35px, 3.6vw, 56px);
          line-height: 1.15;
-         letter-spacing: .5px;
-         margin: 0 0 16px; /* h1 기본 마진 보정 */
+         letter-spacing: 3px;
+         width: 90%;
+         margin: 0 auto 16px auto;
      }
      .class_haryun_text {
+         color: white;
          font-family: "Gowun Dodum", sans-serif;
          font-size: clamp(15px, 1.05vw, 18px);
          line-height: 1.8;
      }
-     .id_haryun_title_2 {
+     .haryun_title_2 {
+         color: white;
          font-size: clamp(15px, 1.05vw, 18px);
          line-height: 1.8;
-         margin-top: 12px;
+         margin: 20px 20px 0 20px;
      }
-            .haryun {color: white; margin-right: 20px; padding: 10px 10px 10px 10px; border-radius: 10px; line-height: 1.5; height: 100%;}
-            .my_profile_img {margin-top: 70px; border-radius: 10px; max-width: 80%; hborder: 2px solid #ccc;}
+            .haryun {
+                color: white;
+                margin-right: 50px;
+                padding: 10px 10px 10px 10px;
+                border-radius: 10px;
+                line-height: 1.5;
+                height: 100%;
+            }
+            .my_profile_img {
+                margin-top: 10px;
+                border-radius: 10px;
+                max-width: 60%;
+                border: 2px solid #ccc;
+            }
+    .icon {
+        margin-top: -30px;
+    }
+     .gallery-thumb {
+         cursor: pointer;
+         transition: transform 0.2s ease;
+         object-fit: cover;
+         width: 100%;
+         height: 160px;
+         border-radius: 8px;
+     }
+     .gallery-thumb:hover {
+         transform: scale(1.03);
+     }
+     #mainPhoto {
+         max-height: 65vh;
+         object-fit: contain;
+     }
     </style>
 </head>
 
 <body class="p-3 border-0">
+<div class="container mt-4">
+<h1 id="id_haryun_title" class="class_haryun_title"></h1>
+</div>
+
 <div class="row align-items-start g-6 mt-5">
     <div class="col-6">
-        <div class="haryun">
-            <h1 id="id_haryun_title" class="class_haryun_title"></h1>
-            <p class="class_haryun_text mb-0">1 안녕하세요 <span style="color: #ffeb8e;">정하륜 </span> 입니다.<br>2
+        <p class="haryun">
+            <p class="class_haryun_text mb-0">
+                1 안녕하세요 <span style="color: #ffeb8e;">정하륜 </span> 입니다.<br>2
                 <br>
-                3 <span style="color: #ffeb8e;">생년월일:</span> 1992 . 11 . 14<br>
+                3 <span style="color: #ffeb8e;">생년월일 :</span> 1992 . 11 . 14<br>
                 4      /*다음달 생일입니다 카카오 기프티콘 받습니다^^*/<br>
-                5 <span style="color: #ffeb8e;">취미:</span> <span style="color: limegreen;">"노래, 헬스 그리고 코딩~!"</span><br>
-                6 <span style="color: #ffeb8e;">좋아하는 음식:</span> <span style="color: limegreen;">"곱창,치킨"</span>
+                5 <span style="color: #ffeb8e;">취미 :</span> <span style="color: limegreen;">"노래, 헬스 그리고 코딩~!"</span><br>
+                6 <span style="color: #ffeb8e;">좋아하는 음식 :</span> <span style="color: limegreen;">"곱창,치킨"</span>
                  <br>7 /*(모르는 아저씨가 곱창 사준다고 하면 따라 갑니다.)*/<br>
                 8<br>
                 9 <span style="color: #ffeb8e;">MBTI :</span> <span style="color: limegreen;">"ENFP"</span><br>
                 10 <span style="color: #ffeb8e;">혈액형 :</span> <span style="color: limegreen;">"AB"</span><br>
-                11 <span style="color: #ffeb8e;">if(목표) :</span> <span style="color: crimson;">로또 1등 당첨 후 월세 받아 먹으며 살기</span><br>
-                12 <span style="color: #ffeb8e;">eles if :</span> <span style="color: crimson;">개발자로 열심히 일해서 입에 풀칠하기</span><br>
-                13 <span style="color: #ffeb8e;">eles :</span>살아서 뭐하겠노......</span>
-        </div>
-    </div>
-            <div class = "col-6 text-center">
-                <img src="../img/Jeong_ha_ryun/IMG_9203.JPG" class="img-fluid rounded my_profile_img" alt="정하륜 프로필">
-            </div>
+                11 <span style="color: #ffeb8e;">if (목표) :</span> <span style="color: crimson;">로또 1등 당첨 후 월세 받아 먹으며 살기</span><br>
+                12 <span style="color: #ffeb8e;">eles if (그것도 아니면) :</span> <span style="color: crimson;">개발자로 열심히 일해서 입에 풀칠하기</span><br>
+                13 <span style="color: #ffeb8e;">eles (그렇다면) :</span> 염라대왕 면담 하러 먼저 갑니다~</span><br>
+                14 <br />
+                15 <span style="color: #ffeb8e;">보유스킬</span>
+        </p>
         </div>
 
-<p class="id_haryun_title_2">ggg엔터테인먼트에서 매니저로써 오랫동안 근무했었습니다.<br>
-    항상 많은 사람들과 부딫히며 일하다보니 팀워크가 얼마나 중요한지<br>
-    알게 되었고 그덕에 관리자 까지 올라가게 되었지만 자신을 위해<br>
-    일하고 싶다는 마음에 백엔드 개발자로 직종 전환을 선택하였습니다.<br>
-    지금은 누군가에게 짐이될수도 있겠지만 언젠가는 개발자와 평범한<br>모두에게 도움을 줄수있는 개발자가 되고싶습니다.</p>
+        <div class="icon" style="width: 660px;">
+        <a href="https://www.youtube.com/@나는베짱이1114" target="_blank" rel="noopener" class="d-inline-block">
+        <i class="bi bi-caret-right-square" style="font-size: 100px; color: white; margin-left: 15px;"></i>
+        </a>
+        <a href="https://velog.io/@jyop1212/posts" target="_blank" rel="noopener" class="d-inline-block">
+        <i class="bi bi-bootstrap" style="font-size: 100px; color: white; margin-left: 15px;"></i>
+        </a>
+
+        <i class="bi bi-card-image"
+           style="font-size: 100px; color: white; margin-left: 15px; cursor: pointer" data-bs-toggle="modal"
+           data-bs-target="#photoModal"
+           aria-label="사진첩 열기"></i>
+        <br />
+        <i class="bi bi-filetype-html" style="font-size: 100px; color: white;"></i>
+        <i class="bi bi-filetype-css" style="font-size: 100px; color: white;"></i>
+        <i class="bi bi-filetype-js" style="font-size: 100px; color: white;"></i>
+        <i class="bi bi-filetype-java" style="font-size: 100px; color: white;"></i>
+        <i class="bi bi-filetype-sql" style="font-size: 100px; color: white;"></i>
+            </div>
+    </div>
+
+            <div class = "col-6 d-flex justify-content-center align-items-start">
+                <img src="../img/Jeong_ha_ryun/my_profile_img.JPG" class="img-fluid rounded my_profile_img" alt="정하륜 프로필">
+            </div>
+</div>
+
+
+<p class="haryun_title_2">
+    엔터테인먼트에서 매니저로써 오랫동안 근무했었습니다.<br />
+    항상 많은 사람들과 부딫히며 일하다보니 팀워크가 얼마나 중요한지 알게 되었고 그덕에 관리자 까지 올라가게 되었지만 자신을 위해<br />
+    일하고 싶다는 마음에 백엔드 개발자로 직종 전환을 선택하였습니다.<br />
+    지금은 누군가에게 짐이될수도 있겠지만 언젠가는 개발자와 세상 모두에게 도움을 줄수있는 개발자가 되고싶습니다.</p>
 </p>
 
+<div class="modal fade" id="photoModal" tabindex="-1" aria-labelledby="photoModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+        <div class="modal-content bg-dark text-white">
+            <div class="modal-header">
+                <h5 class="modal-title" id="photoModalLabel">📸 내 사진첩</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="닫기"></button>
+            </div>
+            <div class="modal-body">
+                <!-- 클릭 시 크게 보여줄 메인 영역(선택) -->
+                <img id="mainPhoto" class="img-fluid rounded mb-3 d-none" alt="선택한 이미지 미리보기" />
+
+                <!-- 썸네일 그리드 -->
+                <div class="row g-3">
+                    <!-- ↓↓↓ 여기에 당신의 실제 이미지 경로로 바꾸세요 ↓↓↓ -->
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <img src="../img/Jeong_ha_ryun/IMG_8280.JPG" class="gallery-thumb shadow-sm" alt="gallery-01" />
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <img src="../img/gallery/02.jpg" class="gallery-thumb shadow-sm" alt="gallery-02" />
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <img src="../img/gallery/03.jpg" class="gallery-thumb shadow-sm" alt="gallery-03" />
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <img src="../img/gallery/04.jpg" class="gallery-thumb shadow-sm" alt="gallery-04" />
+                    </div>
+                    <!-- 필요하면 더 추가 -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <script>
         let text = "{모두에게 도움이 되는 개발자가 되고 싶습니다.}";
         let i =0;
@@ -87,5 +181,29 @@
         setTimeout(typing, speed);}
     }
         typing();
+        // === 썸네일 클릭 → 메인 미리보기로 띄우기 ===
+        document.addEventListener("DOMContentLoaded", () => {
+            const main = document.getElementById("mainPhoto");
+            document.querySelectorAll(".gallery-thumb").forEach((img) => {
+                img.addEventListener("click", () => {
+                    main.src = img.src;
+                    main.classList.remove("d-none");
+                    // 메인을 스르륵 보이게 하고 싶으면 아래 주석 해제
+                    // main.style.opacity = 0; requestAnimationFrame(()=>{ main.style.transition='opacity .2s'; main.style.opacity=1; });
+                    main.scrollIntoView({ behavior: "smooth", block: "start" });
+                });
+            });
+
+            // 모달 닫힐 때 메인 미리보기 초기화(선택)
+            const modalEl = document.getElementById("photoModal");
+            modalEl.addEventListener("hidden.bs.modal", () => {
+                main.classList.add("d-none");
+                main.removeAttribute("src");
+            });
+        });
 </script>
+
+<!-- 부트스트랩 JS (모달 동작에 필수) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
 </html>
