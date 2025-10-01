@@ -10,12 +10,130 @@
     <link href="../css/style.css" rel="stylesheet">
 
     <title>3조 : 보람삼조</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Chiron+Hei+HK:ital,wght@0,200..900;1,200..900&family=BIZ+UDPGothic&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+        body {  margin: 0; font-family: "Chiron Hei HK", "Roboto", sans-serif; color: #000000; background: #ffffff; }
+        .container { display: flex; height: 100vh; }
+
+        .left { flex: 0 0 30%; padding: 48px 32px; display: flex; align-items: center; justify-content: center; background: #F7FBF1; }
+        .profile { align-items: center; }
+
+        .quote { text-align: right; font-family: "BIZ UDPGothic", sans-serif; font-weight: 400; font-size: 2.5rem; transform: rotate(180deg); margin-left: -1rem; }
+        .introduce { text-align: left; font-size: 2rem; font-weight: 400; }
+        .name { font-size: 2.7rem; line-height: 3.7rem; }
+        .profile img { width: 30rem; height: 30rem; margin-top : 2rem; margin-bottom: 1rem; }
+        .profile img:hover { transform: scale(1.01); }
+        .mbti { text-align: center; font-size: 2rem; font-style: italic; color: #6E9E31; }
+
+        .right { flex: 1; padding: 25px; display: grid; grid-template-rows: 3fr 2fr 1.5fr; gap: 15px; }
+        .card { border: 1px solid #CADCAE; border-radius: 12px; padding: 15px; background: #ffffff; }
+        .card h2 { margin: 0 0 5px 0; font-size: 2rem; font-weight: 600; }
+
+        .about_me { display: flex; flex-direction: column; }
+        .style { height: 15rem;}
+        .style p { font-size: 1.5rem; }
+        .abilities { display: grid; grid-template-columns: 1fr 1fr; font-size: 1.5rem; }
+        .skills img { width: 7rem; height: 5rem; object-fit: contain; margin-top: 7px; }
+        .certificate img { width: 7rem; height: 5.5rem; object-fit: contain; margin-top: 7px; }
+        .certificate img:hover { transform: scale(1.1); }
+
+        .interest_icons { display: flex; justify-content: center; align-items: center; gap: 10rem; margin-top: 15px; }
+        .interest_icons div { display: flex; flex-direction: column; align-items: center; text-align: center; }
+        .interest_icons img { width: 7rem; height: 7rem; object-fit: contain; margin-bottom: 5px; }
+        .interest_icons img:hover { transform: scale(1.1); }
+        .interest_icons p { font-weight: 400; font-size: 1.5rem; }
+
+        .contact_icons { display: flex; justify-content: center; align-items: center; gap: 15rem; margin-top: 10px; }
+        .contact_icons a { display: flex; flex-direction: column; align-items: center; text-align: center; }
+        .contact_icons img { width: 5rem; height: 5rem; object-fit: contain; margin-bottom: 5px; }
+        .contact_icons img:hover { transform: scale(1.1); }
+        .contact_icons p { font-weight: 400; font-size: 1.2rem; }
+
+    </style>
+
 </head>
 
 <body>
-<div class="container">
-    zzzzz
-</div>
+    <main class="container">
+        <section class="left">
+            <h2 style="display: none;">소개</h2>
+            <div class="profile">
+                <h2 class="quote">"</h2>
+                <p class="introduce">안녕하세요,<br>백엔드 개발자를 꿈꾸는<br><strong class="name">이서연입니다.</strong></p>
+                <a href="https://road-cartoon-1a1.notion.site/bella0-portfolio?source=copy_link" target="_blank">
+                    <img src="../img/lee_seoyeon/lee_profile.png" alt="프로필 이미지" class="profile-img">
+                </a>
+                <p class="mbti"># INTJ<br># 2003.03.04</p>
+            </div>
+        </section>
+
+        <section class="right">
+            <article class="card">
+                <h2>About Me</h2>
+                <div class="about_me">
+                    <div class="style">
+                        <p>나의 협업 스타일 ~<br>나의 장점 ~</p>
+                    </div>
+                    <div class="abilities">
+                        <div class="skills">
+                            <p>Skills</p>
+                            <img src="../img/lee_seoyeon/illustrator.png" alt="illustrator icon">
+                            <img src="../img/lee_seoyeon/photoshop.png" alt="photoshop icon">
+                            <img src="../img/lee_seoyeon/finalcut.png" alt="finalcut icon">
+                            <img src="../img/lee_seoyeon/linux.png" alt="linux icon">
+                        </div>
+                        <div class="certificate">
+                            <p>Certificate</p>
+                            <a href="https://road-cartoon-1a1.notion.site/AWS-Cloud-Practitional-2022-09-b73cc75eba3f41599079f784f22e248f?source=copy_link" target="_blank">
+                            <img src="../img/lee_seoyeon/awscert.png" alt="awscert icon">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <article class="card">
+                <h2>Fields of Interest</h2>
+                <div class="interest_icons">
+                    <div class="interest_work_out">
+                        <img src="../img/lee_seoyeon/work_out.png" alt="work out icon">
+                        <p>헬스</p>
+                        <!-- 이후에 모달창 생성 예정 -->
+                    </div>
+                    <div class="interest_book">
+                        <img src="../img/lee_seoyeon/book.png" alt="book icon">
+                        <p>추리소설</p>
+                    </div>
+                    <div class="interest_guitar">
+                        <img src="../img/lee_seoyeon/guitar.png" alt="guitar icon">
+                        <p>기타</p>
+                    </div>
+                    <div class="interest_drink">
+                        <img src="../img/lee_seoyeon/drink.png" alt="drink icon">
+                        <p>위스키</p>
+                    </div>
+                </div>
+            </article>
+            <article class="card">
+                <h2>Contact</h2>
+                <div class="contact_icons">
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=iam.eighth.remnant@gmail.com&su=&body=" target="_blank" class="contact_velog">
+                        <img src="../img/lee_seoyeon/mail.png" alt="mail icon">
+                        <p>메일 보내기</p>
+                    </a>
+                    <a class="contact_velog" href="https://velog.io/@bella0/posts" target="_blank">
+                        <img src="../img/lee_seoyeon/velog.png" alt="velog icon">
+                        <p>velog 구경하기</p>
+                    </a>
+                    <a class="contact_github" href="https://github.com/bellalee0" target="_blank">
+                        <img src="../img/lee_seoyeon/github.png" alt="github icon" class="github_icon">
+                        <p>GitHub 구경하기</p>
+                    </a>
+                </div>
+            </article>
+        </section>
+    </main>
 </body>
 
 <script>
