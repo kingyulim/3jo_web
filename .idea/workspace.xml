@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f08c309-aaf3-4217-a90a-8e8762a9b50b" name="변경" comment="메인 수정 202510021507">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="6f08c309-aaf3-4217-a90a-8e8762a9b50b" name="변경" comment="메인 수정 202510021636">
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -426,11 +425,18 @@
       <option name="project" value="LOCAL" />
       <updated>1759388889514</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="메인 수정 202510021636">
+      <option name="closed" value="true" />
+      <created>1759390618962</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1759390618962</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="문현욱 삭제" />
     <MESSAGE value="스크립트 수정" />
     <MESSAGE value="스크립트 수정2" />
     <MESSAGE value="스크립트 수정 202509301730" />
@@ -455,6 +461,7 @@
     <MESSAGE value="네비게이션 추가 202510011730" />
     <MESSAGE value="메인 수정 202510021505" />
     <MESSAGE value="메인 수정 202510021507" />
-    <option name="LAST_COMMIT_MESSAGE" value="메인 수정 202510021507" />
+    <MESSAGE value="메인 수정 202510021636" />
+    <option name="LAST_COMMIT_MESSAGE" value="메인 수정 202510021636" />
   </component>
 </project>
