@@ -20,7 +20,7 @@
 
                 <div class="content_wrap">
                     <figure class="my_img">
-                        <img src="../img/kim_gyu_lim/profile_img (1).jpg">
+                        <img src="../img/kim_gyu_lim/profile_img.jpg">
                     </figure>
 
                     <div class="my_content">
@@ -76,34 +76,20 @@
             </div>
 
             <div id="activity_list">
-                <span>
-                    <img src="../img/kim_gyu_lim/activity_img (1).jpg">
-                </span>
 
-                <span>
-                    <img src="../img/kim_gyu_lim/activity_img (2).jpg">
-                </span>
-
-                <span>
-                    <img src="../img/kim_gyu_lim/activity_img (3).jpg">
-                </span>
-
-                <span>
-                    <img src="../img/kim_gyu_lim/activity_img (4).jpg">
-                </span>
-
-                <span>
-                    <img src="../img/kim_gyu_lim/activity_img (5).jpg">
-                </span>
-
-                <span>
-                    <img src="../img/kim_gyu_lim/activity_img (6).jpg">
-                </span>
-
-                <span>
-                    <img src="../img/kim_gyu_lim/activity_img (7).jpg">
-                </span>
             </div>
         </main>
     </body>
+
+    <script>
+        const num_arr = Array.from({length: 10}, (zz, i) => i + 1).sort(() => Math.random() - 0.5);
+
+        num_arr.forEach(n => {
+            $("#activity_list").append(`
+                <span>
+                    <img src="../img/kim_gyu_lim/activity (${n}).jpg">
+                </span>
+            `);
+        });
+    </script>
 </html>
