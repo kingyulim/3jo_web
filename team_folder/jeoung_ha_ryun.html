@@ -2,9 +2,9 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <!-- jQuery (타이핑에 사용) -->
+    <!-- jQuery (타이핑용) -->
     <script src="../js/jquery-3.7.1.min.js" defer></script>
 
     <!-- Bootstrap / Icons -->
@@ -22,93 +22,99 @@
         @import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
 
         :root{
-            --bg:#1e1f22;
-            --text:#fff;
-            --muted:#9aa4ad;
-            --card:#22272e;
-            --card-border:#2b3138;
-            --dock-size:60px;    /* 도크 아이콘 기본 크기 */
-            --dock-gap:32px;     /* 도크 간격 */
+            --bg:#1e1f22; --text:#fff; --muted:#9aa4ad;
+            --card:#22272e; --card-border:#2b3138;
+            --dock-size:60px; --dock-gap:32px;
+            --gb-h:44px; /* 방명록 입력 기본 높이 */
         }
 
-        body{ background-color:var(--bg); height:100vh; }
+        body{ background-color:var(--bg); min-height:100vh; }
 
         .class_haryun_title{
             color:var(--text);
             font-family:"Do Hyeon",sans-serif;
             font-weight:600;
             font-size:clamp(35px,3.6vw,56px);
-            line-height:1.15;
-            letter-spacing:3px;
-            width:90%;
-            margin:0 auto 16px;
+            line-height:1.15; letter-spacing:3px;
+            width:90%; margin:0 auto 16px;
         }
 
         .haryun{
-            color:var(--text);
-            margin:0 0 0 20px;
-            padding:10px;
-            border-radius:10px;
-            line-height:1.8;
-            height:100%;
+            color:var(--text); margin-left:20px; padding:10px;
+            border-radius:10px; line-height:1.8; height:100%;
             font-family:"Gowun Dodum",sans-serif;
             font-size:clamp(15px,1.05vw,18px);
         }
 
         .my_profile_img{
-            margin-top:10px;
-            border-radius:10px;
-            max-width:60%;
-            border:2px solid #ccc;
-            cursor:pointer;
+            margin-top:10px; border-radius:10px; max-width:60%;
+            border:2px solid #ccc; cursor:pointer;
         }
 
         /* 갤러리 */
         .gallery-thumb{
-            cursor:pointer;
-            transition:transform .2s ease;
-            object-fit:cover;
-            width:100%;
-            height:160px;
-            border-radius:8px;
+            cursor:pointer; transition:transform .2s ease;
+            width:100%; height:160px; border-radius:8px; object-fit:cover;
         }
         .gallery-thumb:hover{ transform:scale(1.03); }
-
-        #mainPhoto{ max-height:65vh; object-fit:contain; margin:0 auto; display:block; }
-
-        .gallery-thumb {
-            cursor: pointer;
-            transition: transform 0.2s ease;
-            width: 100%;
-            height: 160px;
-            border-radius: 8px;
-            object-fit: cover;  /* 이미지 전용 */
-        }
-
-        .gallery-thumb video {
-            object-fit: cover;
-        }
+        #mainPhoto,#mainVideo{ max-height:65vh; object-fit:contain; margin:0 auto; display:block; }
 
         /* 도크 */
-        .dock{
-            display:flex; justify-content:center; align-items:flex-end;
-            gap:var(--dock-gap); padding:24px 0; user-select:none;
-        }
+        .dock{ display:flex; justify-content:center; align-items:flex-end; gap:var(--dock-gap); padding:24px 0; user-select:none; }
         .dock-item{ display:flex; align-items:center; justify-content:center; transform-origin:bottom center; transition:transform .12s ease; will-change:transform; cursor:pointer; }
         .dock-item i{ font-size:var(--dock-size); color:#fff; line-height:1; }
 
-        /* 도크 링크 스타일 초기화 */
-        #dock a, #dock a:focus, #dock a:active, #dock a:hover, #dock a:visited{
-            text-decoration:none !important;
-            border:none !important;
-            outline:none !important;
-            color:inherit !important;
-        }
+        /* 도크 링크 초기화 */
+        #dock a{ text-decoration:none!important; color:inherit!important; border:0!important; outline:0!important; }
 
-        /* 방명록 카드 */
+        /* 생일 링크 효과 */
+        .gift-link{ color:#ffeb8e; text-decoration:none; display:inline-block; transition:transform .25s ease, color .25s ease; }
+        .gift-link:hover{ transform:scale(1.3); color:gold; }
+
+        /* 방명록 */
+        #guestForm .form-control{
+                height:var(--gb-h); min-height:var(--gb-h);
+                padding:.5rem .75rem; line-height:1.5;
+                box-sizing:border-box; text-indent:0;
+        }
+        #guestForm textarea.form-control{
+            resize:none; overflow-y:hidden; -webkit-appearance:none;
+        }
+        #guestForm .form-control,
+        #guestForm #gbSubmit {
+            height: var(--gb-h);   /* 같은 높이 */
+            display: flex;
+            align-items: center;   /* 글자 세로 가운데 */
+        }
+        /* 댓글 입력창 안내문구 높이 조절 */
+        #gbText::placeholder {
+            line-height: 30px;   /* input 높이와 맞추기 */
+        }
+        #guestForm #gbSubmit {
+            height: var(--gb-h);      /* input, textarea 와 동일 높이 */
+            padding: 0 1rem;          /* 좌우 여백 */
+            line-height: 1.5;
+            font-size: 0.95rem;       /* 글자 크기도 통일 */
+        }
+        /* textarea(댓글 입력창) — 위/아래 패딩 복구! */
+        #guestbook .gb-text{
+            min-height: var(--gb-h);
+            height: var(--gb-h);
+            overflow-y: hidden;
+            resize: none;
+            padding: .5rem .75rem;     /* ← top/bottom 포함한 기본 패딩으로 변경 */
+            line-height: 1.5;
+        }
+        /* 방명록 경고 문구 스타일 개선 */
+        #guestForm .form-text {
+            font-size: 20px;   /* 기본보다 약간 키움 (기본은 0.875rem) */
+            color: #ffffff;       /* 흰색으로 변경 */
+            margin-top: 4px;      /* 입력창과 간격 */
+        }
         #guestbook .list-group-item{ background:var(--card); color:var(--text); border-color:var(--card-border); }
         #guestbook .meta{ font-size:.875rem; color:var(--muted); }
         #guestbook .msg{ white-space:pre-wrap; }
+        #guestbook .list-group-item.editing{ outline:1px dashed #4b5563; }
     </style>
 </head>
 
@@ -161,18 +167,21 @@
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="닫기"></button>
             </div>
             <div class="modal-body">
-                <!-- 모달 본문ㅎ -->
                 <img id="mainPhoto" class="img-fluid rounded mb-3 d-none" alt="선택한 이미지 미리보기">
                 <video id="mainVideo" class="img-fluid rounded mb-3 d-none" controls playsinline></video>
+
                 <div class="row g-3">
-                    <div class="col-6 col-md-4 col-lg-3"><img src="../img/Jeong_ha_ryun/JHR_danang_img.JPG"      class="gallery-thumb shadow-sm" alt="gallery-01" /></div>
-                    <div class="col-6 col-md-4 col-lg-3"><img src="../img/Jeong_ha_ryun/JHR_dubai_img.JPG"     class="gallery-thumb shadow-sm" alt="gallery-02" /></div>
-                    <div class="col-6 col-md-4 col-lg-3"><img src="../img/Jeong_ha_ryun/JHR_Fubao_img.jpeg"        class="gallery-thumb shadow-sm" alt="gallery-03" /></div>
-                    <div class="col-6 col-md-4 col-lg-3"><img src="../img/Jeong_ha_ryun/JHR_jeju_img.JPG"          class="gallery-thumb shadow-sm" alt="gallery-04" /></div>
-                    <div class="col-6 col-md-4 col-lg-3"><img src="../img/Jeong_ha_ryun/JHR_back_img.JPG"          class="gallery-thumb shadow-sm" alt="gallery-04" /></div>
-                    <div class="col-6 col-md-4 col-lg-3"><video class="gallery-thumb shadow-sm" muted>
-                    <source src="../img/Jeong_ha_ryun/test.MOV" type="video/mp4">
-                    </video>
+                    <div class="col-6 col-md-4 col-lg-3"><img src="../img/Jeong_ha_ryun/JHR_danang_img.JPG" class="gallery-thumb shadow-sm" alt="다낭" /></div>
+                    <div class="col-6 col-md-4 col-lg-3"><img src="../img/Jeong_ha_ryun/JHR_dubai_img.JPG"  class="gallery-thumb shadow-sm" alt="두바이" /></div>
+                    <div class="col-6 col-md-4 col-lg-3"><img src="../img/Jeong_ha_ryun/JHR_Fubao_img.jpeg" class="gallery-thumb shadow-sm" alt="푸바오" /></div>
+                    <div class="col-6 col-md-4 col-lg-3"><img src="../img/Jeong_ha_ryun/JHR_jeju_img.JPG"   class="gallery-thumb shadow-sm" alt="제주" /></div>
+                    <div class="col-6 col-md-4 col-lg-3"><img src="../img/Jeong_ha_ryun/JHR_back_img.JPG"   class="gallery-thumb shadow-sm" alt="백" /></div>
+
+                    <!-- .MOV 파일이면 아래 type은 video/quicktime 이 더 정확 -->
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <video class="gallery-thumb shadow-sm" muted>
+                            <source src="../img/Jeong_ha_ryun/test.MOV" type="video/quicktime" />
+                        </video>
                     </div>
                 </div>
             </div>
@@ -182,17 +191,16 @@
 
 <!-- 방명록 -->
 <section id="guestbook" class="container mt-5 pb-5">
-    <h2 class="text-white fs-3 mb-3">💬 방명록</h2>
-
-    <form id="guestForm" class="row g-2 mb-4">
+    <h2 class="text-white fs-4 mb-3">💬 방명록</h2> <!-- fs-10 -> Bootstrap에 없음, fs-4로 교체 -->
+    <form id="guestForm" class="row g-2 mb-4 align-items-center">
         <div class="col-12 col-md-3">
-            <input id="gbName" class="form-control" type="text" placeholder="이름 (최대 40자)" maxlength="40" required />
+            <input id="gbName" class="form-control gb-input" type="text" placeholder="이름 (최대 190자)" maxlength="190" />
         </div>
-        <div class="col-12 col-md-7">
-            <input id="gbText" class="form-control" type="text" placeholder="한 줄 댓글을 남겨주세요 (최대 500자)" maxlength="500" required />
+        <div class="col-12 col-md-8">
+            <textarea id="gbText" class="form-control gb-text autosize" rows="1" placeholder="댓글을 꼬옥 남겨주세요 (최대 80000자)" maxlength="800000"></textarea>
         </div>
-        <div class="col-12 col-md-2 d-grid">
-            <button id="gbSubmit" class="btn btn-primary" type="submit">등록</button>
+        <div class="col-auto d-grid">
+            <button id="gbSubmit" class="btn btn-primary px-4">댓글달기</button>
         </div>
         <div class="form-text text-secondary">비속어/광고/도배는 예고 없이 삭제될 수 있습니다.</div>
     </form>
@@ -200,15 +208,16 @@
     <ul id="gbList" class="list-group"></ul>
 </section>
 
-<!-- 타이핑 + 도크 + 갤러리 -->
+<!-- 타이핑 + 도크 + 갤러리 (한 번의 DOMContentLoaded로 정리) -->
 <script>
-    // ===== 타이핑 텍스트 =====
-    const titleText = "{모두에게 도움이 되는 개발자가 되고 싶습니다.}";
-    const profileText = `
+    document.addEventListener('DOMContentLoaded', () => {
+        /* ---------------- 타이핑 ---------------- */
+        const titleText = "{모두에게 도움이 되는 개발자가 되고 싶습니다.}";
+        const profileText = `
 1 안녕하세요 <span style="color:#ffeb8e;">정하륜 </span> 입니다.<br>2
 <br>
-3 <span style="color:#ffeb8e;">생년월일 :</span> 1992 . 11 . 14<br>
-4 /*다음달 생일입니다 카카오 기프티콘 받습니다^^*/<br>
+3 <a class="gift-link" href="https://gift.kakao.com/home?targetType=ALL&rankType=MANY_RECEIVE&priceRange=20000_29999" target="_blank" rel="noopener"><span style="color:#ffeb8e;">생년월일 :</span>1992 . 11 . 14 🎁</a><br>
+4 /*어머 다음달이 생일이네요~*/<br>
 5 <span style="color:#ffeb8e;">취미 :</span> <span style="color:limegreen;">"노래, 헬스 그리고 코딩~!"</span><br>
 6 <span style="color:#ffeb8e;">좋아하는 음식 :</span> <span style="color:limegreen;">"곱창,치킨"</span>
 <br>7 /*(모르는 아저씨가 곱창 사준다고 하면 따라 갑니다.)*/<br>
@@ -216,174 +225,245 @@
 9 <span style="color:#ffeb8e;">MBTI :</span> <span style="color:limegreen;">"ENFP"</span><br>
 10 <span style="color:#ffeb8e;">혈액형 :</span> <span style="color:limegreen;">"AB"</span><br>
 11 <span style="color:#ffeb8e;">if (목표) :</span> <span style="color:crimson;">로또 1등 당첨 후 월세 받아 먹으며 살기</span><br>
-12 <span style="color:#ffeb8e;">eles if (그것도 아니면) :</span> <span style="color:crimson;">개발자로 열심히 일해서 입에 풀칠하기</span><br>
-13 <span style="color:#ffeb8e;">eles (그렇다면) :</span> 염라대왕 면담 하러 먼저 갑니다~</span><br>
+12 <span style="color:#ffeb8e;">else if (그것도 아니면) :</span> <span style="color:crimson;">개발자로 열심히 일해서 입에 풀칠하기</span><br>
+13 <span style="color:#ffeb8e;">else (그렇다면) :</span> 염라대왕 면담 하러 먼저 갑니다~<br>
 14 <span style="color:#ffeb8e;">자기소개 :</span>
 `;
-    const Selfintroduction = ` 15 엔터테인먼트에서 매니저로써 오랫동안 일했었고<br />
+        const Selfintroduction = ` 15 엔터테인먼트에서 매니저로써 오랫동안 일했었고<br />
 16 항상 많은 사람들과 부딫히며 팀워크가 얼마나 중요한지 알게 되었습니다.<br />
 17 자신을 위해 일하고 싶다는 마음에 백엔드 개발자로 직종 전환을 선택하였습니다.<br />
-18 아직 누군가에게 짐이될수도 있겠지만 언젠가는 개발자와 세상 모두에게 도움을<br />
-19 줄수있는 개발자가 되고싶습니다.`;
+18 아직 누군가에게 짐이 될 수도 있겠지만 언젠가는 개발자와 세상 모두에게 도움을<br />
+19 줄 수 있는 개발자가 되고 싶습니다.`;
 
-    const titleSpeed = 90, profileSpeed = 18, introductionSpeed = 0;
-    let ti = 0, pi = 0, ii = 0;
+        const titleSpeed=90, profileSpeed=18, introductionSpeed=0;
+        let ti=0, pi=0, ii=0;
 
-    function typingTitle(){
-        if(ti <= titleText.length){
-            $('#id_haryun_title').text(titleText.slice(0, ti++));
-            setTimeout(typingTitle, titleSpeed);
-        }else{
-            typingProfile();
+        function typingTitle(){
+            if(ti<=titleText.length){
+                $('#id_haryun_title').text(titleText.slice(0, ti++));
+                setTimeout(typingTitle, titleSpeed);
+            }else typingProfile();
         }
-    }
-    function typingProfile(){
-        if(pi === 0) $('.class_haryun_text').html('');
-        if(pi <= profileText.length){
-            $('.class_haryun_text').html(profileText.slice(0, pi++));
-            setTimeout(typingProfile, profileSpeed);
-        }else{
-            typingIntroduction();
+        function typingProfile(){
+            if(pi===0) $('.class_haryun_text').html('');
+            if(pi<=profileText.length){
+                $('.class_haryun_text').html(profileText.slice(0, pi++));
+                setTimeout(typingProfile, profileSpeed);
+            }else typingIntroduction();
         }
-    }
-    function typingIntroduction(){
-        if(ii === 0) $('.haryun_title_2').html('');
-        if(ii <= Selfintroduction.length){
-            $('.haryun_title_2').html(Selfintroduction.slice(0, ii++));
-            setTimeout(typingIntroduction, introductionSpeed);
+        function typingIntroduction(){
+            if(ii===0) $('.haryun_title_2').html('');
+            if(ii<=Selfintroduction.length){
+                $('.haryun_title_2').html(Selfintroduction.slice(0, ii++));
+                setTimeout(typingIntroduction, introductionSpeed);
+            }
         }
-    }
-    document.addEventListener('DOMContentLoaded', () => {
-        if (typeof typingTitle === 'function') typingTitle();
-    // ===== 도크 확대 효과 =====
+        typingTitle();
+
+        /* ---------------- 도크 확대 ---------------- */
         const dock = document.getElementById('dock');
         if(dock){
-        const items = Array.from(dock.querySelectorAll('.dock-item'));
-        const MAX_SCALE = 1.8, INFLUENCE = 120, LIFT_PX = 40;
-
-        function updateScale(clientX){
-            const rect = dock.getBoundingClientRect();
-            const x = clientX - rect.left;
-            items.forEach(el=>{
-                const r = el.getBoundingClientRect();
-                const centerX = (r.left + r.right)/2 - rect.left;
-                const dist = Math.abs(x - centerX);
-                let scale = MAX_SCALE - (dist/INFLUENCE);
-                scale = Math.max(1, Math.min(MAX_SCALE, scale));
-                const lift = (scale - 1) / (MAX_SCALE - 1) * LIFT_PX;
-                el.style.transform = `translateY(${-lift}px) scale(${scale})`;
-            });
+            const items = [...dock.querySelectorAll('.dock-item')];
+            const MAX=1.5, INF=120, LIFT=15;
+            function updateScale(x){
+                const rect = dock.getBoundingClientRect();
+                const localX = x - rect.left;
+                items.forEach(el=>{
+                    const r = el.getBoundingClientRect();
+                    const center=((r.left+r.right)/2)-rect.left;
+                    const dist=Math.abs(localX-center);
+                    let scale = Math.max(1, Math.min(MAX, MAX-(dist/INF)));
+                    const lift  = (scale-1)/(MAX-1)*LIFT;
+                    el.style.transform = `translateY(${-lift}px) scale(${scale})`;
+                });
+            }
+            dock.addEventListener('mousemove', e=>updateScale(e.clientX));
+            dock.addEventListener('mouseleave', ()=>items.forEach(el=>el.style.transform='translateY(0) scale(1)'));
         }
-        dock.addEventListener('mousemove', e => updateScale(e.clientX));
-        dock.addEventListener('mouseleave', () => items.forEach(el=> el.style.transform = 'translateY(0) scale(1)'));
-    }
 
-        // === 썸네일 클릭 → 메인 미리보기로 띄우기 ===
-            const mainImg = document.getElementById("mainPhoto");
-            const mainVid = document.getElementById("mainVideo");
+        /* ---------------- 갤러리 미리보기 ---------------- */
+        const mainImg=document.getElementById('mainPhoto');
+        const mainVid=document.getElementById('mainVideo');
+        document.querySelectorAll('.gallery-thumb').forEach(thumb=>{
+            thumb.addEventListener('click', ()=>{
+                // 초기화
+                mainImg.classList.add('d-none'); mainImg.removeAttribute('src');
+                mainVid.pause?.(); mainVid.currentTime=0; mainVid.classList.add('d-none'); mainVid.removeAttribute('src');
 
-            document.querySelectorAll(".gallery-thumb").forEach((thumb) => {
-                thumb.addEventListener("click", () => {
-                    // 초기화
-                    if (mainImg) { mainImg.classList.add("d-none"); mainImg.removeAttribute("src"); }
-                    if (mainVid) { mainVid.pause?.(); mainVid.currentTime = 0; mainVid.classList.add("d-none");
-                        mainVid.removeAttribute("src"); }
-
-                    if (thumb.tagName === "IMG" && mainImg) {
-                        mainImg.src = thumb.src;
-                        mainImg.classList.remove("d-none");
-                    } else if (thumb.tagName === "VIDEO" && mainVid) {
-                        const source = thumb.querySelector("source");
-                        if (source) {
-                            mainVid.src = source.src;
-                            mainVid.classList.remove("d-none");
-                            mainVid.play?.();
-                    }
+                if(thumb.tagName==='IMG'){
+                    mainImg.src=thumb.src; mainImg.classList.remove('d-none');
+                }else if(thumb.tagName==='VIDEO'){
+                    const src=thumb.querySelector('source')?.src;
+                    if(src){ mainVid.src=src; mainVid.classList.remove('d-none'); mainVid.play?.(); }
                 }
             });
-            });
-            // 모달 닫힐 때 초기화
-            const modalEl = document.getElementById("photoModal");
-            if (modalEl){
-                modalEl.addEventListener("hidden.bs.modal", () => {
-                    if (mainImg) { mainImg.classList.add("d-none"); mainImg.removeAttribute("src"); }
-                    if (mainVid) { mainVid.pause?.(); mainVid.currentTime = 0; mainVid.classList.add("d-none");mainVid.removeAttribute("src"); }
-                });
-        }
-    });
+        });
+        document.getElementById('photoModal')?.addEventListener('hidden.bs.modal', ()=>{
+            mainImg.classList.add('d-none'); mainImg.removeAttribute('src');
+            mainVid.pause?.(); mainVid.currentTime=0; mainVid.classList.add('d-none'); mainVid.removeAttribute('src');
+        });
 
+        /* ---------------- 댓글 textarea 자동 높이 ---------------- */
+        (function autoGrowTextarea(){
+            const ta = document.getElementById('gbText');
+            if (!ta) return;
+
+            const root = getComputedStyle(document.documentElement);
+            const BASE = parseFloat(root.getPropertyValue('--gb-h')) || 44;  // CSS 변수 사용
+            const MAX  = 200;
+
+            function grow(){
+                ta.style.height = BASE + 'px';
+                ta.style.height = Math.min(ta.scrollHeight, MAX) + 'px';
+            }
+            ['input','change'].forEach(ev => ta.addEventListener(ev, grow));
+            grow();
+        })();
+    });
 </script>
 
-<!-- Firebase (모듈) : Firestore 댓글 -->
+<!-- Firebase (모듈) : 방명록 작성/조회/수정/삭제 -->
 <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-    import { getFirestore, collection, addDoc, serverTimestamp, query, orderBy, onSnapshot } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+    import { getAuth, signInAnonymously, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+    import { getFirestore, collection, addDoc, serverTimestamp, query, orderBy, onSnapshot, doc, updateDoc, deleteDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
-    const firebaseConfig = {
-        apiKey: "AIzaSyDeTN6nt6LiVTEY0l8K2HurlV9N6kPkelU",
-        authDomain: "haryun-6fd5c.firebaseapp.com",
-        projectId: "haryun-6fd5c",
-        storageBucket: "haryun-6fd5c.firebasestorage.app",
-        messagingSenderId: "765346047659",
-        appId: "1:765346047659:web:68772657c5e937f66839ee",
-        measurementId: "G-PJZXS8KKYD"
+    const firebaseConfig={
+        apiKey:"AIzaSyDeTN6nt6LiVTEY0l8K2HurlV9N6kPkelU",
+        authDomain:"haryun-6fd5c.firebaseapp.com",
+        projectId:"haryun-6fd5c",
+        storageBucket:"haryun-6fd5c.firebasestorage.app",
+        messagingSenderId:"765346047659",
+        appId:"1:765346047659:web:68772657c5e937f66839ee",
+        measurementId:"G-PJZXS8KKYD"
     };
 
-    const app = initializeApp(firebaseConfig);
-    const db  = getFirestore(app);
+    const app=initializeApp(firebaseConfig);
+    const db =getFirestore(app);
+    const auth=getAuth(app);
 
-    const $form = document.getElementById('guestForm');
-    const $name = document.getElementById('gbName');
-    const $text = document.getElementById('gbText');
-    const $submit = document.getElementById('gbSubmit');
-    const $list = document.getElementById('gbList');
+    /* --- 익명 로그인 준비상태 보장 --- */
+    let currentUid=null, authResolve;
+    const authReady=new Promise(res=>authResolve=res);
+    signInAnonymously(auth).catch(console.error);
+    onAuthStateChanged(auth,user=>{
+        currentUid=user?.uid||null;
+        document.getElementById('gbSubmit').disabled=!currentUid;
+        authResolve();
+    });
+    const waitForAuth= async()=>{ if(!currentUid) await authReady; };
 
-    // 작성
-    $form.addEventListener('submit', async (e)=>{
+    /* --- DOM --- */
+    const $form=document.getElementById('guestForm');
+    const $name=document.getElementById('gbName');
+    const $text=document.getElementById('gbText');
+    const $submit=document.getElementById('gbSubmit');
+    const $list=document.getElementById('gbList');
+    $submit.disabled=true; // 초기엔 잠금
+
+    /* --- 작성 --- */
+    $form.addEventListener('submit', async(e)=>{
         e.preventDefault();
-        if(!$name.value.trim() || !$text.value.trim()) return;
-        $submit.disabled = true;
+        if(!$name.value.trim()||!$text.value.trim()) return;
+
+        if(!currentUid){
+            $submit.disabled=true;
+            $submit.textContent='로그인 준비 중...';
+            await waitForAuth();
+            $submit.textContent='댓글달기';
+            if(!currentUid){ alert('인증 중입니다. 잠시 후 다시 시도해주세요.'); return; }
+        }
+
+        $submit.disabled=true;
         try{
             await addDoc(collection(db,'guestbook'),{
                 name:$name.value.trim(),
                 text:$text.value.trim(),
-                createdAt:serverTimestamp()
+                createdAt:serverTimestamp(),
+                uid:currentUid
             });
-            $text.value = '';
+            $text.value='';
+            $text.style.height='44px'; // 자동높이 초기화
         }catch(err){
             console.error(err);
             alert('등록 중 오류가 발생했습니다.');
         }finally{
-            $submit.disabled = false;
+            $submit.disabled=false;
         }
     });
 
-    // 실시간 목록
-    const q = query(collection(db,'guestbook'), orderBy('createdAt','desc'));
-    onSnapshot(q, (snap)=>{
-        $list.innerHTML = '';
+    /* --- 실시간 목록 --- */
+    const q=query(collection(db,'guestbook'), orderBy('createdAt','desc'));
+    onSnapshot(q,(snap)=>{
+        $list.innerHTML='';
         snap.forEach(docSnap=>{
-            const d = docSnap.data();
-            const li = document.createElement('li');
-            li.className = 'list-group-item d-flex justify-content-between align-items-start';
-            li.innerHTML = `
-          <div class="me-2">
-            <div><strong>${escapeHtml(d.name || '익명')}</strong></div>
-            <div class="msg">${escapeHtml(d.text || '')}</div>
-            <div class="meta">${formatDate(d.createdAt)}</div>
+            const d=docSnap.data(); const id=docSnap.id;
+            const mine=currentUid && d.uid===currentUid;
+
+            const li=document.createElement('li');
+            li.className='list-group-item';
+            li.dataset.id=id;
+            li.innerHTML=`
+          <div class="d-flex justify-content-between align-items-start gap-3">
+            <div class="flex-grow-1">
+              <div><strong>${escapeHtml(d.name||'익명')}</strong></div>
+              <div class="msg" data-role="text">${escapeHtml(d.text||'')}</div>
+              <div class="meta">${formatDate(d.createdAt)}</div>
+            </div>
+            <div class="d-flex gap-2">
+              ${mine?`
+                <button class="btn btn-sm btn-outline-light" data-act="edit">수정</button>
+                <button class="btn btn-sm btn-outline-danger" data-act="del">삭제</button>
+              `:''}
+            </div>
           </div>`;
             $list.appendChild(li);
         });
     });
 
-    // utils
-    function escapeHtml(str){
-        return (str || '').replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
-    }
+    /* --- 수정/삭제 --- */
+    $list.addEventListener('click', async(e)=>{
+        const btn=e.target.closest('button'); if(!btn) return;
+        const li=btn.closest('li.list-group-item'); const id=li?.dataset?.id; const act=btn?.dataset?.act;
+        if(!id||!act) return;
+
+        if(act==='del'){
+            if(!confirm('댓글을 삭제할까요?')) return;
+            try{ await deleteDoc(doc(db,'guestbook',id)); }
+            catch(err){ console.error(err); alert('삭제 권한이 없거나 오류가 발생했습니다.'); }
+            return;
+        }
+
+        if(act==='edit'){
+            const textDiv=li.querySelector('[data-role="text"]');
+            const original=textDiv.textContent;
+            li.classList.add('editing');
+            textDiv.innerHTML=`
+          <input class="form-control form-control-sm mb-2" data-role="editor" value="${escapeAttr(original)}" />
+          <div class="d-flex gap-2">
+            <button class="btn btn-sm btn-primary" data-act="save">저장</button>
+            <button class="btn btn-sm btn-secondary" data-act="cancel">취소</button>
+          </div>`;
+            return;
+        }
+
+        if(act==='cancel'){ location.reload(); return; } /* 간단 리프레시 */
+
+        if(act==='save'){
+            const editor=li.querySelector('[data-role="editor"]');
+            const newText=editor?.value?.trim();
+            if(!newText) return alert('내용을 입력해주세요.');
+            try{ await updateDoc(doc(db,'guestbook',id),{ text:newText }); }
+            catch(err){ console.error(err); alert('수정 권한이 없거나 오류가 발생했습니다.'); }
+        }
+    });
+
+    /* --- 유틸 --- */
+    function escapeHtml(str){ return (str||'').replace(/[&<>"']/g, m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m])); }
+    function escapeAttr(str){ return (str||'').replace(/"/g,'&quot;'); }
     function formatDate(ts){
         if(!ts?.toDate) return '';
-        const d = ts.toDate();
-        const pad = n => n.toString().padStart(2,'0');
+        const d=ts.toDate(); const pad=n=>String(n).padStart(2,'0');
         return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())} ${pad(d.getHours())}:${pad(d.getMinutes())}`;
     }
 </script>
