@@ -14,80 +14,29 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Gowun+Dodum&display=swap');
 
-        * {
-            font-family: 'Gowun Dodum', sans-serif;
-        }
+        * { font-family: 'Gowun Dodum', sans-serif; }
+        body { margin: 0; padding: 100px; background-color: rgb(231, 243, 252); color: black; }
+        .container { width: 80%; max-width: 1000px; background-color: white; padding: 40px; border-radius: 12px; text-align: center; }
+        img { width: 50%; height: auto; }
+        #profile { font-size: 3rem; }
+        #name { font-size: 2rem; }
+        table { width: 80%; border-collapse: collapse; margin: auto; margin-top: 20px; }
+        th, td { border: 1px solid #ccc; padding: 12px 20px; text-align: left; vertical-align: middle; font-size: 1.5rem; word-break: break-word; }
+        th { background-color: #f2f2f2; font-weight: bold; }
+        .post { margin-top: 20px; }
+        .post h4 { text-align: center; margin-top: 10rem; margin-bottom: 10px; }
+        .btn_area { text-align: right; }
+        #add_btn { background-color: #00235a; color: #fff; padding: 1rem; border-radius: 12px; }
+        #guestbook { display: none; margin-top: 16px; }
+        .gb_form { margin-bottom: 10rem; display: grid; grid-template-columns: 1fr 170px; grid-auto-rows: auto; gap: 12px; align-items: start; text-align: left; }
+        #gb_comment { grid-column: 1 / 2; min-height: 84px; width: 100%; padding: 12px 14px; border: 1px solid #cbd5e1; border-radius: 10px; background: #f8fafc; outline: none; }
+        #gb_pwd { grid-column: 2 / 3; width: 100%; height: 48px; padding: 12px 14px; border: 1px solid #cbd5e1; border-radius: 10px; background: #f8fafc; outline: none; letter-spacing: 0.2rem; text-align: center; }
+        #save_btn { grid-column: -1; padding: 12px 18px; border: 0; border-radius: 12px; background: #00235a; color: #fff; cursor: pointer; }
+        #comment_list .comment_item { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; }
+        #comment_list .comment_item>p { font-size: 1.5rem; text-align: left; flex: 1 1 auto; }
+        #comment_list .comment_item>div { display: flex; gap: 8px; margin-left: 12px; flex-shrink: 0; }
+        #comment_list .comment_item>hr { flex: 0 0 100%; margin: 8px 0; }
 
-        body {
-            margin: 0;
-            padding: 100px;
-            background-color: rgb(231, 243, 252);
-            color: black;
-        }
-
-        .container {
-            width: 80%;
-            max-width: 1000px;
-            background-color: white;
-            padding: 40px;
-            border-radius: 12px;
-            text-align: center;
-        }
-
-        img {
-            width: 50%;
-            height: auto;
-        }
-
-        #profile {
-            font-size: 3rem;
-        }
-
-        #name {
-            font-size: 2rem;
-        }
-
-        table {
-            width: 80%;
-            border-collapse: collapse;
-            margin: auto;
-            margin-top: 20px;
-        }
-
-        th,
-        td {
-            border: 1px solid #ccc;
-            padding: 12px 20px;
-            text-align: left;
-            vertical-align: middle;
-            font-size: 1.5rem;
-            word-break: break-word;
-        }
-
-        th {
-            background-color: #f2f2f2;
-            font-weight: bold;
-        }
-
-        .post {
-            margin-top: 20px;
-        }
-
-        .post h4 {
-            text-align: center;
-            margin-bottom: 10px;
-        }
-
-        .btn_area {
-            text-align: right;
-        }
-
-        #add_btn {
-            background-color: #00235a;
-            color: #fff;
-            padding: 1rem;
-            border-radius: 10%;
-        }
     </style>
 </head>
 
@@ -109,6 +58,10 @@
         <div>
             <table>
                 <tbody>
+                    <tr>
+                        <th scope="row">각오 한 마디</th>
+                        <td>적당히 살지 말자</td>
+                    </tr>
                     <tr>
                         <th scope="row">MBTI</th>
                         <td>INTP / 내향형 90%</td>
@@ -139,18 +92,13 @@
         </div>
 
         <div id="guestbook">
-            <div class="gb_row">
-                <label for="gb_comment">방명록 내용</label>
-                <input id="gb_comment" rows="4" placeholder="댓글을 입력해주세요" />
-            </div>
-            <div class="gb_row">
-                <label for="gb_pwd">비밀번호</label>
-                <input maxlength=4 type="password" id="gb_pwd" placeholder="숫자 4자리 입력" />
-            </div>
-            <div>
+            <div class="gb_form">
+                <textarea id="gb_comment" rows="4" placeholder="댓글을 입력해주세요"></textarea>
+                <input maxlength="4" type="password" id="gb_pwd" placeholder="비밀번호 4자리" />
                 <button type="button" id="save_btn">등록</button>
             </div>
         </div>
+
 
         <div id="comment_list">
 
@@ -172,7 +120,11 @@
         serverTimestamp,
         getDocs,
         query,
-        orderBy
+        orderBy,
+        doc,
+        getDoc,
+        updateDoc,
+        deleteDoc
     } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 
     // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -189,6 +141,23 @@
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
 
+    $('#guestbook').hide();
+
+    $('#add_btn').on('click', function () {
+        const $gb = $('#guestbook');
+        const open = !$gb.is(':visible');
+
+        if (open) {
+            $gb.slideDown(180, () => $('#gb_comment').trigger('focus'));
+            $(this).text('닫기');
+        } else {
+            $gb.slideUp(180);
+            $(this).text('작성하기');
+        }
+    });
+
+
+    //등록
     $("#save_btn").click(async function () {
         try {
             let comment = $('#gb_comment').val();
@@ -216,21 +185,74 @@
     });
 
     async function load_comments() {
-        const querySnapshot = await getDocs(query(collection(db, "comments"), orderBy("created_at", "desc")));
+        const q = query(collection(db, "comments"), orderBy("created_at", "desc"));
+        const querySnapshot = await getDocs(q);
 
         $("#comment_list").empty();
 
-        querySnapshot.forEach((doc) => {
-            const data = doc.data();
+        querySnapshot.forEach((docSnap) => {
+            const data = docSnap.data();
+            const id = docSnap.id;
             const comment = data.comment ?? "(내용 없음)";
 
-            const temp_html = `<p>${comment}</p>`;
-
+            const temp_html = `
+      <div class="comment_item" data-id="${id}">
+        <p style="margin-bottom:6px;">${comment}</p>
+        <div style="margin-top:8px;">
+          <button class="edit-btn">수정</button>
+          <button class="delete-btn">삭제</button>
+        </div>
+        <hr/>
+      </div>
+    `;
             $("#comment_list").append(temp_html);
         });
     }
 
+
     load_comments();
+
+    // 삭제
+    $(document).on('click', '.delete-btn', async function () {
+        const $item = $(this).closest('.comment_item');
+        const id = $item.data('id');
+
+        const input_pwd = prompt('삭제 비밀번호(4자리)를 입력하세요:');
+        if (input_pwd == null || input_pwd === '') return;
+
+        const snap = await getDoc(doc(db, "comments", id));
+        if (!snap.exists()) return alert('문서를 찾을 수 없습니다.');
+
+        const saved_pwd = snap.data().pwd;
+        if (saved_pwd !== input_pwd) return alert('비밀번호가 일치하지 않습니다.');
+
+        await deleteDoc(doc(db, "comments", id));
+        alert('삭제 완료');
+        load_comments();
+    });
+
+    // 수정
+    $(document).on('click', '.edit-btn', async function () {
+        const $item = $(this).closest('.comment_item');
+        const id = $item.data('id');
+
+        const input_pwd = prompt('수정 비밀번호(4자리)를 입력하세요:');
+        if (input_pwd == null || input_pwd === '') return;
+
+        const snap = await getDoc(doc(db, "comments", id));
+        if (!snap.exists()) return alert('문서를 찾을 수 없습니다.');
+
+        const data = snap.data();
+        if (data.pwd !== input_pwd) return alert('비밀번호가 일치하지 않습니다.');
+
+        const new_comment = prompt('새로운 내용을 입력하세요:', data.comment ?? '');
+        if (new_comment == null) return;
+
+        await updateDoc(doc(db, "comments", id), { comment: new_comment });
+        alert('수정 완료');
+        load_comments();
+    });
+
 
 
 
