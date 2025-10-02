@@ -4,21 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f08c309-aaf3-4217-a90a-8e8762a9b50b" name="변경" comment="메인 수정 202510021507">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/kim_gyu_lim/activity_img (1).jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/kim_gyu_lim/activity_img (2).jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/kim_gyu_lim/activity_img (3).jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/kim_gyu_lim/activity_img (4).jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/kim_gyu_lim/activity_img (5).jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/kim_gyu_lim/activity_img (6).jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/kim_gyu_lim/activity_img (7).jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/kim_gyu_lim/profile_img (1).jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/team_folder/kim_gyu_lim.html" beforeDir="false" afterPath="$PROJECT_DIR$/team_folder/kim_gyu_lim.html" afterDir="false" />
-    </list>
+    <list default="true" id="6f08c309-aaf3-4217-a90a-8e8762a9b50b" name="변경" comment="Merge branch 'main' of https://github.com/kingyulim/3jo_web&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -27,18 +13,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "history": [
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;history&quot;: [
     {
-      "state": "OPEN",
-      "assignee": "jyop1212hy"
+      &quot;state&quot;: &quot;OPEN&quot;,
+      &quot;assignee&quot;: &quot;jyop1212hy&quot;
     }
   ],
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "jyop1212hy"
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;jyop1212hy&quot;
   }
-}]]></component>
+}</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/kingyulim/3jo_web.git&quot;,
@@ -53,17 +39,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Admini/OneDrive/바탕 화면/3jo&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.web.browsers&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Admini/OneDrive/바탕 화면/3jo",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "reference.settings.ide.settings.web.browsers"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Admini\OneDrive\바탕 화면\3jo\img\kim_gyu_lim" />

@@ -1,0 +1,412 @@
+Index: team_folder/jeoung_ha_ryun.html
+===================================================================
+diff --git a/team_folder/jeoung_ha_ryun.html b/team_folder/jeoung_ha_ryun.html
+deleted file mode 100644
+--- a/team_folder/jeoung_ha_ryun.html	(revision 766e76c0cf93c35d5e34411dfea36128814adced)
++++ /dev/null	(revision 766e76c0cf93c35d5e34411dfea36128814adced)
+@@ -1,18 +0,0 @@
+-<!DOCTYPE html>
+-<html lang="en">
+-<head>
+-    <meta charset="UTF-8">
+-    <title>Title</title>
+-</head>
+-<style>
+-    @import url('https://fonts.googleapis.com/css2?family=Dokdo&display=swap');
+-    .ha_ryun_title {font-family: "Dokdo", system-ui;}
+-</style>
+-<body>
+-<div class="ha_ryun">
+-    <h1 class="ha_ryun_title">안녕하세요 비전공자 정하륜 입니다.</h1>
+-    <p class="ha_ryun_text">저는 실용음악 정공자였습니다. 엔터테인먼트에서 매니저로써 오랫동안 근무했었으며 저는 팀워크가 얼마나 중요한지 뼈저리게 잘 알고 있는 사람입니다.
+-        제가 비전공자라 비록 지금은 누군가에게 짐이될수도 있겠지만 언젠가는 모두에게 도움을 줄수있는 개발자가 되고싶습니다.</p>
+-</div>
+-</body>
+-</html>
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"a69f012b-a01e-4c96-9495-37d5e89d5dfb\" name=\"변경\" comment=\"\" />\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"ProjectColorInfo\"><![CDATA[{\n  \"associatedIndex\": 5\n}]]></component>\n  <component name=\"ProjectId\" id=\"33MYdew2GBci7Z9mV9YEABglsZV\" />\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\"><![CDATA[{\n  \"keyToString\": {\n    \"ModuleVcsDetector.initialDetectionPerformed\": \"true\",\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\n    \"kotlin-language-version-configured\": \"true\",\n    \"vue.rearranger.settings.migration\": \"true\"\n  }\n}]]></component>\n  <component name=\"SharedIndexes\">\n    <attachedChunks>\n      <set>\n        <option value=\"bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.26199.169\" />\n      </set>\n    </attachedChunks>\n  </component>\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"디폴트 작업\">\n      <changelist id=\"a69f012b-a01e-4c96-9495-37d5e89d5dfb\" name=\"변경\" comment=\"\" />\n      <created>1759128497516</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1759128497516</updated>\n      <workItem from=\"1759128506585\" duration=\"50000\" />\n    </task>\n    <servers />\n  </component>\n  <component name=\"TypeScriptGeneratedFilesManager\">\n    <option name=\"version\" value=\"3\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 766e76c0cf93c35d5e34411dfea36128814adced)
++++ b/.idea/workspace.xml	(date 1759297189165)
+@@ -1,32 +1,99 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
++  <component name="AutoImportSettings">
++    <option name="autoReloadType" value="SELECTIVE" />
++  </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="a69f012b-a01e-4c96-9495-37d5e89d5dfb" name="변경" comment="" />
++    <list default="true" id="a69f012b-a01e-4c96-9495-37d5e89d5dfb" name="변경" comment="1. 텍스트 내용 완료&#10;2. 폰트.제목 애니메이션 완료&#10;3. 사진 위치 완료&#10;44444">
++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/team_folder/jeoung_ha_ryun.html" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/team_folder/test.html" beforeDir="false" afterPath="$PROJECT_DIR$/team_folder/test.html" afterDir="false" />
++    </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+     <option name="LAST_RESOLUTION" value="IGNORE" />
+   </component>
+-  <component name="ProjectColorInfo"><![CDATA[{
+-  "associatedIndex": 5
+-}]]></component>
++  <component name="FileTemplateManagerImpl">
++    <option name="RECENT_TEMPLATES">
++      <list>
++        <option value="HTML File" />
++      </list>
++    </option>
++  </component>
++  <component name="Git.Settings">
++    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
++  </component>
++  <component name="GitHubPullRequestSearchHistory">{
++  &quot;history&quot;: [
++    {
++      &quot;state&quot;: &quot;OPEN&quot;,
++      &quot;assignee&quot;: &quot;kingyulim&quot;
++    }
++  ],
++  &quot;lastFilter&quot;: {
++    &quot;state&quot;: &quot;OPEN&quot;,
++    &quot;assignee&quot;: &quot;kingyulim&quot;
++  }
++}</component>
++  <component name="GithubPullRequestsUISettings">{
++  &quot;selectedUrlAndAccountId&quot;: {
++    &quot;url&quot;: &quot;https://github.com/kingyulim/3jo_web.git&quot;,
++    &quot;accountId&quot;: &quot;80a55235-c7e2-4017-aefc-ce99b4586d87&quot;
++  }
++}</component>
++  <component name="ProblemsViewState">
++    <option name="selectedTabId" value="CurrentFile" />
++  </component>
++  <component name="ProjectColorInfo">{
++  &quot;associatedIndex&quot;: 5
++}</component>
+   <component name="ProjectId" id="33MYdew2GBci7Z9mV9YEABglsZV" />
+   <component name="ProjectViewState">
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent"><![CDATA[{
+-  "keyToString": {
+-    "ModuleVcsDetector.initialDetectionPerformed": "true",
+-    "RunOnceActivity.ShowReadmeOnStart": "true",
+-    "kotlin-language-version-configured": "true",
+-    "vue.rearranger.settings.migration": "true"
+-  }
+-}]]></component>
++  <component name="PropertiesComponent">{
++  &quot;keyToString&quot;: {
++    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
++    &quot;JavaScript 디버그.jeoung_ha_ryun.html.executor&quot;: &quot;Run&quot;,
++    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
++    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
++    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
++    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
++    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
++    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
++    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
++    &quot;last_opened_file_path&quot;: &quot;/Users/mac/Library/Mobile Documents/com~apple~CloudDocs/01. jeung ha ryun/05. 백앤드 개발자/01. 스파르타 코딩클럽/본캠프/3jo_web/team_folder&quot;,
++    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
++    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
++    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
++    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
++    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
++    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
++    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
++  }
++}</component>
++  <component name="RecentsManager">
++    <key name="CopyFile.RECENT_KEYS">
++      <recent name="$PROJECT_DIR$/team_folder" />
++    </key>
++  </component>
++  <component name="RunManager">
++    <configuration name="jeoung_ha_ryun_ver1.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/3jo_web/3jo/team_folder/jeoung_ha_ryun_ver1.html" useBuiltInWebServerPort="true">
++      <method v="2" />
++    </configuration>
++    <recent_temporary>
++      <list>
++        <item itemvalue="JavaScript 디버그.jeoung_ha_ryun_ver1.html" />
++      </list>
++    </recent_temporary>
++  </component>
+   <component name="SharedIndexes">
+     <attachedChunks>
+       <set>
+-        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.26199.169" />
++        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.25557.131" />
++        <option value="bundled-js-predefined-d6986cc7102b-b598e85cdad2-JavaScript-IU-252.25557.131" />
+       </set>
+     </attachedChunks>
+   </component>
+@@ -38,10 +105,167 @@
+       <option name="presentableId" value="Default" />
+       <updated>1759128497516</updated>
+       <workItem from="1759128506585" duration="50000" />
++      <workItem from="1759143752197" duration="13949000" />
++      <workItem from="1759225714554" duration="1294000" />
++      <workItem from="1759227318486" duration="13494000" />
++      <workItem from="1759277917300" duration="16007000" />
++    </task>
++    <task id="LOCAL-00001" summary="테스트에용">
++      <option name="closed" value="true" />
++      <created>1759143847120</created>
++      <option name="number" value="00001" />
++      <option name="presentableId" value="LOCAL-00001" />
++      <option name="project" value="LOCAL" />
++      <updated>1759143847120</updated>
++    </task>
++    <task id="LOCAL-00002" summary="ver1 과 ver2 고민중">
++      <option name="closed" value="true" />
++      <created>1759158603221</created>
++      <option name="number" value="00002" />
++      <option name="presentableId" value="LOCAL-00002" />
++      <option name="project" value="LOCAL" />
++      <updated>1759158603221</updated>
++    </task>
++    <task id="LOCAL-00003" summary="ver1 과 ver2 고민중">
++      <option name="closed" value="true" />
++      <created>1759158644123</created>
++      <option name="number" value="00003" />
++      <option name="presentableId" value="LOCAL-00003" />
++      <option name="project" value="LOCAL" />
++      <updated>1759158644123</updated>
++    </task>
++    <task id="LOCAL-00004" summary="삭제">
++      <option name="closed" value="true" />
++      <created>1759227645395</created>
++      <option name="number" value="00004" />
++      <option name="presentableId" value="LOCAL-00004" />
++      <option name="project" value="LOCAL" />
++      <updated>1759227645395</updated>
+     </task>
++    <task id="LOCAL-00005" summary=" 250930-한글자씩 나오게 하는건 할수 있어요">
++      <option name="closed" value="true" />
++      <created>1759243751465</created>
++      <option name="number" value="00005" />
++      <option name="presentableId" value="LOCAL-00005" />
++      <option name="project" value="LOCAL" />
++      <updated>1759243751465</updated>
++    </task>
++    <task id="LOCAL-00006" summary=" 250930-한글자씩 나오게 하는건 할수 있어요">
++      <option name="closed" value="true" />
++      <created>1759277383041</created>
++      <option name="number" value="00006" />
++      <option name="presentableId" value="LOCAL-00006" />
++      <option name="project" value="LOCAL" />
++      <updated>1759277383041</updated>
++    </task>
++    <task id="LOCAL-00007" summary=" 250930-한글자씩 나오게 하는건 할수 있어요">
++      <option name="closed" value="true" />
++      <created>1759278391358</created>
++      <option name="number" value="00007" />
++      <option name="presentableId" value="LOCAL-00007" />
++      <option name="project" value="LOCAL" />
++      <updated>1759278391358</updated>
++    </task>
++    <task id="LOCAL-00008" summary=" 250930-한글자씩 나오게 하는건 할수 있어요">
++      <option name="closed" value="true" />
++      <created>1759278991054</created>
++      <option name="number" value="00008" />
++      <option name="presentableId" value="LOCAL-00008" />
++      <option name="project" value="LOCAL" />
++      <updated>1759278991054</updated>
++    </task>
++    <task id="LOCAL-00009" summary="1. 텍스트 내용 완료&#10;2. 폰트.제목 애니메이션 완료&#10;3. 사진 위치 완료">
++      <option name="closed" value="true" />
++      <created>1759288502981</created>
++      <option name="number" value="00009" />
++      <option name="presentableId" value="LOCAL-00009" />
++      <option name="project" value="LOCAL" />
++      <updated>1759288502981</updated>
++    </task>
++    <task id="LOCAL-00010" summary="1. 텍스트 내용 완료&#10;2. 폰트.제목 애니메이션 완료&#10;3. 사진 위치 완료">
++      <option name="closed" value="true" />
++      <created>1759291155681</created>
++      <option name="number" value="00010" />
++      <option name="presentableId" value="LOCAL-00010" />
++      <option name="project" value="LOCAL" />
++      <updated>1759291155681</updated>
++    </task>
++    <task id="LOCAL-00011" summary="1. 텍스트 내용 완료&#10;2. 폰트.제목 애니메이션 완료&#10;3. 사진 위치 완료">
++      <option name="closed" value="true" />
++      <created>1759291334818</created>
++      <option name="number" value="00011" />
++      <option name="presentableId" value="LOCAL-00011" />
++      <option name="project" value="LOCAL" />
++      <updated>1759291334818</updated>
++    </task>
++    <task id="LOCAL-00012" summary="1. 텍스트 내용 완료&#10;2. 폰트.제목 애니메이션 완료&#10;3. 사진 위치 완료&#10;44444">
++      <option name="closed" value="true" />
++      <created>1759295204631</created>
++      <option name="number" value="00012" />
++      <option name="presentableId" value="LOCAL-00012" />
++      <option name="project" value="LOCAL" />
++      <updated>1759295204631</updated>
++    </task>
++    <task id="LOCAL-00013" summary="1. 텍스트 내용 완료&#10;2. 폰트.제목 애니메이션 완료&#10;3. 사진 위치 완료&#10;44444">
++      <option name="closed" value="true" />
++      <created>1759295672409</created>
++      <option name="number" value="00013" />
++      <option name="presentableId" value="LOCAL-00013" />
++      <option name="project" value="LOCAL" />
++      <updated>1759295672409</updated>
++    </task>
++    <task id="LOCAL-00014" summary="1. 텍스트 내용 완료&#10;2. 폰트.제목 애니메이션 완료&#10;3. 사진 위치 완료&#10;44444">
++      <option name="closed" value="true" />
++      <created>1759296086887</created>
++      <option name="number" value="00014" />
++      <option name="presentableId" value="LOCAL-00014" />
++      <option name="project" value="LOCAL" />
++      <updated>1759296086887</updated>
++    </task>
++    <task id="LOCAL-00015" summary="1. 텍스트 내용 완료&#10;2. 폰트.제목 애니메이션 완료&#10;3. 사진 위치 완료&#10;44444">
++      <option name="closed" value="true" />
++      <created>1759296978802</created>
++      <option name="number" value="00015" />
++      <option name="presentableId" value="LOCAL-00015" />
++      <option name="project" value="LOCAL" />
++      <updated>1759296978802</updated>
++    </task>
++    <option name="localTasksCounter" value="16" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+     <option name="version" value="3" />
+   </component>
++  <component name="Vcs.Log.Tabs.Properties">
++    <option name="TAB_STATES">
++      <map>
++        <entry key="MAIN">
++          <value>
++            <State>
++              <option name="FILTERS">
++                <map>
++                  <entry key="branch">
++                    <value>
++                      <list>
++                        <option value="origin/main" />
++                      </list>
++                    </value>
++                  </entry>
++                </map>
++              </option>
++            </State>
++          </value>
++        </entry>
++      </map>
++    </option>
++  </component>
++  <component name="VcsManagerConfiguration">
++    <MESSAGE value="테스트에용" />
++    <MESSAGE value="ver1 과 ver2 고민중" />
++    <MESSAGE value="삭제" />
++    <MESSAGE value=" 250930-한글자씩 나오게 하는건 할수 있어요" />
++    <MESSAGE value="1. 텍스트 내용 완료&#10;2. 폰트.제목 애니메이션 완료&#10;3. 사진 위치 완료" />
++    <MESSAGE value="1. 텍스트 내용 완료&#10;2. 폰트.제목 애니메이션 완료&#10;3. 사진 위치 완료&#10;44444" />
++    <option name="LAST_COMMIT_MESSAGE" value="1. 텍스트 내용 완료&#10;2. 폰트.제목 애니메이션 완료&#10;3. 사진 위치 완료&#10;44444" />
++  </component>
+ </project>
+\ No newline at end of file
+Index: team_folder/test.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\n<html lang=\"ko\">\n    <head>\n        <meta charset=\"UTF-8\">\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n\n        <script src=\"../js/jquery-3.7.1.min.js\"></script>\n\n        <link href=\"../css/common.css\" rel=\"stylesheet\">\n        <link href=\"../css/style.css\" rel=\"stylesheet\">\n\n        <title>3조 : 보람삼조</title>\n    </head>\n\n    <body>\n        <div class=\"container\">\n            zzzzz\n        </div>\n    </body>\n\n    <script>\n\n    </script>\n<html>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/team_folder/test.html b/team_folder/test.html
+--- a/team_folder/test.html	(revision 766e76c0cf93c35d5e34411dfea36128814adced)
++++ b/team_folder/test.html	(date 1759297189166)
+@@ -1,24 +1,63 @@
+ <!DOCTYPE html>
+ <html lang="ko">
+-    <head>
+-        <meta charset="UTF-8">
+-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+-
+-        <script src="../js/jquery-3.7.1.min.js"></script>
+-
+-        <link href="../css/common.css" rel="stylesheet">
+-        <link href="../css/style.css" rel="stylesheet">
+-
+-        <title>3조 : 보람삼조</title>
+-    </head>
++<head>
++    <meta charset="UTF-8" />
++    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
++    <title>3조 : 보람삼조</title>
++
++    <!-- 폰트는 link로 한 번에 불러오는 게 깔끔 -->
++    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap" rel="stylesheet" />
++
++    <!-- (선택) 외부 CSS 유지 -->
++    <link href="../css/common.css" rel="stylesheet" />
++    <link href="../css/style.css" rel="stylesheet" />
++
++    <style>
++        .haryun {
++            background-color: lightgray;
++            width: 620px;
++            padding: 20px 10px 10px;
++            border-radius: 10px;
++            margin: 30px 50px 20px;
++            line-height: 1.5;
++        }
++        .class_haryun_title { font-family: "Do Hyeon", sans-serif; }
++        .class_haryun_text  { font-family: "Gowun Dodum", sans-serif; }
++    </style>
++</head>
+ 
+-    <body>
+-        <div class="container">
+-            zzzzz
+-        </div>
+-    </body>
++<body>
++<div class="haryun">
++    <h1 id="id_haryun_title" class="class_haryun_title"></h1>
++    <p class="class_haryun_text">
++        저는 실용음악 전공자 입니다.<br><br>
++        취미: 노래, 헬스 그리고 코딩~!<br>
++        좋아하는 음식: 곱창, 치킨 (모르는 아저씨가 곱창 사준다고 하면 따라갑니다.)<br>
++        MBTI: ENFP<br><br>
++        엔터테인먼트에서 매니저로써 오랫동안 근무했었습니다.<br>
++        항상 많은 사람들과 부딪히며 일하다보니 팀워크가 얼마나 중요한지 알게 되었고<br>
++        그 덕에 관리자까지 올라가게 되었지만 더 이상 저 자신을 위해 일하고 싶다는 마음에<br>
++        백엔드 개발자로 직종 전환을 하기로 선택하였습니다.<br>
++        지금은 누군가에게 짐이 될 수도 있겠지만 언젠가는 모두에게 도움을 줄 수 있는 개발자가 되고 싶습니다.
++    </p>
++</div>
+ 
+-    <script>
++<!-- jQuery는 바디 끝에서 불러오면 ready 없이도 안전하게 동작 -->
++<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
++<script>
++    // 타자기 2단계: 한 글자씩 찍기
++    let text  = "모두에게 도움이 되는 개발자이고 싶은 정하륜 입니다.";
++    let i     = 0;
++    let speed = 100;
+ 
+-    </script>
+-<html>
+\ No newline at end of file
++    function typing() {
++        if (i <= text.length) {
++            $('#id_haryun_title').text(text.slice(0, i));
++            i++;
++            setTimeout(typing, speed); // 0.1초 간격으로 다음 글자
++        }
++    }
++    typing();
++</script>
++</body>
++</html>

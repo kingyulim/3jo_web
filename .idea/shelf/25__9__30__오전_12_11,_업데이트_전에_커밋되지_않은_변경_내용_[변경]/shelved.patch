@@ -1,0 +1,156 @@
+Index: team_folder/jeoung_ha_ryun.html
+===================================================================
+diff --git a/team_folder/jeoung_ha_ryun.html b/team_folder/jeoung_ha_ryun.html
+deleted file mode 100644
+--- a/team_folder/jeoung_ha_ryun.html	(revision 7436650826473d882fd6a35d314bde5df9cf9186)
++++ /dev/null	(revision 7436650826473d882fd6a35d314bde5df9cf9186)
+@@ -1,18 +0,0 @@
+-<!DOCTYPE html>
+-<html lang="en">
+-<head>
+-    <meta charset="UTF-8">
+-    <title>Title</title>
+-</head>
+-<style>
+-    @import url('https://fonts.googleapis.com/css2?family=Dokdo&display=swap');
+-    .ha_ryun_title {font-family: "Dokdo", system-ui;}
+-</style>
+-<body>
+-<div class="ha_ryun">
+-    <h1 class="ha_ryun_title">안녕하세요 비전공자 정하륜 입니다.</h1>
+-    <p class="ha_ryun_text">저는 실용음악 정공자였습니다. 엔터테인먼트에서 매니저로써 오랫동안 근무했었으며 저는 팀워크가 얼마나 중요한지 뼈저리게 잘 알고 있는 사람입니다.
+-        제가 비전공자라 비록 지금은 누군가에게 짐이될수도 있겠지만 언젠가는 모두에게 도움을 줄수있는 개발자가 되고싶습니다.</p>
+-</div>
+-</body>
+-</html>
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"a69f012b-a01e-4c96-9495-37d5e89d5dfb\" name=\"변경\" comment=\"\" />\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"ProjectColorInfo\"><![CDATA[{\n  \"associatedIndex\": 5\n}]]></component>\n  <component name=\"ProjectId\" id=\"33MYdew2GBci7Z9mV9YEABglsZV\" />\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\"><![CDATA[{\n  \"keyToString\": {\n    \"ModuleVcsDetector.initialDetectionPerformed\": \"true\",\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\n    \"kotlin-language-version-configured\": \"true\",\n    \"vue.rearranger.settings.migration\": \"true\"\n  }\n}]]></component>\n  <component name=\"SharedIndexes\">\n    <attachedChunks>\n      <set>\n        <option value=\"bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.26199.169\" />\n      </set>\n    </attachedChunks>\n  </component>\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"디폴트 작업\">\n      <changelist id=\"a69f012b-a01e-4c96-9495-37d5e89d5dfb\" name=\"변경\" comment=\"\" />\n      <created>1759128497516</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1759128497516</updated>\n      <workItem from=\"1759128506585\" duration=\"50000\" />\n    </task>\n    <servers />\n  </component>\n  <component name=\"TypeScriptGeneratedFilesManager\">\n    <option name=\"version\" value=\"3\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 7436650826473d882fd6a35d314bde5df9cf9186)
++++ b/.idea/workspace.xml	(date 1759158403734)
+@@ -1,15 +1,44 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
++  <component name="AutoImportSettings">
++    <option name="autoReloadType" value="SELECTIVE" />
++  </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="a69f012b-a01e-4c96-9495-37d5e89d5dfb" name="변경" comment="" />
++    <list default="true" id="a69f012b-a01e-4c96-9495-37d5e89d5dfb" name="변경" comment="테스트에용">
++      <change afterPath="$PROJECT_DIR$/team_folder/jeoung_ha_ryun_ver1.html" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/team_folder/jeoung_ha_ryun_ver2.html" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/team_folder/jeoung_ha_ryun.html" beforeDir="false" />
++    </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+     <option name="LAST_RESOLUTION" value="IGNORE" />
+   </component>
+-  <component name="ProjectColorInfo"><![CDATA[{
+-  "associatedIndex": 5
++  <component name="FileTemplateManagerImpl">
++    <option name="RECENT_TEMPLATES">
++      <list>
++        <option value="HTML File" />
++      </list>
++    </option>
++  </component>
++  <component name="Git.Settings">
++    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
++  </component>
++  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
++  "lastFilter": {
++    "state": "OPEN",
++    "assignee": "jyop1212hy"
++  }
++}]]></component>
++  <component name="GithubPullRequestsUISettings"><![CDATA[{
++  "selectedUrlAndAccountId": {
++    "url": "https://github.com/kingyulim/3jo_web.git",
++    "accountId": "80a55235-c7e2-4017-aefc-ce99b4586d87"
++  }
+ }]]></component>
++  <component name="ProjectColorInfo">{
++  &quot;associatedIndex&quot;: 5
++}</component>
+   <component name="ProjectId" id="33MYdew2GBci7Z9mV9YEABglsZV" />
+   <component name="ProjectViewState">
+     <option name="hideEmptyMiddlePackages" value="true" />
+@@ -17,16 +46,44 @@
+   </component>
+   <component name="PropertiesComponent"><![CDATA[{
+   "keyToString": {
++    "DefaultHtmlFileTemplate": "HTML File",
++    "JavaScript 디버그.jeoung_ha_ryun.html.executor": "Run",
+     "ModuleVcsDetector.initialDetectionPerformed": "true",
+     "RunOnceActivity.ShowReadmeOnStart": "true",
++    "RunOnceActivity.git.unshallow": "true",
++    "git-widget-placeholder": "main",
++    "junie.onboarding.icon.badge.shown": "true",
+     "kotlin-language-version-configured": "true",
++    "last_opened_file_path": "/Users/mac/Library/Mobile Documents/com~apple~CloudDocs/01. jeung ha ryun/05. 백앤드 개발자/01. 스파르타 코딩클럽/본캠프/3jo_web/team_folder",
++    "node.js.detected.package.eslint": "true",
++    "node.js.detected.package.tslint": "true",
++    "node.js.selected.package.eslint": "(autodetect)",
++    "node.js.selected.package.tslint": "(autodetect)",
++    "nodejs_package_manager_path": "npm",
++    "to.speed.mode.migration.done": "true",
+     "vue.rearranger.settings.migration": "true"
+   }
+ }]]></component>
++  <component name="RecentsManager">
++    <key name="CopyFile.RECENT_KEYS">
++      <recent name="$PROJECT_DIR$/team_folder" />
++    </key>
++  </component>
++  <component name="RunManager">
++    <configuration name="jeoung_ha_ryun_ver1.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/3jo_web/3jo/team_folder/jeoung_ha_ryun_ver1.html" useBuiltInWebServerPort="true">
++      <method v="2" />
++    </configuration>
++    <recent_temporary>
++      <list>
++        <item itemvalue="JavaScript 디버그.jeoung_ha_ryun_ver1.html" />
++      </list>
++    </recent_temporary>
++  </component>
+   <component name="SharedIndexes">
+     <attachedChunks>
+       <set>
+-        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.26199.169" />
++        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.25557.131" />
++        <option value="bundled-js-predefined-d6986cc7102b-b598e85cdad2-JavaScript-IU-252.25557.131" />
+       </set>
+     </attachedChunks>
+   </component>
+@@ -38,10 +95,24 @@
+       <option name="presentableId" value="Default" />
+       <updated>1759128497516</updated>
+       <workItem from="1759128506585" duration="50000" />
++      <workItem from="1759143752197" duration="13476000" />
++    </task>
++    <task id="LOCAL-00001" summary="테스트에용">
++      <option name="closed" value="true" />
++      <created>1759143847120</created>
++      <option name="number" value="00001" />
++      <option name="presentableId" value="LOCAL-00001" />
++      <option name="project" value="LOCAL" />
++      <updated>1759143847120</updated>
+     </task>
++    <option name="localTasksCounter" value="2" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+     <option name="version" value="3" />
+   </component>
++  <component name="VcsManagerConfiguration">
++    <MESSAGE value="테스트에용" />
++    <option name="LAST_COMMIT_MESSAGE" value="테스트에용" />
++  </component>
+ </project>
+\ No newline at end of file
