@@ -5,19 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6f08c309-aaf3-4217-a90a-8e8762a9b50b" name="변경" comment="메인 수정 202510021507">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/kim_gyu_lim/activity_img (1).jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/kim_gyu_lim/activity_img (2).jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/kim_gyu_lim/activity_img (3).jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/kim_gyu_lim/activity_img (4).jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/kim_gyu_lim/activity_img (5).jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/kim_gyu_lim/activity_img (6).jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/kim_gyu_lim/activity_img (7).jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/kim_gyu_lim/profile_img (1).jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/team_folder/kim_gyu_lim.html" beforeDir="false" afterPath="$PROJECT_DIR$/team_folder/kim_gyu_lim.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -421,7 +410,23 @@
       <option name="project" value="LOCAL" />
       <updated>1759385285363</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="메인 수정 202510021507">
+      <option name="closed" value="true" />
+      <created>1759387542536</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1759387542536</updated>
+    </task>
+    <task id="LOCAL-00045" summary="메인 수정 202510021507">
+      <option name="closed" value="true" />
+      <created>1759388889514</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1759388889514</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
