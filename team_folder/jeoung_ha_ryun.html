@@ -162,8 +162,8 @@
             </div>
             <div class="modal-body">
                 <!-- 모달 본문ㅎ -->
-                <img id="mainPhoto" class="img-fluid rounded mb-3 d-none" alt="선택한 이미지 미리보기" />
-                <video id="mainVideo" class="img-fluid rounded mb-3 d-none" controls></video>
+                <img id="mainPhoto" class="img-fluid rounded mb-3 d-none" alt="선택한 이미지 미리보기">
+                <video id="mainVideo" class="img-fluid rounded mb-3 d-none" controls playsinline></video>
                 <div class="row g-3">
                     <div class="col-6 col-md-4 col-lg-3"><img src="../img/Jeong_ha_ryun/JHR_danang_img.JPG"      class="gallery-thumb shadow-sm" alt="gallery-01" /></div>
                     <div class="col-6 col-md-4 col-lg-3"><img src="../img/Jeong_ha_ryun/JHR_dubai_img.JPG"     class="gallery-thumb shadow-sm" alt="gallery-02" /></div>
@@ -171,7 +171,7 @@
                     <div class="col-6 col-md-4 col-lg-3"><img src="../img/Jeong_ha_ryun/JHR_jeju_img.JPG"          class="gallery-thumb shadow-sm" alt="gallery-04" /></div>
                     <div class="col-6 col-md-4 col-lg-3"><img src="../img/Jeong_ha_ryun/JHR_back_img.JPG"          class="gallery-thumb shadow-sm" alt="gallery-04" /></div>
                     <div class="col-6 col-md-4 col-lg-3"><video class="gallery-thumb shadow-sm" muted>
-                    <source src="../img/Jeong_ha_ryun/test.MOV" type="video/quicktime/mp4">
+                    <source src="../img/Jeong_ha_ryun/test.MOV" type="video/mp4">
                     </video>
                     </div>
                 </div>
@@ -253,11 +253,11 @@
             setTimeout(typingIntroduction, introductionSpeed);
         }
     }
-
+    document.addEventListener('DOMContentLoaded', () => {
+        if (typeof typingTitle === 'function') typingTitle();
     // ===== 도크 확대 효과 =====
-    (function(){
         const dock = document.getElementById('dock');
-        if(!dock) return;
+        if(dock){
         const items = Array.from(dock.querySelectorAll('.dock-item'));
         const MAX_SCALE = 1.8, INFLUENCE = 120, LIFT_PX = 40;
 
@@ -276,43 +276,40 @@
         }
         dock.addEventListener('mousemove', e => updateScale(e.clientX));
         dock.addEventListener('mouseleave', () => items.forEach(el=> el.style.transform = 'translateY(0) scale(1)'));
-    })();
-    document.addEventListener('DOMContentLoaded', () => {
-        typingTitle();
+    }
 
         // === 썸네일 클릭 → 메인 미리보기로 띄우기 ===
-        document.addEventListener("DOMContentLoaded", () => {
-            typingTitle();
             const mainImg = document.getElementById("mainPhoto");
             const mainVid = document.getElementById("mainVideo");
 
             document.querySelectorAll(".gallery-thumb").forEach((thumb) => {
                 thumb.addEventListener("click", () => {
                     // 초기화
-                    mainImg.classList.add("d-none");
-                    mainVid.classList.add("d-none");
-                    mainImg.removeAttribute("src");
-                    mainVid.removeAttribute("src");
+                    if (mainImg) { mainImg.classList.add("d-none"); mainImg.removeAttribute("src"); }
+                    if (mainVid) { mainVid.pause?.(); mainVid.currentTime = 0; mainVid.classList.add("d-none");
+                        mainVid.removeAttribute("src"); }
 
-                    if (thumb.tagName === "IMG") {
+                    if (thumb.tagName === "IMG" && mainImg) {
                         mainImg.src = thumb.src;
                         mainImg.classList.remove("d-none");
-                    } else if (thumb.tagName === "VIDEO") {
-                        const src = thumb.querySelector("source").src;
-                        mainVid.src = src;
-                        mainVid.classList.remove("d-none");
+                    } else if (thumb.tagName === "VIDEO" && mainVid) {
+                        const source = thumb.querySelector("source");
+                        if (source) {
+                            mainVid.src = source.src;
+                            mainVid.classList.remove("d-none");
+                            mainVid.play?.();
                     }
-                });
+                }
+            });
             });
             // 모달 닫힐 때 초기화
             const modalEl = document.getElementById("photoModal");
-            modalEl.addEventListener("hidden.bs.modal", () => {
-                mainImg.classList.add("d-none");
-                mainVid.classList.add("d-none");
-                mainImg.removeAttribute("src");
-                mainVid.removeAttribute("src");
-            });
-        });
+            if (modalEl){
+                modalEl.addEventListener("hidden.bs.modal", () => {
+                    if (mainImg) { mainImg.classList.add("d-none"); mainImg.removeAttribute("src"); }
+                    if (mainVid) { mainVid.pause?.(); mainVid.currentTime = 0; mainVid.classList.add("d-none");mainVid.removeAttribute("src"); }
+                });
+        }
     });
 
 </script>
