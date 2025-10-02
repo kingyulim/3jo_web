@@ -1,32 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="a69f012b-a01e-4c96-9495-37d5e89d5dfb" name="변경" comment="" />
+    <list default="true" id="a69f012b-a01e-4c96-9495-37d5e89d5dfb" name="변경" comment="1. 사진갤러리 팝업 연결 변경&#10;2. 메일 아이콘 변경 후 문의하기 연결&#10;3. 아이콘 독바 스타일로 변경&#10;4. 개인 방명록 생성 -&gt; Firebase 연결 완료">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 5
-}]]></component>
+  <component name="Git.Merge.Settings">
+    <option name="BRANCH" value="origin/main" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;jyop1212hy&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/kingyulim/3jo_web.git&quot;,
+    &quot;accountId&quot;: &quot;80a55235-c7e2-4017-aefc-ce99b4586d87&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
   <component name="ProjectId" id="33MYdew2GBci7Z9mV9YEABglsZV" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "kotlin-language-version-configured": "true",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.26199.169" />
+        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.25557.131" />
+        <option value="bundled-js-predefined-d6986cc7102b-b598e85cdad2-JavaScript-IU-252.25557.131" />
       </set>
     </attachedChunks>
   </component>
@@ -38,10 +70,134 @@
       <option name="presentableId" value="Default" />
       <updated>1759128497516</updated>
       <workItem from="1759128506585" duration="50000" />
+      <workItem from="1759363063955" duration="24755000" />
     </task>
+    <task id="LOCAL-00001" summary="HTML 파일 정리">
+      <option name="closed" value="true" />
+      <created>1759298261699</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1759298261699</updated>
+    </task>
+    <task id="LOCAL-00002" summary="테스트">
+      <option name="closed" value="true" />
+      <created>1759298362019</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1759298362019</updated>
+    </task>
+    <task id="LOCAL-00003" summary="테스트">
+      <option name="closed" value="true" />
+      <created>1759298434799</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1759298434799</updated>
+    </task>
+    <task id="LOCAL-00004" summary="테스트">
+      <option name="closed" value="true" />
+      <created>1759298446419</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1759298446419</updated>
+    </task>
+    <task id="LOCAL-00005" summary="테스트">
+      <option name="closed" value="true" />
+      <created>1759298509454</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1759298509454</updated>
+    </task>
+    <task id="LOCAL-00006" summary="1. 컨셉 적용 완료&#10;2. 프로필 이미지 적용&#10;3. 텍스트 내용,크기 변경">
+      <option name="closed" value="true" />
+      <created>1759308878030</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1759308878030</updated>
+    </task>
+    <task id="LOCAL-00007" summary="1. skill icon 추가&#10;2. SNS icon 추가&#10;3. 사진첩 추가">
+      <option name="closed" value="true" />
+      <created>1759320697346</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1759320697346</updated>
+    </task>
+    <task id="LOCAL-00008" summary="1. 사진갤러리 팝업 연결 변경&#10;2. 메일 아이콘 변경 후 문의하기 연결&#10;3. 아이콘 독바 스타일로 변경&#10;4. 개인 방명록 생성 -&gt; Firebase 연결 완료">
+      <option name="closed" value="true" />
+      <created>1759388273360</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1759388273360</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="4c6e72e7-31d9-4284-8e9e-e46ccc90c582" value="TOOL_WINDOW" />
+      </map>
+    </option>
+    <option name="TAB_STATES">
+      <map>
+        <entry key="4c6e72e7-31d9-4284-8e9e-e46ccc90c582">
+          <value>
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="true" />
+                </map>
+              </option>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="HTML 파일 정리" />
+    <MESSAGE value="테스트" />
+    <MESSAGE value="1. 컨셉 적용 완료&#10;2. 프로필 이미지 적용&#10;3. 텍스트 내용,크기 변경" />
+    <MESSAGE value="1. skill icon 추가&#10;2. SNS icon 추가&#10;3. 사진첩 추가" />
+    <MESSAGE value="1. 사진갤러리 팝업 연결 변경&#10;2. 메일 아이콘 변경 후 문의하기 연결&#10;3. 아이콘 독바 스타일로 변경&#10;4. 개인 방명록 생성 -&gt; Firebase 연결 완료" />
+    <option name="LAST_COMMIT_MESSAGE" value="1. 사진갤러리 팝업 연결 변경&#10;2. 메일 아이콘 변경 후 문의하기 연결&#10;3. 아이콘 독바 스타일로 변경&#10;4. 개인 방명록 생성 -&gt; Firebase 연결 완료" />
   </component>
 </project>
