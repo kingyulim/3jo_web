@@ -1,0 +1,603 @@
+Index: js/main.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>$(document).ready(function(){\r\n    // 네비게이션 스크립트\r\n    const nav_wrap = $(\"#nav_wrap\");\r\n\r\n    $(\"#nav_open_btn\").click(function(){\r\n        nav_wrap.find(\".background\").addClass(\"on\");\r\n        nav_wrap.find(\".list_inner\").css(\"right\", 0);\r\n    });\r\n\r\n    nav_wrap.on(\"click\", \".background, .close_btn, .close_btn > img\", function(){\r\n        nav_wrap.find(\".background\").removeClass(\"on\");\r\n        nav_wrap.find(\".list_inner\").css(\"right\", \"-100%\");\r\n    });\r\n\r\n    // 메인 리스트 스크립트\r\n    const member_list_wrap = $(\"#member_list_wrap\");\r\n\r\n    member_list_wrap.on(\"click mouseenter mouseleave\", \"li[data-name]\", function(e){\r\n        const t = $(this);\r\n        const this_name = t.data(\"name\");\r\n\r\n        switch(e.type){\r\n            case \"click\" : \r\n                if(this_name == null || this_name === \"\"){\r\n                    alert(\"데이터가 빈 값입니다.\");\r\n\r\n                    return;\r\n                }\r\n\r\n                if($(\".my_popup_layer\").length > 0) return;\r\n\r\n                const layer = `\r\n                    <div class=\"my_popup_layer\">\r\n                        <div class=\"inner_wrap container\" style=\"padding: 16px;\">\r\n                            <iframe src=\"./team_folder/${this_name}.html\" style=\"width: 100%; height: 100%; border: 0;\"></iframe>\r\n                        </div>\r\n                    </div>\r\n                `;\r\n\r\n                $(\"body\").append(layer);\r\n\r\n                $(document).on(\"click\", \".my_popup_layer\", function(e){\r\n                    if ($(e.target).is(\".my_popup_layer\")) {\r\n                        $(this).remove();\r\n                    }\r\n                });\r\n\r\n                break;\r\n\r\n            case \"mouseenter\" :\r\n                const img_item = t.find(\".my_img\").children();  \r\n                const item_count = img_item.length;\r\n\r\n                if(item_count <= 1) return;\r\n\r\n                let index = 0;\r\n\r\n                img_item.hide().eq(0).show();\r\n\r\n                fade_slide = setInterval(function(){\r\n                    const current = img_item.eq(index);\r\n                    index = (index + 1) % item_count;\r\n                    const next = img_item.eq(index);\r\n\r\n                    current.fadeOut(200, function() {\r\n                        next.fadeIn(200);\r\n                    });        \r\n                }, 1500);\r\n\r\n                break;\r\n            \r\n            case \"mouseleave\" :\r\n                clearInterval(fade_slide);\r\n                fade_slide = null;\r\n\r\n                t.find(\".my_img\").children().hide().eq(0).show();    \r\n\r\n                break;\r\n        } \r\n    });\r\n\r\n    // 목표 텍스트 스크립트\r\n    const goals_text = '“어떤 상황에서도 잘하겠다는 마음을 잃지 말자.\\n오늘의 노력들이 쌓여 더 나은 내가 되도록 하자.”';\r\n\r\n    let i = 0;\r\n    let output = \"\";\r\n\r\n    setInterval(function(){\r\n        if (i >= goals_text.length) return;\r\n\r\n        output += goals_text[i] === '\\n' ? '<br/>' : goals_text[i];\r\n\r\n        $(\"#main_page_head .title_box .text\").html(output);\r\n\r\n        i++;\r\n    }, 100);\r\n});
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/js/main.js b/js/main.js
+--- a/js/main.js	(revision 020b234a34596296b0ef0f7e061c60f5cbd699af)
++++ b/js/main.js	(date 1759657699167)
+@@ -1,15 +1,70 @@
+ $(document).ready(function(){
+-    // 네비게이션 스크립트
+-    const nav_wrap = $("#nav_wrap");
++    const member_dic = {
++        "kim_gyu_lim" : {
++            "name" : "김규림",
++            "resolution" : "모든 업무에 있어 끝까지 책임을 다할 것을 약속드립니다.",
++            "img" : ["./img/kim_gyu_lim/profile_img.jpg", "./img/kim_gyu_lim/activity (1).jpg", "./img/kim_gyu_lim/activity (3).jpg", "./img/kim_gyu_lim/activity (8).jpg"]
++        },
++
++        "jang_seo_yeon" : {
++            "name" : "장서연",
++            "resolution" : "적당히 살지 말자.",
++            "img" : ["./img/jang_seo_yeon/1.jpg", "./img/jang_seo_yeon/2.jpg"]
++        },
+ 
+-    $("#nav_open_btn").click(function(){
+-        nav_wrap.find(".background").addClass("on");
+-        nav_wrap.find(".list_inner").css("right", 0);
+-    });
++        "lee_seoyeon" : {
++            "name" : "이서연",
++            "resolution" : "작은 일도 소홀히 하지 않고, 끝까지 최선을 다하겠습니다.",
++            "img" : ["./img/lee_seoyeon/profile1.png", "./img/lee_seoyeon/profile2.jpg", "./img/lee_seoyeon/profile3.png", "./img/lee_seoyeon/profile4.png"]
++        },
++
++        "jeoung_ha_ryun" : {
++            "name" : "정하륜",
++            "resolution" : "모두에게 도움도히는 개발자가 되고 싶습니다.",
++            "img" : []
++        }
++    }
++
++    $.each(member_dic, function(key, value){
++        let layer = `
++            <li data-name="${key}">
++                <ul class="my_img"></ul>
++                <div class="my_contnet_box">
++                    <p class="my_name">
++                        <strong>${value.name}</strong>
++                    </p>
++
++                    <p class="resolution">${value.resolution}</p>
++                </div>
++
++                <span class="view_icon">상세히보기</span>
++            </li>
++        `;
++
++        $("#member_list_wrap").append(layer);
++
++        let my_img_container = $("#member_list_wrap li[data-name='" + key + "'] .my_img"),
++            img_layer = null;
++
++        if(value.img.length > 0){
++            value.img.forEach(imgSrc => {
++                img_layer = `
++                    <li>
++                        <img src="${imgSrc}">
++                    </li>
++                `;
++
++                my_img_container.append(img_layer);
++            });
++        }else{
++            img_layer = `
++                <li class="no_data">
++                    이미지 없음
++                </li>
++            `;
+ 
+-    nav_wrap.on("click", ".background, .close_btn, .close_btn > img", function(){
+-        nav_wrap.find(".background").removeClass("on");
+-        nav_wrap.find(".list_inner").css("right", "-100%");
++            my_img_container.append(img_layer);
++        }
+     });
+ 
+     // 메인 리스트 스크립트
+@@ -90,8 +145,51 @@
+ 
+         output += goals_text[i] === '\n' ? '<br/>' : goals_text[i];
+ 
+-        $("#main_page_head .title_box .text").html(output);
++        $("#main_page_head .text").html(output);
+ 
+         i++;
+-    }, 100);
++    }, 80);
++
++    // 네비 버튼 스크립트
++    $("#fixed_nav button").click(function(){
++        const t = $(this);
++        const this_data = t.data("article");
++
++        t.addClass("on").siblings().removeClass("on");
++
++        switch(this_data){
++            case "member_intro" : 
++                $("#guest_book_article").fadeOut();
++                $("#member_list_article").show();
++
++                setTimeout(function(){
++                    member_intro_fn(0, 1, 500);         
++                }, 500);   
++
++                break;
++            
++            case "guest_book" : 
++                member_intro_fn(-300, 0, 500);
++
++                setTimeout(function(){
++                    $("#member_list_article").hide();
++
++                    $("#guest_book_article").fadeIn(500);
++                }, 500);
++
++                break;
++        }
++
++        function member_intro_fn(a, b, time){
++            $("#member_list_wrap > li:nth-of-type(odd)").animate({
++                "left" : a,
++                "opacity" : b
++            }, time);
++
++            $("#member_list_wrap > li:nth-of-type(even)").animate({
++                "right" : a,
++                "opacity" : b
++            }, time);
++        }
++    });
+ });
+\ No newline at end of file
+Index: css/style.css
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>@charset \"utf-8\";\r\n@import url(./font/pretendard.css);\r\n\r\n#nav_wrap{position: fixed; left: 0; top: 0; z-index: 10; width: 100%}\r\n#nav_wrap .background{visibility: hidden; opacity: 0; transition: 0.5s}\r\n#nav_wrap .background.on{display: block; visibility: visible; width: 100%; height: 100vh; background: rgb(0 0 0 / 70%); opacity: 1;}\r\n#nav_wrap .list_inner{position: absolute; right: -100%; top: 0; width: 500px; height: 100%; background: #fff; transition: 0.5s}\r\n#nav_wrap .list_head{padding: 10px}\r\n#nav_wrap .list_head .close_btn{width: 30px; transition: 0.5s;}\r\n#nav_wrap .list_head .close_btn:hover{transform: translateX(10px)}\r\n\r\n#member_list_main{padding: 50px 0 140px 0; background: #fff8ea}\r\n#member_list_main *{font-family: 'Pretendard';}\r\n#member_list_main .container{width: 900px}\r\n\r\n#main_page_head{display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px; padding-bottom: 32px; border-bottom: 1px solid #333}\r\n#main_page_head .title_box{}\r\n#main_page_head .title_box h1{font-size: 3.6rem;}\r\n#main_page_head .title_box .text{margin-top: 16px; font-size: 1.8rem; color: #333}\r\n#main_page_head .nav_btn{display: flex; flex-direction: column;justify-content: space-between; columns; width: 40px; height: 30px;}\r\n#main_page_head .nav_btn > *{display: block; width: 100%; height: 3px; border-radius: 10px; background: #898989}\r\n\r\n#member_list_wrap{padding: 0 16px;}\r\n#member_list_wrap > li{display: flex; align-items: center; gap: 0 24px; position: relative; padding: 24px; border-radius: 5px; cursor: pointer}\r\n#member_list_wrap > li:nth-of-type(odd){box-shadow: 5px 5px 2px 0 rgb(0 0 0 / 10%); background: #fff}\r\n#member_list_wrap > li:nth-of-type(even){box-shadow: -5px 5px 2px 0 rgb(0 0 0 / 10%); background: #ffefca}\r\n#member_list_wrap > li:nth-of-type(even) .my_img{order: 2}\r\n#member_list_wrap > li:nth-of-type(even) .my_contnet_box{text-align: right}\r\n#member_list_wrap > li:nth-of-type(even) .my_contnet_box .resolution{border-color: #d1d1d1}\r\n#member_list_wrap > li + li{margin-top: 32px}\r\n#member_list_wrap .my_img{position: relative; width: 200px; height: 200px; overflow: hidden; border-radius: 7px;}\r\n#member_list_wrap .my_img > li{position: absolute; left: 0; top: 0; width: 100%; height: 100%;}\r\n#member_list_wrap .my_img > li:not(:first-of-type){display: none;}\r\n#member_list_wrap .my_img img{width: 100%; height: 100%; object-fit: cover;}\r\n#member_list_wrap .my_contnet_box{flex: 1}\r\n#member_list_wrap .my_contnet_box .my_name{font-size: 2.8rem;}\r\n#member_list_wrap .my_contnet_box .mbti{font-size: 1.6rem; letter-spacing: -1px; color: #777}\r\n#member_list_wrap .my_contnet_box .resolution{margin-top: 16px; padding-top: 16px; border-top: 1px solid #ededed; font-size: 1.6rem; color: #333}\r\n\r\n.my_popup_layer{position: fixed; left: 0; top: 0; width: 100%; height: 100%;  background-color: rgb(0 0 0 / 70%);}\r\n.my_popup_layer .inner_wrap{height: 100%; background-color: #fff;}\r\n\r\n.my_ds_check{margin-bottom: 30px; text-align: center}\r\n.my_ds_check h2{}\r\n.my_ds_check .list{margin-top: 10px; padding-top: 10px; border-top: 1px solid #ededed; font-size: 1.2rem}\r\n\r\n\r\n/*\r\n#member_list_main{padding: 32px 0 60px 0}\r\n\r\n#member_list_wrap{}\r\n#member_list_wrap > li{display: flex; gap: 16px; width: 50%; cursor: pointer;}\r\n#member_list_wrap > li:nth-of-type(odd){float: left}\r\n#member_list_wrap > li:nth-of-type(even){float: right; justify-content: end}\r\n#member_list_wrap > li:nth-of-type(even) > .my_img{order: 2}\r\n#member_list_wrap > li + li{clear: both; margin-top: 36px;}\r\n#member_list_wrap .my_img{position: relative; width: 250px; height: 250px;}\r\n#member_list_wrap .my_img > li{position: absolute; left: 0; top: 0; width: 100%; height: 100%; overflow: hidden}\r\n#member_list_wrap .my_img > li:not(:first-of-type){display: none;}\r\n#member_list_wrap .my_img img{width: 100%; height: 100%; object-fit: cover;}\r\n#member_list_wrap .my_contnet_box{flex: 1}\r\n#member_list_wrap .my_contnet_box .my_name{font-size: 2.0rem}\r\n#member_list_wrap .my_contnet_box .mbti{letter-spacing: -1px; font-size: 1.2rem; color: #777}\r\n#member_list_wrap .my_contnet_box .resolution{margin-top: 16px; padding-top: 16px; border-top: 1px solid #ededed; font-size: 1.4rem;}\r\n\r\n.my_popup_layer{position: fixed; left: 0; top: 0; width: 100%; height: 100%;  background-color: rgb(0 0 0 / 70%);}\r\n.my_popup_layer .inner_wrap{height: 100%; background-color: #fff;}\r\n\r\n.my_ds_check{margin-bottom: 30px; text-align: center}\r\n.my_ds_check h2{}\r\n.my_ds_check .list{margin-top: 10px; padding-top: 10px; border-top: 1px solid #ededed; font-size: 1.2rem}\r\n*/\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/css/style.css b/css/style.css
+--- a/css/style.css	(revision 020b234a34596296b0ef0f7e061c60f5cbd699af)
++++ b/css/style.css	(date 1759657804994)
+@@ -1,72 +1,78 @@
+ @charset "utf-8";
+-@import url(./font/pretendard.css);
+-
+-#nav_wrap{position: fixed; left: 0; top: 0; z-index: 10; width: 100%}
+-#nav_wrap .background{visibility: hidden; opacity: 0; transition: 0.5s}
+-#nav_wrap .background.on{display: block; visibility: visible; width: 100%; height: 100vh; background: rgb(0 0 0 / 70%); opacity: 1;}
+-#nav_wrap .list_inner{position: absolute; right: -100%; top: 0; width: 500px; height: 100%; background: #fff; transition: 0.5s}
+-#nav_wrap .list_head{padding: 10px}
+-#nav_wrap .list_head .close_btn{width: 30px; transition: 0.5s;}
+-#nav_wrap .list_head .close_btn:hover{transform: translateX(10px)}
+-
+-#member_list_main{padding: 50px 0 140px 0; background: #fff8ea}
+-#member_list_main *{font-family: 'Pretendard';}
+-#member_list_main .container{width: 900px}
+-
+-#main_page_head{display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px; padding-bottom: 32px; border-bottom: 1px solid #333}
+-#main_page_head .title_box{}
+-#main_page_head .title_box h1{font-size: 3.6rem;}
+-#main_page_head .title_box .text{margin-top: 16px; font-size: 1.8rem; color: #333}
+-#main_page_head .nav_btn{display: flex; flex-direction: column;justify-content: space-between; columns; width: 40px; height: 30px;}
+-#main_page_head .nav_btn > *{display: block; width: 100%; height: 3px; border-radius: 10px; background: #898989}
+ 
+-#member_list_wrap{padding: 0 16px;}
+-#member_list_wrap > li{display: flex; align-items: center; gap: 0 24px; position: relative; padding: 24px; border-radius: 5px; cursor: pointer}
+-#member_list_wrap > li:nth-of-type(odd){box-shadow: 5px 5px 2px 0 rgb(0 0 0 / 10%); background: #fff}
+-#member_list_wrap > li:nth-of-type(even){box-shadow: -5px 5px 2px 0 rgb(0 0 0 / 10%); background: #ffefca}
+-#member_list_wrap > li:nth-of-type(even) .my_img{order: 2}
+-#member_list_wrap > li:nth-of-type(even) .my_contnet_box{text-align: right}
+-#member_list_wrap > li:nth-of-type(even) .my_contnet_box .resolution{border-color: #d1d1d1}
+-#member_list_wrap > li + li{margin-top: 32px}
+-#member_list_wrap .my_img{position: relative; width: 200px; height: 200px; overflow: hidden; border-radius: 7px;}
+-#member_list_wrap .my_img > li{position: absolute; left: 0; top: 0; width: 100%; height: 100%;}
+-#member_list_wrap .my_img > li:not(:first-of-type){display: none;}
+-#member_list_wrap .my_img img{width: 100%; height: 100%; object-fit: cover;}
+-#member_list_wrap .my_contnet_box{flex: 1}
+-#member_list_wrap .my_contnet_box .my_name{font-size: 2.8rem;}
+-#member_list_wrap .my_contnet_box .mbti{font-size: 1.6rem; letter-spacing: -1px; color: #777}
+-#member_list_wrap .my_contnet_box .resolution{margin-top: 16px; padding-top: 16px; border-top: 1px solid #ededed; font-size: 1.6rem; color: #333}
++#fixed_nav{position: fixed; left: 50%; top: 50%; transform: translate(1200%, -50%);}
++#fixed_nav button{display: block; font-size: 1.6rem; color: #555;}
++#fixed_nav button + button{margin-top: 16px;}
++#fixed_nav button.on{color: #fff;}
+ 
+-.my_popup_layer{position: fixed; left: 0; top: 0; width: 100%; height: 100%;  background-color: rgb(0 0 0 / 70%);}
+-.my_popup_layer .inner_wrap{height: 100%; background-color: #fff;}
++#member_list_main{min-height: 100vh; padding: 50px 0 140px 0; background: #0e0e0e;}
++#member_list_main *{}
++#member_list_main .container{}
+ 
+-.my_ds_check{margin-bottom: 30px; text-align: center}
+-.my_ds_check h2{}
+-.my_ds_check .list{margin-top: 10px; padding-top: 10px; border-top: 1px solid #ededed; font-size: 1.2rem}
++#main_page_head{margin-bottom: 150px;}
++#main_page_head h2{font-size: 5.5rem; color: #fff}
++#main_page_head .text{height: 60px; margin-top: 16px; font-size: 2.5rem; line-height: 30px; color: #a9a9a9;}
+ 
+-
+-/*
+-#member_list_main{padding: 32px 0 60px 0}
++#page_section{}
++#page_section > article:not(:first-of-type){display: none;}
+ 
+ #member_list_wrap{}
+-#member_list_wrap > li{display: flex; gap: 16px; width: 50%; cursor: pointer;}
+-#member_list_wrap > li:nth-of-type(odd){float: left}
+-#member_list_wrap > li:nth-of-type(even){float: right; justify-content: end}
++#member_list_wrap > li{display: flex; gap: 16px; position: relative; cursor: pointer;}
++#member_list_wrap > li:nth-of-type(odd){}
++#member_list_wrap > li:nth-of-type(odd) .my_contnet_box{margin-left: -35px;}
++#member_list_wrap > li:nth-of-type(even){}
+ #member_list_wrap > li:nth-of-type(even) > .my_img{order: 2}
+-#member_list_wrap > li + li{clear: both; margin-top: 36px;}
+-#member_list_wrap .my_img{position: relative; width: 250px; height: 250px;}
++#member_list_wrap > li:nth-of-type(even) .my_contnet_box{margin-right: -35px; text-align: right;}
++#member_list_wrap > li:nth-of-type(odd) .my_contnet_box,
++#member_list_wrap > li:nth-of-type(even) .my_contnet_box{transition: 0.5s;}
++#member_list_wrap > li:nth-of-type(odd) .view_icon{left: calc(250px + 16px);}
++#member_list_wrap > li:nth-of-type(even) .view_icon{right: calc(250px + 16px);}
++#member_list_wrap > li + li{margin-top: 100px;}
++#member_list_wrap .my_img{position: relative; width: 250px; height: 250px; overflow: hidden; border-radius: 5px;}
+ #member_list_wrap .my_img > li{position: absolute; left: 0; top: 0; width: 100%; height: 100%; overflow: hidden}
+ #member_list_wrap .my_img > li:not(:first-of-type){display: none;}
+-#member_list_wrap .my_img img{width: 100%; height: 100%; object-fit: cover;}
+-#member_list_wrap .my_contnet_box{flex: 1}
+-#member_list_wrap .my_contnet_box .my_name{font-size: 2.0rem}
+-#member_list_wrap .my_contnet_box .mbti{letter-spacing: -1px; font-size: 1.2rem; color: #777}
+-#member_list_wrap .my_contnet_box .resolution{margin-top: 16px; padding-top: 16px; border-top: 1px solid #ededed; font-size: 1.4rem;}
++#member_list_wrap .my_img img{width: 100%; height: 100%; object-fit: cover; filter: grayscale(1); opacity: 60%; transition: 0.5s;}
++#member_list_wrap .my_contnet_box{flex: 1; position: relative; z-index: 1;}
++#member_list_wrap .my_contnet_box .my_name{font-size: 4.5rem; color: #d95c1c;}
++#member_list_wrap .my_contnet_box .resolution{margin-top: 20px; letter-spacing: -1px; font-size: 1.9rem; color: #555;}
++#member_list_wrap .view_icon{position: absolute; bottom: 0; padding: 10px; border: 1px solid #888; font-size: 1.4rem; color: #888;}
++
++#member_list_wrap > li:nth-of-type(odd):hover .my_contnet_box{margin-left: 0}
++#member_list_wrap > li:nth-of-type(even):hover .my_contnet_box{margin-right: 0}
++#member_list_wrap > li:hover .my_contnet_box .resolution{color: #fff;}
++#member_list_wrap > li:hover .my_img img{filter: grayscale(0); opacity: 100%;}
++#member_list_wrap > li:hover .view_icon{border-color: #fff; color: #fff}
+ 
+-.my_popup_layer{position: fixed; left: 0; top: 0; width: 100%; height: 100%;  background-color: rgb(0 0 0 / 70%);}
++#guest_book_article{}
++#guest_book_article .inner_container{display: flex; justify-content: space-between; gap: 0 32px;}
++#guest_book_article .input_form{width: 420px;}
++#guest_book_article .input_form > * + *{margin-top: 5px}
++#guest_book_article .input_form .my_wri{display: flex; justify-content: space-between; gap: 0 5px}
++#guest_book_article .input_form .my_wri > *{flex: 1}
++#guest_book_article .input_form textarea{width: 100%; height: 150px;}
++#guest_book_article .input_form .df_btn{width: 80px; color: #fff;; background: #555687;}
++#guest_book_article .list_wrap{flex: 1; color: #fff;}
++#guest_book_article .list_wrap > li{}
++#guest_book_article .list_wrap > li.no_data{font-size: 1.4rem;}
++#guest_book_article .list_wrap > li + li{margin-top: 20px; padding-top: 20px; border-top: 1px solid #ededed;}
++#guest_book_article .list_wrap .list_head{display: flex; justify-content: space-between; align-items: center;}
++#guest_book_article .list_wrap .list_head .wri_data{}
++#guest_book_article .list_wrap .list_head .wri_data .name{font-size: 1.8rem;}
++#guest_book_article .list_wrap .list_head .wri_data .datetime{margin-left: 5px; font-size: 1.2rem; color: #8d8d8d;}
++#guest_book_article .list_wrap .list_head .btn_box{}
++#guest_book_article .list_wrap .list_head .btn_box button{font-size: 1.2rem; color: #fff}
++#guest_book_article .list_wrap .list_head .btn_box button + button{margin-left: 4px;}
++#guest_book_article .list_wrap .content{margin-top: 20px; font-size: 1.4rem;}
++#guest_book_article .list_wrap .edit_textarea_box{margin-top: 20px;}
++#guest_book_article .list_wrap .edit_textarea_box textarea{width: 100%; height:100px;}
++#guest_book_article .list_wrap .edit_textarea_box .btn_box{margin-top: 5px;}
++#guest_book_article .list_wrap .edit_textarea_box .btn_box .ed_util_btn{width: 50px;}
++#guest_book_article .list_wrap .edit_textarea_box .btn_box .ed_util_btn[btn_util="cencle"]{background: #4d4d4d; color: #fff;}
++#guest_book_article .list_wrap .edit_textarea_box .btn_box .ed_util_btn[btn_util="edit"]{background: #555687; color: #fff;}
++
++.my_popup_layer{position: fixed; left: 0; top: 0; z-index: 10; width: 100%; height: 100%;  background-color: rgb(0 0 0 / 70%);}
+ .my_popup_layer .inner_wrap{height: 100%; background-color: #fff;}
+ 
+ .my_ds_check{margin-bottom: 30px; text-align: center}
+ .my_ds_check h2{}
+-.my_ds_check .list{margin-top: 10px; padding-top: 10px; border-top: 1px solid #ededed; font-size: 1.2rem}
+-*/
++.my_ds_check .list{margin-top: 10px; padding-top: 10px; border-top: 1px solid #ededed; font-size: 1.2rem}
+\ No newline at end of file
+Index: index.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html lang=\"ko\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n\r\n    <script src=\"./js/jquery-3.7.1.min.js\"></script>\r\n    <script src=\"./js/main.js\"></script>\r\n\r\n    <link href=\"./css/common.css\" rel=\"stylesheet\">\r\n    <link href=\"./css/style.css\" rel=\"stylesheet\">\r\n\r\n    <title>3조 : 보람삼조</title>\r\n</head>\r\n<body>\r\n    <div id=\"nav_wrap\">\r\n        <span class=\"background\"><!-- 네비게이션 배경 화면 --></span>\r\n        <div class=\"list_inner\">\r\n            <div class=\"list_head\">\r\n                <button class=\"close_btn\" type=\"button\">\r\n                    <img src=\"img/kim_gyu_lim/arrow-right-solid-full.svg\">\r\n                </button>\r\n            </div>\r\n\r\n            <ul class=\"menu_list\">\r\n                <li>\r\n                </li>\r\n            </ul>\r\n        </div>\r\n    </div>\r\n\r\n    <main id=\"member_list_main\">\r\n        <div class=\"container\">\r\n            <div id=\"main_page_head\">\r\n                <div class=\"title_box\">\r\n                    <h1>[3조] 보람삼조</h1>\r\n\r\n                    <p class=\"text\">\r\n                        <!--\r\n                        “어떤 상황에서도 잘하겠다는 마음을 잃지 말자.\r\n                        <br>\r\n                        오늘의 노력들이 쌓여 더 나은 내가 되도록 하자.”\r\n                        -->\r\n                    </p>\r\n                </div>\r\n\r\n                <button id=\"nav_open_btn\" class=\"nav_btn\" type=\"button\">\r\n                    <span></span>\r\n                    <span></span>\r\n                    <span></span>\r\n                </button>\r\n            </div>\r\n\r\n            <ul id=\"member_list_wrap\" class=\"clear_box\">\r\n                <li data-name=\"kim_gyu_lim\">\r\n                    <ul class=\"my_img\">\r\n                        <li>\r\n                            <img src=\"./img/kim_gyu_lim/profile_img.jpg\">\r\n                        </li>\r\n\r\n                        <li>\r\n                            <img src=\"./img/kim_gyu_lim/activity (1).jpg\">\r\n                        </li>\r\n\r\n                        <li>\r\n                            <img src=\"./img/kim_gyu_lim/activity (3).jpg\">\r\n                        </li>\r\n\r\n                        <li>\r\n                            <img src=\"./img/kim_gyu_lim/activity (8).jpg\">\r\n                        </li>\r\n                    </ul>\r\n\r\n                    <div class=\"my_contnet_box\">\r\n                        <div>\r\n                            <span class=\"my_name\">\r\n                                <strong>김규림</strong>\r\n                            </span>\r\n\r\n                            <span class=\"mbti\">INFP</span>\r\n                        </div>\r\n\r\n                        <p class=\"resolution\">모든 업무에 있어 끝까지 책임을 다할 것을 약속드립니다.</p>\r\n                    </div>\r\n                </li>\r\n\r\n                <li data-name=\"jang_seo_yeon\">\r\n                    <ul class=\"my_img\">\r\n                        <li>\r\n                            <img src=\"./img/jang_seo_yeon/1.jpg\">\r\n                        </li>\r\n\r\n                        <li>\r\n                            <img src=\"./img/jang_seo_yeon/2.jpg\">\r\n                        </li>\r\n                    </ul>\r\n\r\n                    <div class=\"my_contnet_box\">\r\n                        <div>\r\n                            <span class=\"my_name\">\r\n                                <strong>장서연</strong>\r\n                            </span>\r\n\r\n                            <span class=\"mbti\">INTP</span>\r\n                        </div>\r\n\r\n                        <p class=\"resolution\">적당히 살지 말자.</p>\r\n                    </div>\r\n                </li>\r\n\r\n                <li data-name=\"lee_seoyeon\">\r\n                    <ul class=\"my_img\">\r\n                        <li>\r\n                            <img src=\"./img/lee_seoyeon/profile1.png\">\r\n                        </li>\r\n\r\n                        <li>\r\n                            <img src=\"./img/lee_seoyeon/profile2.jpg\">\r\n                        </li>\r\n\r\n                        <li>\r\n                            <img src=\"./img/lee_seoyeon/profile3.png\">\r\n                        </li>\r\n\r\n                        <li>\r\n                            <img src=\"./img/lee_seoyeon/profile4.png\">\r\n                        </li>\r\n                    </ul>\r\n\r\n                    <div class=\"my_contnet_box\">\r\n                        <div>\r\n                            <span class=\"my_name\">\r\n                                <strong>이서연</strong>\r\n                            </span>\r\n\r\n                            <span class=\"mbti\">INTJ</span>\r\n                        </div>\r\n\r\n                        <p class=\"resolution\">작은 일도 소홀히 하지 않고, 끝까지 최선을 다하겠습니다.</p>\r\n                    </div>\r\n                </li>\r\n\r\n                <li data-name=\"jeoung_ha_ryun\">\r\n                    <ul class=\"my_img\">\r\n                        <li>\r\n                            <img>\r\n                        </li>\r\n                    </ul>\r\n\r\n                    <div class=\"my_contnet_box\">\r\n                        <div>\r\n                            <span class=\"my_name\">\r\n                                <strong>정하륜</strong>\r\n                            </span>\r\n\r\n                            <span class=\"mbti\">ENTP</span>\r\n                        </div>\r\n\r\n                        <p class=\"resolution\">모두에게 도움이 되는 개발자가 되고 싶습니다.</p>\r\n                    </div>\r\n                </li>\r\n            </ul>\r\n        </div>\r\n    </main>\r\n</body>\r\n</html>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/index.html b/index.html
+--- a/index.html	(revision 020b234a34596296b0ef0f7e061c60f5cbd699af)
++++ b/index.html	(date 1759657790234)
+@@ -1,166 +1,60 @@
+ <!DOCTYPE html>
+ <html lang="ko">
+-<head>
+-    <meta charset="UTF-8">
+-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
++    <head>
++        <meta charset="UTF-8">
++        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+-    <script src="./js/jquery-3.7.1.min.js"></script>
+-    <script src="./js/main.js"></script>
++        <script src="./js/jquery-3.7.1.min.js"></script>
++        <script src="./js/main.js"></script>
++        <script src="./js/guest_book_db.js" type="module"></script>
+ 
+-    <link href="./css/common.css" rel="stylesheet">
+-    <link href="./css/style.css" rel="stylesheet">
++        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pretendard/1.3.9/static/pretendard.min.css" />
++        <link href="./css/common.css" rel="stylesheet">
++        <link href="./css/style.css" rel="stylesheet">
+ 
+-    <title>3조 : 보람삼조</title>
+-</head>
+-<body>
+-    <div id="nav_wrap">
+-        <span class="background"><!-- 네비게이션 배경 화면 --></span>
+-        <div class="list_inner">
+-            <div class="list_head">
+-                <button class="close_btn" type="button">
+-                    <img src="img/kim_gyu_lim/arrow-right-solid-full.svg">
+-                </button>
+-            </div>
+-
+-            <ul class="menu_list">
+-                <li>
+-                </li>
+-            </ul>
+-        </div>
+-    </div>
+-
+-    <main id="member_list_main">
+-        <div class="container">
+-            <div id="main_page_head">
+-                <div class="title_box">
+-                    <h1>[3조] 보람삼조</h1>
++        <title>3조 : 보람삼조</title>
++    </head>
++    <body>
++        <main id="member_list_main">
++            <div class="container">
++                <section id="main_page_head">
++                    <h2>보람삼조</h2>
++
++                    <p class="text"></p>
++                </section>
+ 
+-                    <p class="text">
+-                        <!--
+-                        “어떤 상황에서도 잘하겠다는 마음을 잃지 말자.
+-                        <br>
+-                        오늘의 노력들이 쌓여 더 나은 내가 되도록 하자.”
+-                        -->
+-                    </p>
+-                </div>
+-
+-                <button id="nav_open_btn" class="nav_btn" type="button">
+-                    <span></span>
+-                    <span></span>
+-                    <span></span>
+-                </button>
+-            </div>
++                <section id="page_section">
++                    <h2 class="hide">메인 섹션</h2>
++
++                    <article id="member_list_article">
++                        <h3 class="hide">멤버 리스트</h3>
++
++                        <ul id="member_list_wrap" class="clear_box"></ul>
++                    </article>
++                    
++                    <article id="guest_book_article">
++                        <h3 class="hide">방명록</h3>
++                        
++                        <div class="inner_container">
++                            <div class="input_form">
++                                <div class="my_wri">
++                                    <input name="my_name" type="text" placeholder="이름, 닉네임">
++                                    <input name="my_password" type="password" placeholder="비밀번호">
++                                </div>
++                                <textarea name="my_content" placeholder="방명록을 작성해주세요"></textarea>
++                                <button id="guest_book_insert" class="df_btn" type="button">등록</button>
++                            </div>
+ 
+-            <ul id="member_list_wrap" class="clear_box">
+-                <li data-name="kim_gyu_lim">
+-                    <ul class="my_img">
+-                        <li>
+-                            <img src="./img/kim_gyu_lim/profile_img.jpg">
+-                        </li>
+-
+-                        <li>
+-                            <img src="./img/kim_gyu_lim/activity (1).jpg">
+-                        </li>
+-
+-                        <li>
+-                            <img src="./img/kim_gyu_lim/activity (3).jpg">
+-                        </li>
+-
+-                        <li>
+-                            <img src="./img/kim_gyu_lim/activity (8).jpg">
+-                        </li>
+-                    </ul>
+-
+-                    <div class="my_contnet_box">
+-                        <div>
+-                            <span class="my_name">
+-                                <strong>김규림</strong>
+-                            </span>
+-
+-                            <span class="mbti">INFP</span>
++                            <ul class="list_wrap"></ul>
+                         </div>
++                    </article>
++                </section>
+ 
+-                        <p class="resolution">모든 업무에 있어 끝까지 책임을 다할 것을 약속드립니다.</p>
+-                    </div>
+-                </li>
+-
+-                <li data-name="jang_seo_yeon">
+-                    <ul class="my_img">
+-                        <li>
+-                            <img src="./img/jang_seo_yeon/1.jpg">
+-                        </li>
+-
+-                        <li>
+-                            <img src="./img/jang_seo_yeon/2.jpg">
+-                        </li>
+-                    </ul>
+-
+-                    <div class="my_contnet_box">
+-                        <div>
+-                            <span class="my_name">
+-                                <strong>장서연</strong>
+-                            </span>
+-
+-                            <span class="mbti">INTP</span>
+-                        </div>
+-
+-                        <p class="resolution">적당히 살지 말자.</p>
+-                    </div>
+-                </li>
+-
+-                <li data-name="lee_seoyeon">
+-                    <ul class="my_img">
+-                        <li>
+-                            <img src="./img/lee_seoyeon/profile1.png">
+-                        </li>
+-
+-                        <li>
+-                            <img src="./img/lee_seoyeon/profile2.jpg">
+-                        </li>
+-
+-                        <li>
+-                            <img src="./img/lee_seoyeon/profile3.png">
+-                        </li>
+-
+-                        <li>
+-                            <img src="./img/lee_seoyeon/profile4.png">
+-                        </li>
+-                    </ul>
+-
+-                    <div class="my_contnet_box">
+-                        <div>
+-                            <span class="my_name">
+-                                <strong>이서연</strong>
+-                            </span>
+-
+-                            <span class="mbti">INTJ</span>
+-                        </div>
+-
+-                        <p class="resolution">작은 일도 소홀히 하지 않고, 끝까지 최선을 다하겠습니다.</p>
+-                    </div>
+-                </li>
+-
+-                <li data-name="jeoung_ha_ryun">
+-                    <ul class="my_img">
+-                        <li>
+-                            <img>
+-                        </li>
+-                    </ul>
+-
+-                    <div class="my_contnet_box">
+-                        <div>
+-                            <span class="my_name">
+-                                <strong>정하륜</strong>
+-                            </span>
+-
+-                            <span class="mbti">ENTP</span>
+-                        </div>
+-
+-                        <p class="resolution">모두에게 도움이 되는 개발자가 되고 싶습니다.</p>
+-                    </div>
+-                </li>
+-            </ul>
+-        </div>
+-    </main>
+-</body>
++                <div id="fixed_nav">
++                    <button class="on" type="button" data-article="member_intro">팀원 소개</button>
++                    <button type="button" data-article="guest_book">방명록</button>
++                </div>
++            </div>
++        </main>
++    </body>
+ </html>
+\ No newline at end of file
+Index: css/reset.css
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>@charset \"utf-8\";\r\n@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');\r\n\r\n*{margin: 0; padding: 0; box-sizing: border-box; font-family: \"Noto Sans KR\", sans-serif;}\r\n\r\nhtml{font-size: 10px;}\r\nbody{}\r\n\r\na{text-decoration: none; color: inherit;}\r\ntable{border-collapse: collapse;}\r\n\t\r\nul,\r\nol,\r\nli{list-style: none}\r\n\t\r\nh1,\r\nh2,\r\nh3,\r\nh4,\r\nh5,\r\nh6{font-size: 1.6rem}\r\n\t\r\nbutton{border: unset; background: transparent;}\r\n\r\niframe{margin: 0; padding: 0; border: none}\r\n\r\nbutton,\r\nlabel{cursor: pointer}\r\n\t\r\ninput:not([type=\"radio\"], [type=\"checkbox\"]),\r\nselect{height: 36px; padding: 0 10px; border-radius: 5px; border: 1px solid #9b9b9b;}\r\n\r\ninput[type=\"radio\"],\r\ninput[type=\"checkbox\"],\r\nlabel{vertical-align: middle}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/css/reset.css b/css/reset.css
+--- a/css/reset.css	(revision 020b234a34596296b0ef0f7e061c60f5cbd699af)
++++ b/css/reset.css	(date 1759649152954)
+@@ -1,7 +1,8 @@
+ @charset "utf-8";
+-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
+ 
+-*{margin: 0; padding: 0; box-sizing: border-box; font-family: "Noto Sans KR", sans-serif;}
++@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
++
++*{margin: 0; padding: 0; box-sizing: border-box; font-family:Pretendard}
+ 
+ html{font-size: 10px;}
+ body{}
+@@ -28,7 +29,8 @@
+ label{cursor: pointer}
+ 	
+ input:not([type="radio"], [type="checkbox"]),
+-select{height: 36px; padding: 0 10px; border-radius: 5px; border: 1px solid #9b9b9b;}
++textarea,
++select{height: 36px; padding: 10px; border-radius: 5px; border: 1px solid #9b9b9b;}
+ 
+ input[type="radio"],
+ input[type="checkbox"],
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"6f08c309-aaf3-4217-a90a-8e8762a9b50b\" name=\"변경\" comment=\"메인 수정 202510021636\">\r\n      <change beforePath=\"$PROJECT_DIR$/index.html\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/index.html\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"GitHubPullRequestSearchHistory\"><![CDATA[{\r\n  \"history\": [\r\n    {\r\n      \"state\": \"OPEN\",\r\n      \"assignee\": \"jyop1212hy\"\r\n    }\r\n  ],\r\n  \"lastFilter\": {\r\n    \"state\": \"OPEN\",\r\n    \"assignee\": \"jyop1212hy\"\r\n  }\r\n}]]></component>\r\n  <component name=\"GithubPullRequestsUISettings\">{\r\n  &quot;selectedUrlAndAccountId&quot;: {\r\n    &quot;url&quot;: &quot;https://github.com/kingyulim/3jo_web.git&quot;,\r\n    &quot;accountId&quot;: &quot;7857cd38-68ad-4a43-bc66-5046dacaeef2&quot;\r\n  }\r\n}</component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 1\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"33MzAUTMfr6YnPmmycUVDqeGIKV\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,\r\n    &quot;git-widget-placeholder&quot;: &quot;main&quot;,\r\n    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,\r\n    &quot;last_opened_file_path&quot;: &quot;C:/Users/Admini/OneDrive/바탕 화면/3jo&quot;,\r\n    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.web.browsers&quot;\r\n  }\r\n}</component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\Admini\\OneDrive\\바탕 화면\\3jo\\img\\kim_gyu_lim\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"디폴트 작업\">\r\n      <changelist id=\"6f08c309-aaf3-4217-a90a-8e8762a9b50b\" name=\"변경\" comment=\"\" />\r\n      <created>1759141585501</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1759141585501</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"추가 할 거임\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1759141722778</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1759141722778</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"추가 합니다.\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1759142707876</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1759142707876</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"데이터 이름 추가 했습니다.\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1759144521710</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1759144521710</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"데이터 이름 추가 했습니다.\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1759144607464</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1759144607464</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"데이터 이름 추가 수정 했습니다.\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1759144721913</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1759144721913</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"개별 페이지 단독 확인 박스 추가\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1759192531701</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1759192531701</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00007\" summary=\"추가 수정\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1759194268350</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1759194268350</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00008\" summary=\"레이아웃 수정\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1759194947265</created>\r\n      <option name=\"number\" value=\"00008\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1759194947265</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00009\" summary=\"load 주석\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1759203109996</created>\r\n      <option name=\"number\" value=\"00009\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1759203109996</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00010\" summary=\"김규림이 수정함\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1759215016422</created>\r\n      <option name=\"number\" value=\"00010\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00010\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1759215016422</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00011\" summary=\"김규림이 추가함\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1759215196421</created>\r\n      <option name=\"number\" value=\"00011\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00011\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1759215196421</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00012\" summary=\"김규림이 추가함\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1759215312639</created>\r\n      <option name=\"number\" value=\"00012\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00012\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1759215312639</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00013\" summary=\"김규림이 추가함\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1759215395053</created>\r\n      <option name=\"number\" value=\"00013\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00013\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1759215395053</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00014\" summary=\"문현욱 삭제\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1759215573060</created>\r\n      <option name=\"number\" value=\"00014\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00014\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1759215573060</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00015\" summary=\"스크립트 수정\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1759215951312</created>\r\n      <option name=\"number\" value=\"00015\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00015\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1759215951312</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00016\" summary=\"스크립트 수정\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1759217338216</created>\r\n      <option name=\"number\" value=\"00016\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00016\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1759217338216</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00017\" summary=\"스크립트 수정2\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1759220616460</created>\r\n      <option name=\"number\" value=\"00017\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00017\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1759220616460</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00018\" summary=\"스크립트 수정2\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1759220837575</created>\r\n      <option name=\"number\" value=\"00018\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00018\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1759220837575</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00019\" summary=\"스크립트 수정2\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1759220936934</created>\r\n      <option name=\"number\" value=\"00019\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00019\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1759220936934</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00020\" summary=\"스크립트 수정 202509301730\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1759221019881</created>\r\n      <option name=\"number\" value=\"00020\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00020\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1759221019881</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00021\" summary=\"스크립트 수정 202509301732\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1759221170026</created>\r\n      <option name=\"number\" value=\"00021\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00021\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1759221170026</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00022\" summary=\"수강자 한 명이 빠진 관계로 index수정 202509301801\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1759222907293</created>\r\n      <option name=\"number\" value=\"00022\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00022\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1759222907293</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00023\" summary=\"style css 수정 202509301855\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1759226125047</created>\r\n      <option name=\"number\" value=\"00023\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00023\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1759226125047</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00024\" summary=\"레이아웃 수정 202509301951\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1759229480563</created>\r\n      <option name=\"number\" value=\"00024\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00024\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1759229480563</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00025\" summary=\"레이아웃 수정 202509301956\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1759229823330</created>\r\n      <option name=\"number\" value=\"00025\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00025\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1759229823330</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00026\" summary=\"레이아웃 수정 202509301956\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1759230643205</created>\r\n      <option name=\"number\" value=\"00026\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00026\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1759230643205</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00027\" summary=\"레이아웃 수정 202509302011\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1759285049565</created>\r\n      <option name=\"number\" value=\"00027\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00027\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1759285049565</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00028\" summary=\"메인 인덱스 페이드 프론트 완료 202510011118\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1759285119427</created>\r\n      <option name=\"number\" value=\"00028\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00028\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1759285119427</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00029\" summary=\"메인 인덱스 페이드 프론트 완료 202510011120\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1759285240843</created>\r\n      <option name=\"number\" value=\"00029\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00029\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1759285240843</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00030\" summary=\"style css 변경\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1759286073083</created>\r\n      <option name=\"number\" value=\"00030\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00030\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1759286073083</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00031\" summary=\"style css 변경 202510011141\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1759286494042</created>\r\n      <option name=\"number\" value=\"00031\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00031\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1759286494042</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00032\" summary=\"김규림 수정 202510011229\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1759289396190</created>\r\n      <option name=\"number\" value=\"00032\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00032\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1759289396190</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00033\" summary=\"김규림 수정 202510011231\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1759289488013</created>\r\n      <option name=\"number\" value=\"00033\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00033\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1759289488013</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00034\" summary=\"김규림 수정 202510011231\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1759295295591</created>\r\n      <option name=\"number\" value=\"00034\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00034\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1759295295591</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00035\" summary=\"인덱스 수정 202510011431\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1759296722234</created>\r\n      <option name=\"number\" value=\"00035\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00035\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1759296722234</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00036\" summary=\"메인 css 수정 202510011453\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1759298023331</created>\r\n      <option name=\"number\" value=\"00036\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00036\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1759298023331</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00037\" summary=\"메인 수정 202510011500\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1759298418409</created>\r\n      <option name=\"number\" value=\"00037\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00037\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1759298418409</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00038\" summary=\"김규림 css 수정 202510011516\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1759299401014</created>\r\n      <option name=\"number\" value=\"00038\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00038\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1759299401014</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00039\" summary=\"수정 202510011549\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1759301403308</created>\r\n      <option name=\"number\" value=\"00039\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00039\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1759301403308</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00040\" summary=\"김규림 수정 202510011605\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1759302349078</created>\r\n      <option name=\"number\" value=\"00040\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00040\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1759302349078</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00041\" summary=\"네비게이션 추가 202510011730\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1759307425483</created>\r\n      <option name=\"number\" value=\"00041\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00041\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1759307425483</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00042\" summary=\"메인 수정 202510021505\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1759385148944</created>\r\n      <option name=\"number\" value=\"00042\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00042\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1759385148945</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00043\" summary=\"메인 수정 202510021507\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1759385285363</created>\r\n      <option name=\"number\" value=\"00043\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00043\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1759385285363</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00044\" summary=\"메인 수정 202510021507\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1759387542536</created>\r\n      <option name=\"number\" value=\"00044\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00044\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1759387542536</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00045\" summary=\"메인 수정 202510021507\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1759388889514</created>\r\n      <option name=\"number\" value=\"00045\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00045\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1759388889514</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00046\" summary=\"메인 수정 202510021636\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1759390618962</created>\r\n      <option name=\"number\" value=\"00046\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00046\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1759390618962</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"47\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"스크립트 수정\" />\r\n    <MESSAGE value=\"스크립트 수정2\" />\r\n    <MESSAGE value=\"스크립트 수정 202509301730\" />\r\n    <MESSAGE value=\"스크립트 수정 202509301732\" />\r\n    <MESSAGE value=\"수강자 한 명이 빠진 관계로 index수정 202509301801\" />\r\n    <MESSAGE value=\"style css 수정 202509301855\" />\r\n    <MESSAGE value=\"레이아웃 수정 202509301951\" />\r\n    <MESSAGE value=\"레이아웃 수정 202509301956\" />\r\n    <MESSAGE value=\"레이아웃 수정 202509302011\" />\r\n    <MESSAGE value=\"메인 인덱스 페이드 프론트 완료 202510011118\" />\r\n    <MESSAGE value=\"메인 인덱스 페이드 프론트 완료 202510011120\" />\r\n    <MESSAGE value=\"style css 변경\" />\r\n    <MESSAGE value=\"style css 변경 202510011141\" />\r\n    <MESSAGE value=\"김규림 수정 202510011229\" />\r\n    <MESSAGE value=\"김규림 수정 202510011231\" />\r\n    <MESSAGE value=\"인덱스 수정 202510011431\" />\r\n    <MESSAGE value=\"메인 css 수정 202510011453\" />\r\n    <MESSAGE value=\"메인 수정 202510011500\" />\r\n    <MESSAGE value=\"김규림 css 수정 202510011516\" />\r\n    <MESSAGE value=\"수정 202510011549\" />\r\n    <MESSAGE value=\"김규림 수정 202510011605\" />\r\n    <MESSAGE value=\"네비게이션 추가 202510011730\" />\r\n    <MESSAGE value=\"메인 수정 202510021505\" />\r\n    <MESSAGE value=\"메인 수정 202510021507\" />\r\n    <MESSAGE value=\"메인 수정 202510021636\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"메인 수정 202510021636\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 020b234a34596296b0ef0f7e061c60f5cbd699af)
++++ b/.idea/workspace.xml	(date 1759392185656)
+@@ -4,8 +4,8 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="6f08c309-aaf3-4217-a90a-8e8762a9b50b" name="변경" comment="메인 수정 202510021636">
+-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
++    <list default="true" id="6f08c309-aaf3-4217-a90a-8e8762a9b50b" name="변경" comment="메인 수정 202510021639">
++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -433,11 +433,18 @@
+       <option name="project" value="LOCAL" />
+       <updated>1759390618962</updated>
+     </task>
+-    <option name="localTasksCounter" value="47" />
++    <task id="LOCAL-00047" summary="메인 수정 202510021639">
++      <option name="closed" value="true" />
++      <created>1759390768452</created>
++      <option name="number" value="00047" />
++      <option name="presentableId" value="LOCAL-00047" />
++      <option name="project" value="LOCAL" />
++      <updated>1759390768453</updated>
++    </task>
++    <option name="localTasksCounter" value="48" />
+     <servers />
+   </component>
+   <component name="VcsManagerConfiguration">
+-    <MESSAGE value="스크립트 수정" />
+     <MESSAGE value="스크립트 수정2" />
+     <MESSAGE value="스크립트 수정 202509301730" />
+     <MESSAGE value="스크립트 수정 202509301732" />
+@@ -462,6 +469,7 @@
+     <MESSAGE value="메인 수정 202510021505" />
+     <MESSAGE value="메인 수정 202510021507" />
+     <MESSAGE value="메인 수정 202510021636" />
+-    <option name="LAST_COMMIT_MESSAGE" value="메인 수정 202510021636" />
++    <MESSAGE value="메인 수정 202510021639" />
++    <option name="LAST_COMMIT_MESSAGE" value="메인 수정 202510021639" />
+   </component>
+ </project>
+\ No newline at end of file
