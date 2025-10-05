@@ -145,7 +145,7 @@ $(document).ready(function(){
     setInterval(function(){
         if (i >= goals_text.length) return;
 
-        output += goals_text[i] === '\n' ? '<br/>' : goals_text[i];
+        output += goals_text[i] === "\n" ? "<br/>" : goals_text[i];
 
         $("#main_page_head .text").html(output);
 
