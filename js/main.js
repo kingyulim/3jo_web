@@ -87,7 +87,9 @@ $(document).ready(function(){
                 const layer = `
                     <div class="my_popup_layer">
                         <div class="inner_wrap container" style="padding: 16px;">
-                            <iframe src="./team_folder/${this_name}.html" style="width: 100%; height: 100%; border: 0;"></iframe>
+                            <button class="close_btn" type="button">메인으로</button>
+
+                            <iframe src="./team_folder/${this_name}.html" style="width: 100%; border: 0;"></iframe>
                         </div>
                     </div>
                 `;
@@ -95,7 +97,7 @@ $(document).ready(function(){
                 $("body").append(layer);
 
                 $(document).on("click", ".my_popup_layer", function(e){
-                    if ($(e.target).is(".my_popup_layer")) {
+                    if ($(e.target).is(".my_popup_layer") || $(e.target).is(".close_btn")) {
                         $(this).remove();
                     }
                 });

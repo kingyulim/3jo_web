@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f08c309-aaf3-4217-a90a-8e8762a9b50b" name="변경" comment="메인 수정 202510021636">
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+    <list default="true" id="6f08c309-aaf3-4217-a90a-8e8762a9b50b" name="변경" comment="김규림 추가 수정 202510051852">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/main.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,18 +17,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "history": [
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;history&quot;: [
     {
-      "state": "OPEN",
-      "assignee": "jyop1212hy"
+      &quot;state&quot;: &quot;OPEN&quot;,
+      &quot;assignee&quot;: &quot;jyop1212hy&quot;
     }
   ],
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "jyop1212hy"
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;jyop1212hy&quot;
   }
-}]]></component>
+}</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/kingyulim/3jo_web.git&quot;,
@@ -433,12 +435,26 @@
       <option name="project" value="LOCAL" />
       <updated>1759390618962</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="김규림 추가 수정 202510051851">
+      <option name="closed" value="true" />
+      <created>1759657913384</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1759657913384</updated>
+    </task>
+    <task id="LOCAL-00048" summary="김규림 추가 수정 202510051852">
+      <option name="closed" value="true" />
+      <created>1759657936834</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1759657936834</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="스크립트 수정" />
-    <MESSAGE value="스크립트 수정2" />
     <MESSAGE value="스크립트 수정 202509301730" />
     <MESSAGE value="스크립트 수정 202509301732" />
     <MESSAGE value="수강자 한 명이 빠진 관계로 index수정 202509301801" />
@@ -462,6 +478,8 @@
     <MESSAGE value="메인 수정 202510021505" />
     <MESSAGE value="메인 수정 202510021507" />
     <MESSAGE value="메인 수정 202510021636" />
-    <option name="LAST_COMMIT_MESSAGE" value="메인 수정 202510021636" />
+    <MESSAGE value="김규림 추가 수정 202510051851" />
+    <MESSAGE value="김규림 추가 수정 202510051852" />
+    <option name="LAST_COMMIT_MESSAGE" value="김규림 추가 수정 202510051852" />
   </component>
 </project>
