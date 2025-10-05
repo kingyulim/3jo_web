@@ -103,28 +103,25 @@ guest_book_list.on("click", ".util_btn", async function() {
 
     const get_this_list = await getDoc(doc(db, "guest_book", this_id));
 
-    if(!get_this_list.exists()) {
+    if(!get_this_list.exists()){
         alert("존재하지 않는 데이터입니다.");
 
         return;
     }
 
     const password_prompt = prompt("비밀번호를 입력해주세요.");
-    if(!password_prompt) {
-        alert("빈값은 입력할 수 없습니다.");
 
-        return;
-    }
+    if(!password_prompt) return;
 
     const row = get_this_list.data();
-    if(row.password !== password_prompt) {
+    if(row.password !== password_prompt){
         alert("비밀번호가 일치하지 않습니다.");
 
         return;
     }
 
-    switch (t.attr("btn_util")) {
-        case "remove_btn":
+    switch(t.attr("btn_util")){
+        case "remove_btn" :
             await deleteDoc(doc(db, "guest_book", this_id));
 
             alert("삭제되었습니다.");
@@ -137,7 +134,7 @@ guest_book_list.on("click", ".util_btn", async function() {
 
             break;
 
-        case "edit_btn":
+        case "edit_btn" :
             const this_list_element = $("li[data-id='" + this_id + "']");
             this_list_element.find(".content").remove();
 
@@ -157,7 +154,7 @@ guest_book_list.on("click", ".util_btn", async function() {
                     const i_t = $(this);
                     let content_data = null;
 
-                    switch (i_t.attr("btn_util")) {
+                    switch(i_t.attr("btn_util")){
                         case "cencle" :
                             content_data = row.content;
 
