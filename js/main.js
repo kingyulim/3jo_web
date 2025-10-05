@@ -6,16 +6,16 @@ $(document).ready(function(){
             "img" : ["./img/kim_gyu_lim/profile_img.jpg", "./img/kim_gyu_lim/activity (1).jpg", "./img/kim_gyu_lim/activity (3).jpg", "./img/kim_gyu_lim/activity (8).jpg"]
         },
 
-        "jang_seo_yeon" : {
-            "name" : "장서연",
-            "resolution" : "적당히 살지 말자.",
-            "img" : ["./img/jang_seo_yeon/1.jpg", "./img/jang_seo_yeon/2.jpg"]
-        },
-
         "lee_seoyeon" : {
             "name" : "이서연",
             "resolution" : "작은 일도 소홀히 하지 않고, 끝까지 최선을 다하겠습니다.",
             "img" : ["./img/lee_seoyeon/profile1.png", "./img/lee_seoyeon/profile2.jpg", "./img/lee_seoyeon/profile3.png", "./img/lee_seoyeon/profile4.png"]
+        },
+
+        "jang_seo_yeon" : {
+            "name" : "장서연",
+            "resolution" : "적당히 살지 말자.",
+            "img" : ["./img/jang_seo_yeon/1.jpg", "./img/jang_seo_yeon/2.jpg"]
         },
 
         "jeoung_ha_ryun" : {
