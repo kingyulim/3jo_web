@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f08c309-aaf3-4217-a90a-8e8762a9b50b" name="변경" comment="김규림 수정 202510051945">
+    <list default="true" id="6f08c309-aaf3-4217-a90a-8e8762a9b50b" name="변경" comment="김규림 수정 202510051950">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/main.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -64,14 +65,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1759141585501</updated>
-    </task>
-    <task id="LOCAL-00008" summary="레이아웃 수정">
-      <option name="closed" value="true" />
-      <created>1759194947265</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1759194947265</updated>
     </task>
     <task id="LOCAL-00009" summary="load 주석">
       <option name="closed" value="true" />
@@ -457,11 +450,18 @@
       <option name="project" value="LOCAL" />
       <updated>1759661150110</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="김규림 수정 202510051950">
+      <option name="closed" value="true" />
+      <created>1759661425910</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1759661425910</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="메인 인덱스 페이드 프론트 완료 202510011118" />
     <MESSAGE value="메인 인덱스 페이드 프론트 완료 202510011120" />
     <MESSAGE value="style css 변경" />
     <MESSAGE value="style css 변경 202510011141" />
@@ -486,6 +486,7 @@
     <MESSAGE value="김규림 수정 202510051920" />
     <MESSAGE value="김규림 수정 202510051927" />
     <MESSAGE value="김규림 수정 202510051945" />
-    <option name="LAST_COMMIT_MESSAGE" value="김규림 수정 202510051945" />
+    <MESSAGE value="김규림 수정 202510051950" />
+    <option name="LAST_COMMIT_MESSAGE" value="김규림 수정 202510051950" />
   </component>
 </project>
