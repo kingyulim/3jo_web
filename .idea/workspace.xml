@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6f08c309-aaf3-4217-a90a-8e8762a9b50b" name="변경" comment="김규림 수정 202510051920">
-      <change beforePath="$PROJECT_DIR$/js/guest_book_db.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/guest_book_db.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,14 +64,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1759141585501</updated>
-    </task>
-    <task id="LOCAL-00005" summary="데이터 이름 추가 수정 했습니다.">
-      <option name="closed" value="true" />
-      <created>1759144721913</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1759144721913</updated>
     </task>
     <task id="LOCAL-00006" summary="개별 페이지 단독 확인 박스 추가">
       <option name="closed" value="true" />
@@ -457,7 +449,15 @@
       <option name="project" value="LOCAL" />
       <updated>1759659644937</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="김규림 수정 202510051920">
+      <option name="closed" value="true" />
+      <created>1759659658852</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1759659658852</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
