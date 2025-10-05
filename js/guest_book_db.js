@@ -150,7 +150,7 @@ guest_book_list.on("click", ".util_btn", async function() {
 
             this_list_element.find(".list_head").after(edit_textarea);
 
-            this_list_element.find(".edit_textarea_box").off("click").on("click", ".ed_util_btn", async function() {
+            this_list_element.find(".edit_textarea_box").off("click").on("click", ".ed_util_btn", async function(){
                     const i_t = $(this);
                     let content_data = null;
 
