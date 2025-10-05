@@ -47,10 +47,10 @@ $(document).ready(function(){
             img_layer = null;
 
         if(value.img.length > 0){
-            value.img.forEach(imgSrc => {
+            value.img.forEach(img_src => {
                 img_layer = `
                     <li>
-                        <img src="${imgSrc}">
+                        <img src="${img_src}">
                     </li>
                 `;
 
