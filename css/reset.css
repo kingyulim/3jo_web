@@ -1,7 +1,8 @@
 @charset "utf-8";
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
 
-*{margin: 0; padding: 0; box-sizing: border-box; font-family: "Noto Sans KR", sans-serif;}
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
+
+*{margin: 0; padding: 0; box-sizing: border-box; font-family:Pretendard}
 
 html{font-size: 10px;}
 body{}
@@ -28,7 +29,8 @@ button,
 label{cursor: pointer}
 	
 input:not([type="radio"], [type="checkbox"]),
-select{height: 36px; padding: 0 10px; border-radius: 5px; border: 1px solid #9b9b9b;}
+textarea,
+select{height: 36px; padding: 10px; border-radius: 5px; border: 1px solid #9b9b9b;}
 
 input[type="radio"],
 input[type="checkbox"],

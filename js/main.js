@@ -1,15 +1,70 @@
 $(document).ready(function(){
-    // 네비게이션 스크립트
-    const nav_wrap = $("#nav_wrap");
+    const member_dic = {
+        "kim_gyu_lim" : {
+            "name" : "김규림",
+            "resolution" : "모든 업무에 있어 끝까지 책임을 다할 것을 약속드립니다.",
+            "img" : ["./img/kim_gyu_lim/profile_img.jpg", "./img/kim_gyu_lim/activity (1).jpg", "./img/kim_gyu_lim/activity (3).jpg", "./img/kim_gyu_lim/activity (8).jpg"]
+        },
 
-    $("#nav_open_btn").click(function(){
-        nav_wrap.find(".background").addClass("on");
-        nav_wrap.find(".list_inner").css("right", 0);
-    });
+        "jang_seo_yeon" : {
+            "name" : "장서연",
+            "resolution" : "적당히 살지 말자.",
+            "img" : ["./img/jang_seo_yeon/1.jpg", "./img/jang_seo_yeon/2.jpg"]
+        },
 
-    nav_wrap.on("click", ".background, .close_btn, .close_btn > img", function(){
-        nav_wrap.find(".background").removeClass("on");
-        nav_wrap.find(".list_inner").css("right", "-100%");
+        "lee_seoyeon" : {
+            "name" : "이서연",
+            "resolution" : "작은 일도 소홀히 하지 않고, 끝까지 최선을 다하겠습니다.",
+            "img" : ["./img/lee_seoyeon/profile1.png", "./img/lee_seoyeon/profile2.jpg", "./img/lee_seoyeon/profile3.png", "./img/lee_seoyeon/profile4.png"]
+        },
+
+        "jeoung_ha_ryun" : {
+            "name" : "정하륜",
+            "resolution" : "모두에게 도움도히는 개발자가 되고 싶습니다.",
+            "img" : []
+        }
+    }
+
+    $.each(member_dic, function(key, value){
+        let layer = `
+            <li data-name="${key}">
+                <ul class="my_img"></ul>
+                <div class="my_contnet_box">
+                    <p class="my_name">
+                        <strong>${value.name}</strong>
+                    </p>
+
+                    <p class="resolution">${value.resolution}</p>
+                </div>
+
+                <span class="view_icon">상세히보기</span>
+            </li>
+        `;
+
+        $("#member_list_wrap").append(layer);
+
+        let my_img_container = $("#member_list_wrap li[data-name='" + key + "'] .my_img"),
+            img_layer = null;
+
+        if(value.img.length > 0){
+            value.img.forEach(imgSrc => {
+                img_layer = `
+                    <li>
+                        <img src="${imgSrc}">
+                    </li>
+                `;
+
+                my_img_container.append(img_layer);
+            });
+        }else{
+            img_layer = `
+                <li class="no_data">
+                    이미지 없음
+                </li>
+            `;
+
+            my_img_container.append(img_layer);
+        }
     });
 
     // 메인 리스트 스크립트
@@ -90,8 +145,51 @@ $(document).ready(function(){
 
         output += goals_text[i] === '\n' ? '<br/>' : goals_text[i];
 
-        $("#main_page_head .title_box .text").html(output);
+        $("#main_page_head .text").html(output);
 
         i++;
-    }, 100);
+    }, 80);
+
+    // 네비 버튼 스크립트
+    $("#fixed_nav button").click(function(){
+        const t = $(this);
+        const this_data = t.data("article");
+
+        t.addClass("on").siblings().removeClass("on");
+
+        switch(this_data){
+            case "member_intro" : 
+                $("#guest_book_article").fadeOut();
+                $("#member_list_article").show();
+
+                setTimeout(function(){
+                    member_intro_fn(0, 1, 500);         
+                }, 500);   
+
+                break;
+            
+            case "guest_book" : 
+                member_intro_fn(-300, 0, 500);
+
+                setTimeout(function(){
+                    $("#member_list_article").hide();
+
+                    $("#guest_book_article").fadeIn(500);
+                }, 500);
+
+                break;
+        }
+
+        function member_intro_fn(a, b, time){
+            $("#member_list_wrap > li:nth-of-type(odd)").animate({
+                "left" : a,
+                "opacity" : b
+            }, time);
+
+            $("#member_list_wrap > li:nth-of-type(even)").animate({
+                "right" : a,
+                "opacity" : b
+            }, time);
+        }
+    });
 });
