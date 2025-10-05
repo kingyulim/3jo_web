@@ -163,7 +163,7 @@ guest_book_list.on("click", ".util_btn", async function() {
                         case "edit" : 
                             const new_content = this_list_element.find(".edit_textarea_box textarea").val().trim();
 
-                            if(!new_content) {
+                            if(!new_content){
                                 alert("내용을 입력해주세요.");
 
                                 return;
