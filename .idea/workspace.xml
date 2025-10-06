@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f08c309-aaf3-4217-a90a-8e8762a9b50b" name="변경" comment="김규림 수정 202510051955" />
+    <list default="true" id="6f08c309-aaf3-4217-a90a-8e8762a9b50b" name="변경" comment="김규링 작업 202510060931">
+      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -62,14 +64,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1759141585501</updated>
-    </task>
-    <task id="LOCAL-00010" summary="김규림이 수정함">
-      <option name="closed" value="true" />
-      <created>1759215016422</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1759215016422</updated>
     </task>
     <task id="LOCAL-00011" summary="김규림이 추가함">
       <option name="closed" value="true" />
@@ -455,11 +449,18 @@
       <option name="project" value="LOCAL" />
       <updated>1759661729568</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="김규링 작업 202510060931">
+      <option name="closed" value="true" />
+      <created>1759710689513</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1759710689513</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="style css 변경" />
     <MESSAGE value="style css 변경 202510011141" />
     <MESSAGE value="김규림 수정 202510011229" />
     <MESSAGE value="김규림 수정 202510011231" />
@@ -484,6 +485,7 @@
     <MESSAGE value="김규림 수정 202510051945" />
     <MESSAGE value="김규림 수정 202510051950" />
     <MESSAGE value="김규림 수정 202510051955" />
-    <option name="LAST_COMMIT_MESSAGE" value="김규림 수정 202510051955" />
+    <MESSAGE value="김규링 작업 202510060931" />
+    <option name="LAST_COMMIT_MESSAGE" value="김규링 작업 202510060931" />
   </component>
 </project>
