@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f08c309-aaf3-4217-a90a-8e8762a9b50b" name="변경" comment="김규림 style 수정 202510060935">
-      <change beforePath="$PROJECT_DIR$/js/guest_book_db.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/guest_book_db.js" afterDir="false" />
+    <list default="true" id="6f08c309-aaf3-4217-a90a-8e8762a9b50b" name="변경" comment="김규림 방명록 db.js 수정 202510060939">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,14 +66,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1759141585501</updated>
-    </task>
-    <task id="LOCAL-00012" summary="김규림이 추가함">
-      <option name="closed" value="true" />
-      <created>1759215312639</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1759215312639</updated>
     </task>
     <task id="LOCAL-00013" summary="김규림이 추가함">
       <option name="closed" value="true" />
@@ -457,11 +451,18 @@
       <option name="project" value="LOCAL" />
       <updated>1759710927058</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="김규림 방명록 db.js 수정 202510060939">
+      <option name="closed" value="true" />
+      <created>1759711193440</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1759711193440</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="김규림 수정 202510011229" />
     <MESSAGE value="김규림 수정 202510011231" />
     <MESSAGE value="인덱스 수정 202510011431" />
     <MESSAGE value="메인 css 수정 202510011453" />
@@ -486,6 +487,7 @@
     <MESSAGE value="김규림 수정 202510051955" />
     <MESSAGE value="김규링 작업 202510060931" />
     <MESSAGE value="김규림 style 수정 202510060935" />
-    <option name="LAST_COMMIT_MESSAGE" value="김규림 style 수정 202510060935" />
+    <MESSAGE value="김규림 방명록 db.js 수정 202510060939" />
+    <option name="LAST_COMMIT_MESSAGE" value="김규림 방명록 db.js 수정 202510060939" />
   </component>
 </project>

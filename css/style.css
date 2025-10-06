@@ -5,7 +5,7 @@
 #fixed_nav button + button{margin-top: 16px;}
 #fixed_nav button.on{color: #fff;}
 
-#member_list_main{min-height: 100vh; padding: 50px 0 140px 0; background: #0e0e0e;}
+#member_list_main{min-height: 100vh; padding: 50px 0 250px 0; background: #0e0e0e;}
 #member_list_main *{}
 #member_list_main .container{}
 
@@ -84,3 +84,6 @@
 .my_ds_check{margin-bottom: 30px; text-align: center}
 .my_ds_check h2{}
 .my_ds_check .list{margin-top: 10px; padding-top: 10px; border-top: 1px solid #ededed; font-size: 1.2rem}
+
+#footer_wrap{padding: 16px; background: #161616; color: #fff}
+#footer_wrap .copyright{text-align: center; color: #838383;}
