@@ -52,8 +52,13 @@
 #guest_book_article .input_form textarea{width: 100%; height: 150px;}
 #guest_book_article .input_form .df_btn{width: 80px; color: #fff;; background: #555687;}
 #guest_book_article .guest_book_list_box{flex: 1; color: #fff;}
-#guest_book_article .guest_book_list_box .total_count{margin-bottom: 20px; padding: 10px; border-radius: 5px; font-size: 1.2rem; background: #1e1e1e;}
 #guest_book_article .guest_book_list_box #guest_book_list_more{width: 100%; height: auto; margin-top: 16px; line-height: 15px; font-size: 1.2rem; text-align: center; color: #9b9b9b;}
+#guest_book_article .guest_book_list_head{display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; padding: 10px; border-radius: 5px; font-size: 1.2rem; background: #1e1e1e;}
+#guest_book_article .guest_book_list_head .total_count{}
+#guest_book_article .guest_book_list_head .btn_box{}
+#guest_book_article .guest_book_list_head .btn_box button{color: #838383}
+#guest_book_article .guest_book_list_head .btn_box button + button{margin-left: 5px}
+#guest_book_article .guest_book_list_head .btn_box button.on{color: #fff}
 #guest_book_article .list_wrap{}
 #guest_book_article .list_wrap > li{}
 #guest_book_article .list_wrap > li.no_data{font-size: 1.4rem;}

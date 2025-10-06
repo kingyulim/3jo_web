@@ -21,95 +21,92 @@ import{
 }from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 
 // Firebase 설정
-const firebaseConfig = {
-    apiKey: "AIzaSyDCTjFYPvh6kpZamGxWy8i3MLXCQlEZzfc",
-    authDomain: "kingyulim-project.firebaseapp.com",
-    projectId: "kingyulim-project",
-    storageBucket: "kingyulim-project.firebasestorage.app",
-    messagingSenderId: "983651940781",
-    appId: "1:983651940781:web:7cdc2f47e6b23a7a3f0924",
-    measurementId: "G-2M5TW30KYB"
+const firebase_config = {
+    apiKey:"AIzaSyDCTjFYPvh6kpZamGxWy8i3MLXCQlEZzfc",
+    authDomain:"kingyulim-project.firebaseapp.com",
+    projectId:"kingyulim-project",
+    storageBucket:"kingyulim-project.firebasestorage.app",
+    messagingSenderId:"983651940781",
+    appId:"1:983651940781:web:7cdc2f47e6b23a7a3f0924",
+    measurementId:"G-2M5TW30KYB"
 };
 
 // Firebase 인스턴스 초기화
-const app = initializeApp(firebaseConfig);
+const app = initializeApp(firebase_config);
 const db = getFirestore(app);
 
-const guest_book_list = $("#guest_book_article .list_wrap");
+const guest_book_list=$("#guest_book_article .list_wrap"),
+      book_guest_count_text=$("#book_guest_count b");
 
-let last_visible = null; // 마지막 문서
-let loaded_count = 0; // 현재까지 로드된 개수
-let total_count = 0; // 전체 문서 개수
-const load_limit = 5; // 한 번에 가져올 개수
+let last_visible = null,
+    loaded_count = 0,
+    total_count = 0,
+    order_by = "desc";
+
+const load_limit = 5;
 
 const guest_book_total = await getCountFromServer(query(collection(db, "guest_book")));
-
 total_count = guest_book_total.data().count;
 
-let guest_book_query = query(collection(db, "guest_book"), orderBy("order_time", "desc"), limit(load_limit));
-
+let guest_book_query = query(collection(db,"guest_book"), orderBy("order_time", order_by), limit(load_limit));
 let guest_book_dic = await getDocs(guest_book_query);
 
+const guest_book_list_more_layer=`
+    <button id="guest_book_list_more" class="df_btn" type="button">
+        더보기
+        <br>
+        ↓
+    </button>
+`;
+
 if(guest_book_dic.docs.length > 0){
-    $.each(guest_book_dic.docs, function(index, value){
+    $.each(guest_book_dic.docs,function(index,value){
+        const row = value.data();
+        guest_book_list.append(list_layer_fn(value.id,row.name,row.datetime,row.content));
+    });
+
+    last_visible = guest_book_dic.docs[guest_book_dic.docs.length-1];
+    loaded_count += guest_book_dic.docs.length;
+
+    if(total_count > load_limit){
+        book_guest_count_text.text(total_count);
+        guest_book_list.after(guest_book_list_more_layer);
+    }
+}else{
+    guest_book_list.append(`<li class="no_data">작성된 방명록이 없습니다.</li>`);
+}
+
+$(document).on("click", "#guest_book_list_more", async function(){
+    guest_book_query = query(collection(db,"guest_book"), orderBy("order_time", order_by), startAfter(last_visible), limit(load_limit));
+    guest_book_dic = await getDocs(guest_book_query);
+
+    $.each(guest_book_dic.docs,function(index,value){
         const row = value.data();
         guest_book_list.append(list_layer_fn(value.id, row.name, row.datetime, row.content));
     });
 
-    last_visible = guest_book_dic.docs[guest_book_dic.docs.length - 1];
+    last_visible = guest_book_dic.docs[guest_book_dic.docs.length-1];
     loaded_count += guest_book_dic.docs.length;
 
-    if(total_count > load_limit){
-        const guest_book_list_more_layer = `
-            <button id="guest_book_list_more" class="df_btn" type="button">
-                더보기
-                <br>
-                ↓
-            </button>
-        `;
-
-        guest_book_list.before("<p id=\"book_guest_count\" class=\"total_count\">방명록 <b>" + total_count + "</b>개</p>");
-
-        guest_book_list.after(guest_book_list_more_layer);
-
-        $("#guest_book_list_more").on("click", async function(){
-            guest_book_query = query(collection(db, "guest_book"), orderBy("order_time", "desc"), startAfter(last_visible), limit(load_limit));
-
-            guest_book_dic = await getDocs(guest_book_query);
-
-            $.each(guest_book_dic.docs, function(index, value){
-                const row = value.data();
-                guest_book_list.append(list_layer_fn(value.id, row.name, row.datetime, row.content));
-            });
-
-            last_visible = guest_book_dic.docs[guest_book_dic.docs.length - 1];
-            loaded_count += guest_book_dic.docs.length;
-
-            if(loaded_count >= total_count){
-                $(this).remove();
-            }
-        });
+    if(loaded_count >= total_count){
+        $(this).remove();
     }
-}else{
-    guest_book_list.append(
-        `<li class="no_data">작성된 방명록이 없습니다.</li>`
-    );
-}
+});
 
-guest_book_list.on("click", ".util_btn", async function() {
+
+guest_book_list.on("click",".util_btn",async function(){
     const t = $(this);
     const this_id = t.closest("li[data-id]").data("id");
 
-    const get_this_list = await getDoc(doc(db, "guest_book", this_id));
+    const get_this_list=await getDoc(doc(db, "guest_book", this_id));
 
     if(!get_this_list.exists()){
         alert("존재하지 않는 데이터입니다.");
-
+        
         return;
     }
 
-    const password_prompt = prompt("비밀번호를 입력해주세요.");
-
+    const password_prompt=prompt("비밀번호를 입력해주세요.");
     if(!password_prompt) return;
 
     const row = get_this_list.data();
@@ -127,23 +124,24 @@ guest_book_list.on("click", ".util_btn", async function() {
 
             t.closest("li[data-id]").remove();
 
-            if(guest_book_list.find("li[data-id]").length === 0 && guest_book_list.find(".no_data").length === 0) {
+            total_count -= 1;
+            book_guest_count_text.text(total_count);
+
+            if(guest_book_list.find("li[data-id]").length === 0 && guest_book_list.find(".no_data").length === 0){
                 guest_book_list.append('<li class="no_data">작성된 방명록이 없습니다.</li>');
             }
 
-            $("#book_guest_count b").text(total_count);
-
-            if(total_count < 5){
+            if(total_count<load_limit){
                 $("#guest_book_list_more").remove();
             }
 
             break;
 
         case "edit_btn" :
-            const this_list_element = $("li[data-id='" + this_id + "']");
+            const this_list_element = $("li[data-id='"+this_id+"']");
             this_list_element.find(".content").remove();
 
-            const edit_textarea = `
+            const edit_textarea=`
                 <div class="edit_textarea_box">
                     <textarea placeholder="수정할 내용을 작성해주세요." maxlength="1000">${row.content}</textarea>
                     <div class="btn_box">
@@ -155,62 +153,59 @@ guest_book_list.on("click", ".util_btn", async function() {
 
             this_list_element.find(".list_head").after(edit_textarea);
 
-            this_list_element.find(".edit_textarea_box").off("click").on("click", ".ed_util_btn", async function(){
-                    const i_t = $(this);
-                    let content_data = null;
+            this_list_element.find(".edit_textarea_box").off("click").on("click",".ed_util_btn",async function(){
+                const i_t = $(this);
+                let content_data = null;
 
-                    switch(i_t.attr("btn_util")){
-                        case "cencle" :
-                            content_data = row.content;
+                switch(i_t.attr("btn_util")){
+                    case "cencle" :
+                        content_data = row.content;
+                        
+                        break;
 
-                            break;
+                    case "edit" :
+                        const new_content=this_list_element.find(".edit_textarea_box textarea");
 
-                        case "edit" : 
-                            const new_content = this_list_element.find(".edit_textarea_box textarea");
+                        if(!new_content.val().trim()){
+                            alert("내용을 입력해주세요.");
 
-                            if(!new_content.val().trim()){
-                                alert("내용을 입력해주세요.");
+                            new_content.focus();
 
-                                new_content.focus();
+                            return;
+                        }
+                        if(new_content.val().length > 1000){
+                            alert("1000자 이내로 작성해주세요.");
 
-                                return;
-                            }
+                            new_content.focus();
 
-                            if(new_content.val().length > 1000){
-                                alert("1000자 이내로 작성해주세요.");
+                            return;
+                        }
 
-                                new_content.focus();
+                        await updateDoc(doc(db, "guest_book", this_id),{
+                            content:new_content.val()
+                        });
 
-                                return;
-                            }
+                        content_data=new_content.val();
 
-                            await updateDoc(doc(db, "guest_book", this_id), {
-                                content: new_content
-                            });
+                        alert("수정되었습니다.");
 
-                            content_data = new_content;
+                        break;
+                }
 
-                            alert("수정되었습니다.");
-
-                            break;
-                    }
-
-                    this_list_element.find(".edit_textarea_box").remove();
-                    this_list_element .find(".list_head").after(`<p class="content">${content_data}</p>`);
-                });
-
+                this_list_element.find(".edit_textarea_box").remove();
+                this_list_element.find(".list_head").after(`<p class="content">${content_data}</p>`);
+            });
             break;
     }
 });
 
-let last_insert_time = 0; // 마지막 작성 시간
+let last_insert_time = 0;
 
 $("#guest_book_insert").click(async function(){
     const now_time = Date.now();
 
-    // 30초 제한 체크
-    if(now_time - last_insert_time < 30000){
-        const remain = Math.ceil((30000 - (now_time - last_insert_time)) / 1000);
+    if(now_time-last_insert_time < 30000){
+        const remain=Math.ceil((30000 - (now_time-last_insert_time)) / 1000);
 
         alert(remain + "초 후에 다시 작성할 수 있습니다.");
 
@@ -232,8 +227,7 @@ $("#guest_book_insert").click(async function(){
     if(my_name.val().length > 20){
         alert("이름, 닉네임은 20자 이내로 작성해주세요.");
 
-        my_name.val("")
-        my_name.focus();
+        my_name.val("").focus();
 
         return;
     }
@@ -249,8 +243,9 @@ $("#guest_book_insert").click(async function(){
     if(my_password.val().length > 20){
         alert("비밀번호는 20자 이내로 입력 해주세요.");
 
-        my_password.val("")
-        my_password.focus();
+        my_password.val("").focus();
+
+        return;
     }
 
     if(my_content.val() === ""){
@@ -287,43 +282,61 @@ $("#guest_book_insert").click(async function(){
         }
 
         guest_book_list.prepend(list_layer_fn(doc_ref.id, my_data_dic.name, my_data_dic.datetime, my_data_dic.content));
-
         $("#book_guest_count b").text(total_count + 1);
 
         my_name.val("");
         my_password.val("");
         my_content.val("");
-
-        last_insert_time = Date.now(); // 마지막 작성 시간 갱신
+        last_insert_time = Date.now();
     }catch(e){
         console.error(e);
 
-        alert("저장 실패: " + e.message);
-
-        return;
+        alert("저장 실패: "+e.message);
     }
 });
 
-function list_layer_fn(a, b, c, d){
+$(document).on("click", ".order_btn", async function(){
+    const t = $(this);
+    const this_data = t.data("order");
+
+    t.addClass("on").siblings().removeClass("on");
+
+    guest_book_list.empty();
+    $("#guest_book_list_more").remove();
+
+    order_by = this_data;
+
+    guest_book_query = query(collection(db, "guest_book"), orderBy("order_time",order_by), limit(load_limit));
+    guest_book_dic = await getDocs(guest_book_query);
+
+    $.each(guest_book_dic.docs,function(index,value){
+        const row = value.data();
+        guest_book_list.append(list_layer_fn(value.id, row.name, row.datetime, row.content));
+    });
+
+    last_visible = guest_book_dic.docs[guest_book_dic.docs.length-1];
+    loaded_count = guest_book_dic.docs.length;
+
+    if(total_count > load_limit){
+        guest_book_list.after(guest_book_list_more_layer);
+    }
+});
+
+function list_layer_fn(a,b,c,d){
     const list_layer = `
         <li data-id="${a}">
             <div class="list_head">
                 <div class="wri_data">
-                    <span class="name">
-                        <strong>${b}</strong>
-                    </span>
-                    <span class="datetime">${c}</span>            
+                    <span class="name"><strong>${b}</strong></span>
+                    <span class="datetime">${c}</span>
                 </div>
-
                 <div class="btn_box">
                     <button class="util_btn" btn_util="edit_btn" type="button">수정</button>
                     <button class="util_btn" btn_util="remove_btn" type="button">삭제</button>
                 </div>
             </div>
-
             <p class="content">${d}</p>
         </li>
     `;
-
     return list_layer;
 }
