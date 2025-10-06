@@ -73,12 +73,7 @@ if(guest_book_dic.docs.length > 0){
         guest_book_list.after(guest_book_list_more_layer);
 
         $("#guest_book_list_more").on("click", async function(){
-            guest_book_query = query(
-                collection(db, "guest_book"),
-                orderBy("order_time", "desc"),
-                startAfter(last_visible),
-                limit(load_limit)
-            );
+            guest_book_query = query(collection(db, "guest_book"), orderBy("order_time", "desc"), startAfter(last_visible), limit(load_limit));
 
             guest_book_dic = await getDocs(guest_book_query);
 
