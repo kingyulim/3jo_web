@@ -20,7 +20,7 @@ $(document).ready(function(){
 
         "jeoung_ha_ryun" : {
             "name" : "정하륜",
-            "resolution" : "모두에게 도움도히는 개발자가 되고 싶습니다.",
+            "resolution" : "모두에게 도움되는 개발자가 되고 싶습니다.",
             "img" : ["./img/Jeong_ha_ryun/JHR_Profile_img.JPG", "./img/Jeong_ha_ryun/JHR_danang_img.JPG", "./img/Jeong_ha_ryun/JHR_dubai_img.JPG", "./img/Jeong_ha_ryun/JHR_Fubao_img.jpeg", "./img/Jeong_ha_ryun/JHR_jeju_img.JPG"]
         }
     }
@@ -205,5 +205,5 @@ function format_datetime() {
   const min = String(now.getMinutes()).padStart(2, '0');
   const s = String(now.getSeconds()).padStart(2, '0');
 
-  return `${y}/${m}/${d} ${h}:${min}:${s}`;
+  return `${y}-${m}-${d} ${h}:${min}:${s}`;
 }

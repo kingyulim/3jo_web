@@ -37,14 +37,16 @@
                         <div class="inner_container">
                             <div class="input_form">
                                 <div class="my_wri">
-                                    <input name="my_name" type="text" placeholder="이름, 닉네임">
-                                    <input name="my_password" type="password" placeholder="비밀번호">
+                                    <input name="my_name" type="text" maxlength="20" placeholder="이름, 닉네임">
+                                    <input name="my_password" type="password" maxlength="20"  placeholder="비밀번호">
                                 </div>
-                                <textarea name="my_content" placeholder="방명록을 작성해주세요"></textarea>
+                                <textarea name="my_content" placeholder="방명록을 작성해주세요" maxlength="1000"></textarea>
                                 <button id="guest_book_insert" class="df_btn" type="button">등록</button>
                             </div>
 
-                            <ul class="list_wrap"></ul>
+                            <div class="guest_book_list_box">
+                                <ul class="list_wrap"></ul>
+                            </div>
                         </div>
                     </article>
                 </section>

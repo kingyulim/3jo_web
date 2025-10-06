@@ -4,6 +4,7 @@ import{
 }from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
 
 import{
+    getCountFromServer,
     getFirestore,
     collection,
     addDoc,
@@ -14,7 +15,9 @@ import{
     doc,
     getDoc,
     updateDoc,
-    deleteDoc
+    deleteDoc,
+    limit,
+    startAfter
 }from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 
 // Firebase 설정
@@ -34,67 +37,68 @@ const db = getFirestore(app);
 
 const guest_book_list = $("#guest_book_article .list_wrap");
 
-$("#guest_book_insert").click(async function(){
-    const my_name = $("input[name='my_name']"),
-          my_password = $("input[name='my_password']"),
-          my_content = $("textarea[name='my_content']");
+let last_visible = null; // 마지막 문서
+let loaded_count = 0; // 현재까지 로드된 개수
+let total_count = 0; // 전체 문서 개수
+const load_limit = 5; // 한 번에 가져올 개수
 
-    if(my_name.val() === ""){
-        alert("이름, 닉네임이 작성 되지 않았습니다.");
-        return;
-    }
+const guest_book_total = await getCountFromServer(query(collection(db, "guest_book")));
 
-    if(my_password.val() === ""){
-        alert("비밀번호가 입력되지 않았습니다");
-        return;
-    }
+total_count = guest_book_total.data().count;
 
-    if(my_content.val() === ""){
-        alert("방명록이 작성 되지 않았습니다.");
-        return;
-    }
+let guest_book_query = query(collection(db, "guest_book"), orderBy("order_time", "desc"), limit(load_limit));
 
-    const my_data_dic = {
-        "name" : my_name.val(),
-        "password" : my_password.val(),
-        "content" : my_content.val(),
-        "datetime" : format_datetime()
-    };
-
-    try{
-        const doc_ref = await addDoc(collection(db, "guest_book"), my_data_dic);
-
-        alert("저장 완료");
-
-        if(guest_book_list.find(".no_data").length > 0){
-            guest_book_list.find(".no_data").remove();
-        }
-
-        guest_book_list.prepend(list_layer_fn(doc_ref.id, my_data_dic.name, my_data_dic.datetime, my_data_dic.content));
-
-        my_name.val("");
-        my_password.val("");
-        my_content.val("");
-    }catch(e){
-        console.error(e);
-
-        alert("저장 실패: " + e.message);
-
-        return;
-    }
-});
-
-const guest_book_query = query(collection(db, "guest_book"), orderBy("datetime", "desc")),
-      guest_book_dic = await getDocs(guest_book_query);
+let guest_book_dic = await getDocs(guest_book_query);
 
 if(guest_book_dic.docs.length > 0){
     $.each(guest_book_dic.docs, function(index, value){
-        let row = value.data();
-        
+        const row = value.data();
         guest_book_list.append(list_layer_fn(value.id, row.name, row.datetime, row.content));
     });
+
+    last_visible = guest_book_dic.docs[guest_book_dic.docs.length - 1];
+    loaded_count += guest_book_dic.docs.length;
+
+    if(total_count > load_limit){
+        const guest_book_list_more_layer = `
+            <button id="guest_book_list_more" class="df_btn" type="button">
+                더보기
+                <br>
+                ↓
+            </button>
+        `;
+
+        guest_book_list.before("<p id=\"book_guest_count\" class=\"total_count\">방명록 <b>" + total_count + "</b>개</p>");
+
+        guest_book_list.after(guest_book_list_more_layer);
+
+        $("#guest_book_list_more").on("click", async function(){
+            guest_book_query = query(
+                collection(db, "guest_book"),
+                orderBy("order_time", "desc"),
+                startAfter(last_visible),
+                limit(load_limit)
+            );
+
+            guest_book_dic = await getDocs(guest_book_query);
+
+            $.each(guest_book_dic.docs, function(index, value){
+                const row = value.data();
+                guest_book_list.append(list_layer_fn(value.id, row.name, row.datetime, row.content));
+            });
+
+            last_visible = guest_book_dic.docs[guest_book_dic.docs.length - 1];
+            loaded_count += guest_book_dic.docs.length;
+
+            if(loaded_count >= total_count){
+                $(this).remove();
+            }
+        });
+    }
 }else{
-    guest_book_list.append("<li class=\"no_data\">작성된 방명록이 없습니다.</li>");
+    guest_book_list.append(
+        `<li class="no_data">작성된 방명록이 없습니다.</li>`
+    );
 }
 
 guest_book_list.on("click", ".util_btn", async function() {
@@ -185,6 +189,107 @@ guest_book_list.on("click", ".util_btn", async function() {
                 });
 
             break;
+    }
+});
+
+let last_insert_time = 0; // 마지막 작성 시간
+
+$("#guest_book_insert").click(async function(){
+    const now_time = Date.now();
+
+    // 30초 제한 체크
+    if(now_time - last_insert_time < 30000){
+        const remain = Math.ceil((30000 - (now_time - last_insert_time)) / 1000);
+
+        alert(remain + "초 후에 다시 작성할 수 있습니다.");
+
+        return;
+    }
+
+    const my_name = $("input[name='my_name']"),
+          my_password = $("input[name='my_password']"),
+          my_content = $("textarea[name='my_content']");
+
+    if(my_name.val() === ""){
+        alert("이름, 닉네임이 작성 되지 않았습니다.");
+
+        my_name.focus();
+
+        return;
+    }
+
+    if(my_name.val().length > 20){
+        alert("이름, 닉네임은 20자 이내로 작성해주세요.");
+
+        my_name.val("")
+        my_name.focus();
+
+        return;
+    }
+
+    if(my_password.val() === ""){
+        alert("비밀번호가 입력되지 않았습니다");
+
+        my_password.focus();
+
+        return;
+    }
+
+    if(my_password.val().length > 20){
+        alert("비밀번호는 20자 이내로 입력 해주세요.");
+
+        my_password.val("")
+        my_password.focus();
+    }
+
+    if(my_content.val() === ""){
+        alert("방명록이 작성 되지 않았습니다.");
+
+        my_content.focus();
+
+        return;
+    }
+
+    if(my_content.val().length > 1000){
+        alert("1000자 이내로 작성해주세요.");
+
+        my_content.focus();
+
+        return;
+    }
+
+    const my_data_dic = {
+        "name" : my_name.val(),
+        "password" : my_password.val(),
+        "content" : my_content.val(),
+        "datetime" : format_datetime(),
+        "order_time" : serverTimestamp()
+    };
+
+    try{
+        const doc_ref = await addDoc(collection(db, "guest_book"), my_data_dic);
+
+        alert("저장 완료");
+
+        if(guest_book_list.find(".no_data").length > 0){
+            guest_book_list.find(".no_data").remove();
+        }
+
+        guest_book_list.prepend(list_layer_fn(doc_ref.id, my_data_dic.name, my_data_dic.datetime, my_data_dic.content));
+
+        $("#book_guest_count b").text(total_count + 1);
+
+        my_name.val("");
+        my_password.val("");
+        my_content.val("");
+
+        last_insert_time = Date.now(); // 마지막 작성 시간 갱신
+    }catch(e){
+        console.error(e);
+
+        alert("저장 실패: " + e.message);
+
+        return;
     }
 });
 

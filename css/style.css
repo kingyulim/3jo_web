@@ -51,10 +51,13 @@
 #guest_book_article .input_form .my_wri > *{flex: 1}
 #guest_book_article .input_form textarea{width: 100%; height: 150px;}
 #guest_book_article .input_form .df_btn{width: 80px; color: #fff;; background: #555687;}
-#guest_book_article .list_wrap{flex: 1; color: #fff;}
+#guest_book_article .guest_book_list_box{flex: 1; color: #fff;}
+#guest_book_article .guest_book_list_box .total_count{margin-bottom: 20px; padding: 10px; border-radius: 5px; font-size: 1.2rem; background: #1e1e1e;}
+#guest_book_article .guest_book_list_box .df_btn{width: 100%; height: auto; margin-top: 16px; line-height: 15px; font-size: 1.2rem; text-align: center; color: #9b9b9b;}
+#guest_book_article .list_wrap{}
 #guest_book_article .list_wrap > li{}
 #guest_book_article .list_wrap > li.no_data{font-size: 1.4rem;}
-#guest_book_article .list_wrap > li + li{margin-top: 20px; padding-top: 20px; border-top: 1px solid #ededed;}
+#guest_book_article .list_wrap > li + li{margin-top: 20px; padding-top: 20px; border-top: 1px solid #242424;}
 #guest_book_article .list_wrap .list_head{display: flex; justify-content: space-between; align-items: center;}
 #guest_book_article .list_wrap .list_head .wri_data{}
 #guest_book_article .list_wrap .list_head .wri_data .name{font-size: 1.8rem;}
@@ -69,6 +72,8 @@
 #guest_book_article .list_wrap .edit_textarea_box .btn_box .ed_util_btn{width: 50px;}
 #guest_book_article .list_wrap .edit_textarea_box .btn_box .ed_util_btn[btn_util="cencle"]{background: #4d4d4d; color: #fff;}
 #guest_book_article .list_wrap .edit_textarea_box .btn_box .ed_util_btn[btn_util="edit"]{background: #555687; color: #fff;}
+
+#guest_book_article .guest_book_list_box .df_btn:hover{color: #fff}
 
 .my_popup_layer{position: fixed; left: 0; top: 0; z-index: 10; width: 100%; height: 100%;  background-color: rgb(0 0 0 / 70%);}
 .my_popup_layer .inner_wrap{height: 100%; background-color: #fff;}
