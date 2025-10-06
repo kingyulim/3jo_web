@@ -159,6 +159,8 @@ $(document).ready(function(){
 
         t.addClass("on").siblings().removeClass("on");
 
+        $("html, body").animate({scrollTop : 0}, 500);
+
         switch(this_data){
             case "member_intro" : 
                 $("#guest_book_article").fadeOut();

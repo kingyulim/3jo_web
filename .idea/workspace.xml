@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f08c309-aaf3-4217-a90a-8e8762a9b50b" name="변경" comment="김규림 방명록 수정 202510031020">
+    <list default="true" id="6f08c309-aaf3-4217-a90a-8e8762a9b50b" name="변경" comment="김규림 방명록 수정 202510061427">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/main.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,14 +65,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1759141585501</updated>
-    </task>
-    <task id="LOCAL-00016" summary="스크립트 수정">
-      <option name="closed" value="true" />
-      <created>1759217338216</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1759217338216</updated>
     </task>
     <task id="LOCAL-00017" summary="스크립트 수정2">
       <option name="closed" value="true" />
@@ -457,7 +450,15 @@
       <option name="project" value="LOCAL" />
       <updated>1759713622312</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="김규림 방명록 수정 202510061427">
+      <option name="closed" value="true" />
+      <created>1759728435550</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1759728435550</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -472,7 +473,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="메인 수정 202510011500" />
     <MESSAGE value="김규림 css 수정 202510011516" />
     <MESSAGE value="수정 202510011549" />
     <MESSAGE value="김규림 수정 202510011605" />
@@ -497,6 +497,7 @@
     <MESSAGE value="김규림 인덱스 푸터 추가 202510060959" />
     <MESSAGE value="김규림 방명록 db.js 수정 202510031013" />
     <MESSAGE value="김규림 방명록 수정 202510031020" />
-    <option name="LAST_COMMIT_MESSAGE" value="김규림 방명록 수정 202510031020" />
+    <MESSAGE value="김규림 방명록 수정 202510061427" />
+    <option name="LAST_COMMIT_MESSAGE" value="김규림 방명록 수정 202510061427" />
   </component>
 </project>
