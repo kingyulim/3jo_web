@@ -131,6 +131,12 @@ guest_book_list.on("click", ".util_btn", async function() {
                 guest_book_list.append('<li class="no_data">작성된 방명록이 없습니다.</li>');
             }
 
+            $("#book_guest_count b").text(total_count);
+
+            if(total_count < 5){
+                $("#guest_book_list_more").remove();
+            }
+
             break;
 
         case "edit_btn" :
