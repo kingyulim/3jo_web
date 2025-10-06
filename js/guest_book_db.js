@@ -145,7 +145,7 @@ guest_book_list.on("click", ".util_btn", async function() {
 
             const edit_textarea = `
                 <div class="edit_textarea_box">
-                    <textarea placeholder="수정할 내용을 작성해주세요.">${row.content}</textarea>
+                    <textarea placeholder="수정할 내용을 작성해주세요." maxlength="1000">${row.content}</textarea>
                     <div class="btn_box">
                         <button class="ed_util_btn df_btn" btn_util="cencle" type="button">취소</button>
                         <button class="ed_util_btn df_btn" btn_util="edit" type="button">수정</button>
@@ -166,10 +166,20 @@ guest_book_list.on("click", ".util_btn", async function() {
                             break;
 
                         case "edit" : 
-                            const new_content = this_list_element.find(".edit_textarea_box textarea").val().trim();
+                            const new_content = this_list_element.find(".edit_textarea_box textarea");
 
-                            if(!new_content){
+                            if(!new_content.val().trim()){
                                 alert("내용을 입력해주세요.");
+
+                                new_content.focus();
+
+                                return;
+                            }
+
+                            if(new_content.val().length > 1000){
+                                alert("1000자 이내로 작성해주세요.");
+
+                                new_content.focus();
 
                                 return;
                             }
