@@ -15,7 +15,7 @@ $(document).ready(function(){
         "jang_seo_yeon" : {
             "name" : "장서연",
             "resolution" : "적당히 살지 말자.",
-            "img" : ["./img/jang_seo_yeon/1.jpg", "./img/jang_seo_yeon/2.jpg", , "./img/jang_seo_yeon/3.jpg"]
+            "img" : ["./img/jang_seo_yeon/3.jpg", "./img/jang_seo_yeon/1.jpg", "./img/jang_seo_yeon/2.jpg"]
         },
 
         "jeoung_ha_ryun" : {
