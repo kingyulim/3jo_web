@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6f08c309-aaf3-4217-a90a-8e8762a9b50b" name="변경" comment="메인 페이지 장서연 사진 추가 202510100856">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/guest_book_db.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/guest_book_db.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -65,14 +64,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1759141585501</updated>
-    </task>
-    <task id="LOCAL-00020" summary="스크립트 수정 202509301730">
-      <option name="closed" value="true" />
-      <created>1759221019881</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1759221019881</updated>
     </task>
     <task id="LOCAL-00021" summary="스크립트 수정 202509301732">
       <option name="closed" value="true" />
@@ -458,7 +449,15 @@
       <option name="project" value="LOCAL" />
       <updated>1760054205614</updated>
     </task>
-    <option name="localTasksCounter" value="69" />
+    <task id="LOCAL-00069" summary="메인 페이지 장서연 사진 추가 202510100856">
+      <option name="closed" value="true" />
+      <created>1760055040431</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1760055040431</updated>
+    </task>
+    <option name="localTasksCounter" value="70" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
