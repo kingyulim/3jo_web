@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f08c309-aaf3-4217-a90a-8e8762a9b50b" name="변경" comment="메인 페이지 장서연 사진 추가 202510100855">
-      <change beforePath="$PROJECT_DIR$/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/main.js" afterDir="false" />
+    <list default="true" id="6f08c309-aaf3-4217-a90a-8e8762a9b50b" name="변경" comment="메인 페이지 장서연 사진 추가 202510100856">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/guest_book_db.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/guest_book_db.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,14 +65,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1759141585501</updated>
-    </task>
-    <task id="LOCAL-00019" summary="스크립트 수정2">
-      <option name="closed" value="true" />
-      <created>1759220936934</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1759220936934</updated>
     </task>
     <task id="LOCAL-00020" summary="스크립트 수정 202509301730">
       <option name="closed" value="true" />
@@ -457,7 +450,15 @@
       <option name="project" value="LOCAL" />
       <updated>1760054153281</updated>
     </task>
-    <option name="localTasksCounter" value="68" />
+    <task id="LOCAL-00068" summary="메인 페이지 장서연 사진 추가 202510100856">
+      <option name="closed" value="true" />
+      <created>1760054205614</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1760054205614</updated>
+    </task>
+    <option name="localTasksCounter" value="69" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -472,7 +473,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="김규림 수정 202510011605" />
     <MESSAGE value="네비게이션 추가 202510011730" />
     <MESSAGE value="메인 수정 202510021505" />
     <MESSAGE value="메인 수정 202510021507" />
@@ -497,6 +497,7 @@
     <MESSAGE value="김규림 방명록 수정 202510061427" />
     <MESSAGE value="고정 네비 스크립트 수정 202510061442" />
     <MESSAGE value="메인 페이지 장서연 사진 추가 202510100855" />
-    <option name="LAST_COMMIT_MESSAGE" value="메인 페이지 장서연 사진 추가 202510100855" />
+    <MESSAGE value="메인 페이지 장서연 사진 추가 202510100856" />
+    <option name="LAST_COMMIT_MESSAGE" value="메인 페이지 장서연 사진 추가 202510100856" />
   </component>
 </project>

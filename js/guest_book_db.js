@@ -124,14 +124,13 @@ guest_book_list.on("click",".util_btn",async function(){
 
             t.closest("li[data-id]").remove();
 
-            total_count -= 1;
             book_guest_count_text.text(total_count);
 
             if(guest_book_list.find("li[data-id]").length === 0 && guest_book_list.find(".no_data").length === 0){
                 guest_book_list.append('<li class="no_data">작성된 방명록이 없습니다.</li>');
             }
 
-            if(total_count<load_limit){
+            if(total_count < load_limit){
                 $("#guest_book_list_more").remove();
             }
 
