@@ -68,8 +68,9 @@ if(guest_book_dic.docs.length > 0){
     last_visible = guest_book_dic.docs[guest_book_dic.docs.length-1];
     loaded_count += guest_book_dic.docs.length;
 
+    book_guest_count_text.text(total_count);
+
     if(total_count > load_limit){
-        book_guest_count_text.text(total_count);
         guest_book_list.after(guest_book_list_more_layer);
     }
 }else{
