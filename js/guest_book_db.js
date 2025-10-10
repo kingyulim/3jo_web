@@ -123,7 +123,7 @@ guest_book_list.on("click",".util_btn",async function(){
             alert("삭제되었습니다.");
 
             t.closest("li[data-id]").remove();
-
+            //
             book_guest_count_text.text(total_count);
 
             if(guest_book_list.find("li[data-id]").length === 0 && guest_book_list.find(".no_data").length === 0){
