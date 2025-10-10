@@ -1,7 +1,7 @@
 @charset "utf-8";
 
 #fixed_nav{position: fixed; left: 50%; top: 50%; transform: translate(1200%, -50%);}
-#fixed_nav button{display: block; font-size: 1.6rem; color: #555;}
+#fixed_nav button{display: block; font-size: 1.6rem; color: #898989;}
 #fixed_nav button + button{margin-top: 16px;}
 #fixed_nav button.on{color: #fff;}
 
