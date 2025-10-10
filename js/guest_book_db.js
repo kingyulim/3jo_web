@@ -35,8 +35,8 @@ const firebase_config = {
 const app = initializeApp(firebase_config);
 const db = getFirestore(app);
 
-const guest_book_list=$("#guest_book_article .list_wrap"),
-      book_guest_count_text=$("#book_guest_count b");
+const guest_book_list = $("#guest_book_article .list_wrap"),
+      book_guest_count_text = $("#book_guest_count b");
 
 let last_visible = null,
     loaded_count = 0,
@@ -118,24 +118,27 @@ guest_book_list.on("click",".util_btn",async function(){
     }
 
     switch(t.attr("btn_util")){
-        case "remove_btn" :
-            await deleteDoc(doc(db, "guest_book", this_id));
+       case "remove_btn" :
+           await deleteDoc(doc(db, "guest_book", this_id));
 
-            alert("삭제되었습니다.");
+           alert("삭제되었습니다.");
 
-            t.closest("li[data-id]").remove();
-            //
-            book_guest_count_text.text(total_count);
+           t.closest("li[data-id]").remove();
 
-            if(guest_book_list.find("li[data-id]").length === 0 && guest_book_list.find(".no_data").length === 0){
-                guest_book_list.append('<li class="no_data">작성된 방명록이 없습니다.</li>');
-            }
+           const updated_total = await getCountFromServer(query(collection(db, "guest_book")));
+           total_count = updated_total.data().count;
 
-            if(total_count < load_limit){
-                $("#guest_book_list_more").remove();
-            }
+           book_guest_count_text.text(total_count);
 
-            break;
+           if(guest_book_list.find("li[data-id]").length === 0 && guest_book_list.find(".no_data").length === 0){
+               guest_book_list.append('<li class="no_data">작성된 방명록이 없습니다.</li>');
+           }
+
+           if(loaded_count >= total_count){
+               $("#guest_book_list_more").remove();
+           }
+
+           break;
 
         case "edit_btn" :
             const this_list_element = $("li[data-id='"+this_id+"']");
@@ -281,8 +284,11 @@ $("#guest_book_insert").click(async function(){
             guest_book_list.find(".no_data").remove();
         }
 
+        const updated_total = await getCountFromServer(query(collection(db, "guest_book")));
+        total_count = updated_total.data().count;
+
         guest_book_list.prepend(list_layer_fn(doc_ref.id, my_data_dic.name, my_data_dic.datetime, my_data_dic.content));
-        $("#book_guest_count b").text(total_count + 1);
+        $("#book_guest_count b").text(total_count);
 
         my_name.val("");
         my_password.val("");

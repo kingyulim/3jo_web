@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f08c309-aaf3-4217-a90a-8e8762a9b50b" name="변경" comment="방명록 카운터 js 수정">
+    <list default="true" id="6f08c309-aaf3-4217-a90a-8e8762a9b50b" name="변경" comment="방명록 카운터 js 수정 202510100917">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/guest_book_db.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/guest_book_db.js" afterDir="false" />
     </list>
@@ -65,14 +65,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1759141585501</updated>
-    </task>
-    <task id="LOCAL-00023" summary="style css 수정 202509301855">
-      <option name="closed" value="true" />
-      <created>1759226125047</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1759226125047</updated>
     </task>
     <task id="LOCAL-00024" summary="레이아웃 수정 202509301951">
       <option name="closed" value="true" />
@@ -458,7 +450,15 @@
       <option name="project" value="LOCAL" />
       <updated>1760055071458</updated>
     </task>
-    <option name="localTasksCounter" value="72" />
+    <task id="LOCAL-00072" summary="방명록 카운터 js 수정 202510100917">
+      <option name="closed" value="true" />
+      <created>1760055468415</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1760055468415</updated>
+    </task>
+    <option name="localTasksCounter" value="73" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -473,7 +473,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="메인 수정 202510021505" />
     <MESSAGE value="메인 수정 202510021507" />
     <MESSAGE value="메인 수정 202510021636" />
     <MESSAGE value="김규림 추가 수정 202510051851" />
@@ -498,6 +497,7 @@
     <MESSAGE value="메인 페이지 장서연 사진 추가 202510100855" />
     <MESSAGE value="메인 페이지 장서연 사진 추가 202510100856" />
     <MESSAGE value="방명록 카운터 js 수정" />
-    <option name="LAST_COMMIT_MESSAGE" value="방명록 카운터 js 수정" />
+    <MESSAGE value="방명록 카운터 js 수정 202510100917" />
+    <option name="LAST_COMMIT_MESSAGE" value="방명록 카운터 js 수정 202510100917" />
   </component>
 </project>
